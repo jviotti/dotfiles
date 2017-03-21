@@ -18,6 +18,7 @@ Pre-requisites
 - zsh
 - gpg
 - vim
+- gpp
 
 Documentation
 -------------
