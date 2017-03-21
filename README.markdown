@@ -20,6 +20,33 @@ Pre-requisites
 - vim
 - gpp
 
+### macOS
+
+```sh
+brew install git gnupg macvim gpp
+```
+
+### Ubuntu
+
+```sh
+sudo apt-get install git make zsh gnupg vim gpp
+```
+
+Tools
+-----
+
+### Ubuntu
+
+```sh
+sudo apt-get install ack-grep mutt tmux w3m
+```
+
+### macOS
+
+```sh
+brew install ack mutt tmux w3m
+```
+
 Documentation
 -------------
 
