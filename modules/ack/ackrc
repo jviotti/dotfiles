@@ -1,0 +1,11 @@
+# Shorter alias for CoffeeScript
+--type-set=coffee:ext:coffee
+
+--smart-case
+--sort-files
+--color
+--follow
+--group
+
+--ignore-dir=bower_components
+--ignore-dir=node_modules

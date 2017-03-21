@@ -1,0 +1,28 @@
+#!/bin/sh
+
+# From "Sed & Awk, 2nd Edition" (page 51)
+
+set -u
+set -e
+
+if [ $# -lt 3 ]; then
+  echo "Usage: $0 <pattern> <replacement> <file>" >&2
+  exit 1
+fi
+
+pattern=$1
+replacement=$2
+file=$3
+
+if [ ! -f "$file" ]; then
+  echo "$file is not a file." >&2
+  exit 1
+fi
+
+# A complicated but portable way to generate a Control-A character
+# to use as the separator for the sed substitute command. Doing this
+# greatly decreases the chance of having the separator character
+# appear in the pattern or replacement texts.
+A="$(echo | tr '\012' '\001')"
+
+sed -e "s$A$pattern$A$replacement$A" "$file"

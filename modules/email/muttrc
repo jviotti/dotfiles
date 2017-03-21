@@ -1,0 +1,164 @@
+#######################################################################
+# Account
+#######################################################################
+
+# IMAP
+set imap_user = "jviotti@openmailbox.org"
+
+# SMTP
+set smtp_url = "smtps://jviotti@openmailbox.org@openmailbox.org:465"
+
+set from = "jviotti@openmailbox.org"
+set realname = "Juan Cruz Viotti"
+
+# The server containing all our mail
+set folder = "imaps://imap.openmailbox.org:993";
+
+# The spoolfile is the folder where our (unfiltered) e-mail arrives.
+set spoolfile = "+INBOX"
+
+# The path of the folder where mails marked for
+# deletion will be moved. Requires >v1.7.0.
+# See http://unix.stackexchange.com/a/305044/43448
+set trash = "+Trash"
+
+# Store sent messages in the corresponding mailbox
+set record = "+Sent"
+
+# Specify where to save and/or look for postponed messages.
+set postponed = "+Drafts"
+
+# The default email signature
+set signature = "~/.mutt/signature"
+
+# Save emails to "Archive" by default
+# See http://unix.stackexchange.com/a/242073/43448
+save-hook . '=Archive'
+
+#######################################################################
+# Status Bar
+#######################################################################
+
+set status_format = "M ($from): %f\
+[Msgs:%?M?%M/?%m%?n?\
+New:%n?%?o?\
+Old:%o?%?d?\
+Del:%d?%?F?\
+Flag:%F?%?t?\
+Tag:%t?%?p?\
+Post:%p?%?b?\
+Inc:%b?%?l?\
+%l?]%> (%P)"
+
+#######################################################################
+# Theme
+#######################################################################
+
+# Colors
+color normal     default       default
+color search     default       green
+color tree       magenta       default
+
+# Message
+color tilde      magenta       default
+color quoted     brightblue    default
+color attachment brightmagenta default
+color signature  red           default
+color hdrdefault red           default
+
+# UI
+color indicator  black         cyan
+color status     white         black
+
+# Ribbons
+color message    brightcyan    default
+color error      brightred     default
+
+#######################################################################
+# Pager
+#######################################################################
+
+# Vim mode
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+#######################################################################
+# Directories
+#######################################################################
+
+set header_cache = ~/.mutt/cache/headers
+set message_cachedir = ~/.mutt/cache/bodies
+set certificate_file = ~/.mutt/certificates
+
+#######################################################################
+# SSL
+#######################################################################
+
+set ssl_starttls = "yes"
+set ssl_force_tls = "yes"
+
+#######################################################################
+# Sort
+#######################################################################
+
+# Sort in descending order
+set sort = threads
+set sort_browser = date
+set sort_aux = reverse-last-date-received
+
+#######################################################################
+# HTML
+#######################################################################
+
+# View HTML automatically
+auto_view text/html
+
+# Prefer plain text and enriched text to HTML
+alternative_order text/plain text/enriched text/html
+
+#######################################################################
+# Headers
+#######################################################################
+
+# Headers show order
+hdr_order Date From To Cc Subject
+
+# See headers when writing email
+set edit_headers = yes
+
+#######################################################################
+# Editing
+#######################################################################
+
+# Go directly to the message editor without prompting for recipient or subject.
+set autoedit = yes
+set fast_reply = yes
+
+# Automatically fill the From: header
+set use_from = yes
+
+# Use the environment's editor
+set editor=`echo $EDITOR`
+
+#######################################################################
+# Settings
+#######################################################################
+
+# Stop asking to "move read messages to mbox"!
+set move = no  
+
+# Don't put '+' at the beginning of wrapped lines
+set markers = no
+
+#######################################################################
+# Bindings
+#######################################################################
+
+# Refresh an IMAP inbox
+bind index G imap-fetch-mail

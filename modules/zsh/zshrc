@@ -1,0 +1,285 @@
+##################################################
+# Dotfiles
+##################################################
+
+export DOTFILES_PRIVATE=$HOME/.private
+
+# Load private environment variables, if any
+if [ -d $DOTFILES_PRIVATE ]; then
+  for file in "$DOTFILES_PRIVATE"/*; do
+    source $file
+  done
+fi
+
+##################################################
+# Main
+##################################################
+
+# Use Zsh colors
+autoload -U colors && colors
+
+setopt autopushd pushdsilent pushdtohome
+
+# Remove duplicate entries
+setopt pushdignoredups
+
+# This reverts the +/- operators.
+setopt pushdminus
+
+# Allow typing comments in the shell (that start with `#`)
+# They will be gracefully ignored 
+setopt interactive_comments
+
+##################################################
+# PATH
+##################################################
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# Import paths from a local file
+PATHS_FILE=$HOME/.paths
+if [ -f $PATHS_FILE ]; then
+  while read directory; do
+    if [[ $PATH != *"$directory"* ]]; then
+      export PATH="$directory:$PATH"
+    fi
+  done < $PATHS_FILE
+fi
+
+##################################################
+# MAIL
+##################################################
+
+# Prevent shell from checking email
+unset MAILCHECK
+
+##################################################
+# EDITOR
+##################################################
+
+export EDITOR=vim
+
+##################################################
+# PAGER
+##################################################
+
+export PAGER=less
+export MANPAGER=$PAGER
+
+# Less configuration
+export LESS="-F -X --raw-control-chars --LONG-PROMPT"
+
+# Coloured man pages
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;38;5;74m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;37m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[04;38;5;146m'
+
+##################################################
+# LANG
+##################################################
+
+export LANG=en_US.UTF-8
+
+##################################################
+# GREP
+##################################################
+
+alias grep="$(whence -p grep) --color=auto"
+
+##################################################
+# XZ
+##################################################
+
+# Use maximum compression by default
+export XZ_OPT=-9e
+
+##################################################
+# Autocompletion
+##################################################
+
+# Load systems
+autoload -U compinit
+compinit
+
+# For autocompletion with an arrow-key driven interface
+zstyle ':completion:*' menu select
+
+# For autocompletion of command line switches for aliases
+setopt completealiases
+
+# Enable the usage of Bash autocompletion files
+autoload bashcompinit
+bashcompinit
+
+# Enable command correction
+setopt correct
+
+# Enable history completion
+bindkey '^R' history-incremental-search-backward
+
+##################################################
+# Coloured ls
+##################################################
+
+# Zsh to use the same colors as ls
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+alias ls="ls -G -F"
+
+##################################################
+# History
+##################################################
+
+HISTSIZE=1000
+HISTFILE=~/.zshhistory
+SAVEHIST=1000
+
+# Prevent duplicate lines in history
+setopt HIST_IGNORE_DUPS
+
+# Share history between instances
+setopt SHARE_HISTORY
+
+##################################################
+# Dirs
+##################################################
+
+# Zsh can be configured to remember the DIRSTACKSIZE last visited folders.
+# This can then be used to cd them very quickly.
+# Use dirs -v to print the dirstack and cd -<NUM> to go to any of them
+
+DIRSTACKFILE="$HOME/.zshdirs"
+
+if [[ -f $DIRSTACKFILE  ]] && [[ $#dirstack -eq 0  ]]; then
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"}  )
+fi
+
+chpwd() {
+  print -l $PWD ${(u)dirstack} > $DIRSTACKFILE
+}
+
+DIRSTACKSIZE=20
+
+##################################################
+# Aliases
+##################################################
+
+alias reload="source $HOME/.zshrc"
+alias ll="ls -l"
+
+##################################################
+# Git
+##################################################
+
+# This is a tricky way to define git aliases so
+# that we get git autocompletion with them as well
+# See https://github.com/robbyrussell/oh-my-zsh/issues/2394#issuecomment-45287624
+
+alias gc="git checkout"
+alias __git-checkout_main=_git_checkout
+compdef _git gc=git-checkout
+
+alias gt="git status"
+alias __git-status_main=_git_status
+compdef _git gt=git-status
+
+alias gb="git branch"
+alias __git-branch_main=_git_branch
+compdef _git gb=git-branch
+
+alias __git-log_main=_git_log
+alias glo="git log --oneline --decorate --color"
+compdef _git glo=git-log
+
+##################################################
+# Keyboard
+##################################################
+
+# Enable delete key
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+
+# Enable Home and End keys
+bindkey '\e[H' beginning-of-line
+bindkey '\e[F' end-of-line
+
+##################################################
+# HUB
+##################################################
+
+if which hub >/dev/null; then
+  eval "$(hub alias -s)"
+fi
+
+##################################################
+# NVM
+##################################################
+
+if [[ -f $HOME/.nvm/nvm.sh ]]; then
+  source $HOME/.nvm/nvm.sh
+fi
+
+##################################################
+# OPAM
+##################################################
+
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+##################################################
+# RBENV
+##################################################
+
+if hash rbenv 2>/dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+##################################################
+# VIM
+##################################################
+
+# If MacVim is available, use MacVim's precompiled
+# vim in the terminal, as it's known to be faster.
+if command -v mvim >/dev/null 2>&1; then
+  alias vim="mvim -v"
+fi
+
+##################################################
+# Prompt
+##################################################
+
+# Apply parameter expansion each time prompt is displayed
+setopt prompt_subst
+
+# Checks if working tree is dirty
+parse_git_dirty() {
+  local STATUS=''
+  STATUS=$(command git status --porcelain 2> /dev/null | tail -n1)
+
+  if [[ -n $STATUS ]]; then
+    echo "*"
+  fi
+}
+
+# Get the name of the branch we're on
+git_prompt_info() {
+  ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
+  ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
+  echo "${ref#refs/heads/}$(parse_git_dirty) "
+}
+
+_git_prompt() {
+  echo "%{$fg[green]%}$(git_prompt_info)%{$reset_color%}"
+}
+
+_code_prompt() {
+  echo "%{$fg_bold[red]%}%?%{$reset_color%}"
+}
+
+PROMPT='
+$(_code_prompt) $(_git_prompt)$fg[blue]%3~$reset_color
+$ '
