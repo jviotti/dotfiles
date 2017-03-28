@@ -1,11 +1,20 @@
 #######################################################################
+# Passwords
+########################################################################
+
+set imap_pass = "`1pass OpenMailbox`"
+set smtp_pass = $smtp_pass
+
+# Disable certain commands to be able to see the passwords in plain text
+# See https://wiki.archlinux.org/index.php/mutt#Passwords_management
+bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' noop
+
+#######################################################################
 # Account
 #######################################################################
 
-# IMAP
+# IMAP/SMTP
 set imap_user = "jviotti@openmailbox.org"
-
-# SMTP
 set smtp_url = "smtps://jviotti@openmailbox.org@openmailbox.org:465"
 
 set from = "jviotti@openmailbox.org"

@@ -19,17 +19,19 @@ Pre-requisites
 - gpg
 - vim
 - gpp
+- python
+- 1pass
 
 ### macOS
 
 ```sh
-brew install git gnupg macvim gpp
+brew install git gnupg macvim gpp python
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install git make zsh gnupg vim gpp
+sudo apt-get install git make zsh gnupg vim gpp python
 ```
 
 Tools
@@ -39,12 +41,14 @@ Tools
 
 ```sh
 brew install ack mutt tmux w3m
+pip install 1pass
 ```
 
 ### Ubuntu
 
 ```sh
 sudo apt-get install ack-grep mutt tmux w3m
+pip install 1pass
 ```
 
 Documentation
