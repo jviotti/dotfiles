@@ -171,3 +171,6 @@ set markers = no
 
 # Refresh an IMAP inbox
 bind index G imap-fetch-mail
+
+# Reply to group by default
+bind pager r group-reply
