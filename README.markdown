@@ -21,11 +21,12 @@ Pre-requisites
 - gpp
 - python
 - 1pass
+- reattach-to-user-namespace (macOS)
 
 ### macOS
 
 ```sh
-brew install git gnupg macvim gpp python
+brew install git gnupg macvim gpp python reattach-to-user-namespace
 ```
 
 ### Ubuntu
