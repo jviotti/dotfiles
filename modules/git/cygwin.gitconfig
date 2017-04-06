@@ -11,6 +11,7 @@
 	ui = true
 [push]
 	default = current
+	followtags = true
 [alias]
 	merge = merge --no-ff
 	undo-commit = reset --soft HEAD^
@@ -24,6 +25,7 @@
 	push-track = push -u origin
 	track-master = "!f() { git fetch && git branch --set-upstream-to=origin/master master; }; f"
 	ci = commit -v --signoff
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	publish = "!f() { git push-track && hub pull-request; }; f"
 	amend-with-files = commit --amend -C HEAD
 	conflicts = diff --name-only --diff-filter=U
@@ -43,6 +45,8 @@
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
+[status]
+	showuntrackedfiles = all
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f

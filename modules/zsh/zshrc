@@ -192,10 +192,6 @@ alias gb="git branch"
 alias __git-branch_main=_git_branch
 compdef _git gb=git-branch
 
-alias __git-log_main=_git_log
-alias glo="git log --oneline --decorate --color"
-compdef _git glo=git-log
-
 ##################################################
 # Keyboard
 ##################################################
