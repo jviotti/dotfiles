@@ -60,5 +60,5 @@
 	user = jviotti
 %%ifeq OS darwin
 [gpg]
-	program = gpg1
+	program = gpg
 %%endif
