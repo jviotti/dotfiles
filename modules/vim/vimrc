@@ -1,0 +1,693 @@
+" Disable vi compatibility mode
+set nocompatible
+
+"=========================================================================
+" $PLUGINS
+"=========================================================================
+
+call plug#begin('~/.vim/plugged')
+
+" -- NERDTree --
+Plug 'scrooloose/nerdtree'
+noremap <C-z> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['.DS_Store', '.git', '*.o', 'npm-debug.log*']
+let NERDTreeAutoDeleteBuffer=1
+
+function! NERDTreeCloseIfLastWindow()
+  if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary")
+    quit
+  end
+endfunction
+
+" Close NerdTREE is it's the only window left
+augroup nerdtree
+  autocmd!
+  autocmd bufenter * call NERDTreeCloseIfLastWindow()
+augroup END
+
+" -- NERDCommenter --
+Plug 'scrooloose/nerdcommenter'
+let NERDSpaceDelims=1
+let NERDCommentWholeLinesInVMode=2
+
+" -- SyntaxAttr --
+Plug 'vim-scripts/SyntaxAttr.vim'
+command! SyntaxAttr call SyntaxAttr()
+
+" -- AutoPairs --
+Plug 'jiangmiao/auto-pairs'
+
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
+
+" -- GitGutter --
+Plug 'airblade/vim-gitgutter'
+
+" Only show up to 500 signs at the same time
+" If the limit is exceeded, the signs will not
+" be shown until there are less than 500 again
+let g:gitgutter_max_signs = 500
+
+" -- EditorConfig support --
+Plug 'editorconfig/editorconfig-vim'
+
+" -- VimTmuxNavigator
+Plug 'christoomey/vim-tmux-navigator'
+
+" Language Specific Syntax
+Plug 'elzr/vim-json'
+Plug 'rust-lang/rust.vim'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'kchmck/vim-coffee-script'
+let coffee_compile_vert = 1
+let coffee_run_vert = 1
+let coffee_watch_vert = 1
+
+call plug#end()
+
+"=========================================================================
+" $SETTINGS
+"=========================================================================
+
+" Auto read changed files
+set autoread
+
+" Update time (time that vim waites before triggering plugins)
+set updatetime=500
+
+" Set encoding
+set encoding=utf-8
+
+" Set correct `term` for cmder
+if !empty($CONEMUBUILD)
+  set term=pcansi
+endif
+
+" Enable 256 terminal colors
+set t_Co=256
+
+" Make all new vertical split windows appear on the right
+set splitright
+
+"=========================================================================
+" $KEYWORDS
+"=========================================================================
+
+" Add more keywords to VIM
+set iskeyword+=_,$,-
+
+" Per filetype keywords
+augroup keywords
+  autocmd!
+  autocmd FileType coffee setlocal iskeyword+=@
+augroup END
+
+"=========================================================================
+" $BACKSPACE
+"=========================================================================
+
+" Backspace support on insertion
+set backspace=indent,eol,start
+
+"=========================================================================
+" $SESSIONS
+"=========================================================================
+
+" Create session files that are compatible
+" with both UNIX and MS-Windows
+set sessionoptions+=unix,slash
+
+"=========================================================================
+" $WILDIGNORE
+"=========================================================================
+
+" A file that matches with one of these patterns is ignored
+" when expanding wildcards, completing file or directory names,
+" and influences the result of expand(), glob() and globpath()
+set wildignore+=*/tmp/*
+set wildignore+=*.so
+set wildignore+=*.swp
+set wildignore+=*.zip
+set wildignore+=.DS_Store
+
+"=========================================================================
+" $KEYBINDINGS
+"=========================================================================
+
+" Map jk to <Esc> in insert mode
+inoremap jk <Esc>
+inoremap <Esc> <nop>
+
+" Map Jk as well as I always make the same mistake
+inoremap Jk <Esc>
+
+" Map Leader key
+let mapleader = "\\"
+let maplocalleader = ","
+
+"=========================================================================
+" $FILETYPE
+"=========================================================================
+
+" Interpret *.md files as markdown
+augroup filetype
+  autocmd!
+  autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+augroup END
+
+"=========================================================================
+" $MAN
+"=========================================================================
+
+" Search man pages with :Man <page>
+runtime! ftplugin/man.vim
+
+"=========================================================================
+" $BELL
+"=========================================================================
+
+" Disable annoying bell and visual flash
+augroup visualbell
+  autocmd!
+  autocmd GUIEnter * set visualbell t_vb=
+  autocmd VimEnter * set visualbell t_vb=
+augroup END
+
+"=========================================================================
+" $SCROLLING
+"=========================================================================
+
+" Set Scroll Off (lines before start scrolling)
+set scrolloff=5
+
+"=========================================================================
+" $MODELINES
+"=========================================================================
+
+" Only scan first ten lines for modelines
+set modelines=10
+
+"=========================================================================
+" $AUTOCOMPLETION
+"=========================================================================
+
+" Use Ctrl+n and Ctrl+p to navigate between autocompletion entries
+
+" Infer case in autocompletion
+set infercase
+
+" Enhanced command completion
+set wildmenu
+
+" Prevent vim scanning all included files
+set complete-=i
+
+"=========================================================================
+" $CLIPBOARD
+"=========================================================================
+
+" Copy-paste friendly
+set clipboard=unnamed
+
+"=========================================================================
+" $MOUSE
+"=========================================================================
+
+" Disable mouse support
+set mouse=""
+
+" Disable mouse scrolling
+noremap <ScrollWheelUp>      <nop>
+noremap <S-ScrollWheelUp>    <nop>
+noremap <C-ScrollWheelUp>    <nop>
+noremap <ScrollWheelDown>    <nop>
+noremap <S-ScrollWheelDown>  <nop>
+noremap <C-ScrollWheelDown>  <nop>
+noremap <ScrollWheelLeft>    <nop>
+noremap <S-ScrollWheelLeft>  <nop>
+noremap <C-ScrollWheelLeft>  <nop>
+noremap <ScrollWheelRight>   <nop>
+noremap <S-ScrollWheelRight> <nop>
+noremap <C-ScrollWheelRight> <nop>
+
+"=========================================================================
+" $MARKS
+"=========================================================================
+
+" Nice looking tabs and spaces symbols
+" when using :set list
+set listchars=tab:>-,trail:-
+
+" Toggle marks. Use "%retab!" to restore
+" indentation in the whole file
+command! MarksToggle set list!
+
+"=========================================================================
+" $FONT
+"=========================================================================
+
+function! SetFont(size)
+  if has("gui_macvim")
+    execute ':set guifont=Monaco:h' . a:size 
+  elseif has("gui_gtk2")
+    execute ':set guifont=Ubuntu\ Mono\ ' . a:size 
+  elseif has("gui_win32")
+
+    " Font displays larger than usual on Windows
+    execute ':set guifont=Consolas:h' . (a:size - 2) . ':cANSI'
+
+  endif
+endfunction
+
+call SetFont(13)
+
+"=========================================================================
+" $THEME
+"=========================================================================
+
+colorscheme Dark
+
+" Enable syntax highlighting
+" Note: Must be **after** set background
+syntax enable
+
+" Show command being typed
+set showcmd
+
+" Show current selected line
+set cursorline
+
+" Don't show annoying -- MODE -- message
+set noshowmode
+
+"=========================================================================
+" $LINENUMBERS
+"=========================================================================
+
+" Show numbers
+set number
+set relativenumber
+
+"=========================================================================
+" $PAIRS
+"=========================================================================
+
+" Surround current word with quotes
+nnoremap <Leader>" viw<esc>a"<esc>hbi"<esc>lel
+nnoremap <Leader>' viw<esc>a'<esc>hbi'<esc>lel
+nnoremap <Leader>` viw<esc>a`<esc>hbi`<esc>lel
+
+"=========================================================================
+" $SEARCH
+"=========================================================================
+
+" Ignore case if search pattern is all lowercase.
+" case-sensitive otherwise
+set ignorecase
+set smartcase
+
+" Enable incremental search
+set incsearch
+
+" Highlight search matches
+set hlsearch
+
+"=========================================================================
+" $NAVIGATION
+"=========================================================================
+
+" Use gf to find the file under the cursor
+
+" Allow to :find/:sfind a file recursively
+" http://stackoverflow.com/questions/3554719/find-a-file-via-recursive-directory-search-in-vim
+" Use :find foo.bar to find foo.bar anywhere on the current directory
+" Notice you can also use wildcard, e.g: :find *.bar
+set path+=**
+
+" Add recognized suffixes to avoid having them to type on :find
+set suffixesadd+=.js
+set suffixesadd+=.coffee
+set suffixesadd+=.json
+set suffixesadd+=.hs
+
+" Find a file in vertical split
+command! -nargs=* Find vert sfind <args>
+
+"=========================================================================
+" $BACKUP
+"=========================================================================
+
+" Prevent Vim creating annoying backups.
+" We have source control for that.
+set nobackup
+set nowritebackup
+set noswapfile
+
+"=========================================================================
+" $TABLINE
+"=========================================================================
+
+" Hide current line on tabs
+set winminheight=0
+
+" Only show tab line when multiple tabs
+set showtabline=1
+
+" Easy tab motions
+noremap tl :tabnext<CR>
+noremap th :tabprevious<CR>
+
+" Customise the contents of the tabline
+" http://vimdoc.sourceforge.net/htmldoc/tabpage.html#setting-tabline
+
+function! TabLabel(n)
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let winname = bufname(buflist[winnr - 1])
+
+  " Return [No Name] if the window doesn't have a name
+  if winname == ''
+    return '[No Name]'
+  else
+
+    " Return basename of winname
+    return fnamemodify(winname, ":t")
+  endif
+endfunction
+
+function! TabLine()
+  let s = ''
+
+  for i in range(tabpagenr('$'))
+
+    " Highlight selected tab
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " Get the tab label
+    let s .= ' %{TabLabel(' . (i + 1) . ')} '
+  endfor
+
+  " Fill the rest of the tabline
+  let s .= '%#TabLineFill#%T'
+
+  return s
+endfunction
+
+set tabline=%!TabLine()
+
+"=========================================================================
+" $STATUSLINE
+"=========================================================================
+
+" Show bottom line
+set laststatus=2
+
+" Status line setup
+
+function! NormalStatuslineColor()
+  highlight! link StatusLineHighlight StatusLineHighlightNormal
+endfunction
+
+function! ReplaceStatuslineColor()
+  highlight! link StatusLineHighlight StatusLineHighlightReplace
+endfunction
+
+function! InsertStatuslineColor()
+  highlight! link StatusLineHighlight StatusLineHighlightInsert
+endfunction
+
+function! StatuslineColor(mode)
+  if a:mode == 'i'
+    call InsertStatuslineColor()
+  elseif a:mode == 'r'
+    call ReplaceStatuslineColor()
+  else
+    call NormalStatuslineColor()
+  endif
+endfunction
+
+augroup statusline
+  autocmd!
+  autocmd InsertEnter * call StatuslineColor(v:insertmode)
+  autocmd InsertChange * call StatuslineColor(v:insertmode)
+  autocmd InsertLeave * call NormalStatuslineColor()
+  autocmd ColorScheme * call NormalStatuslineColor()
+augroup END
+
+call NormalStatuslineColor()
+
+set statusline=
+
+" Current mode
+
+" Define all the different modes
+let g:currentmode={
+	\ 'n'  : 'Normal',
+	\ 'no' : 'N·Operator Pending',
+	\ 'v'  : 'Visual',
+	\ 'V'  : 'V·Line',
+	\ '' : 'V·Block',
+	\ 's'  : 'Select',
+	\ 'S'  : 'S·Line',
+	\ '' : 'S·Block',
+	\ 'i'  : 'Insert',
+	\ 'R'  : 'Replace',
+	\ 'Rv' : 'V·Replace',
+	\ 'c'  : 'Command',
+	\ 'cv' : 'Vim Ex',
+	\ 'ce' : 'Ex',
+	\ 'r'  : 'Prompt',
+	\ 'rm' : 'More',
+	\ 'r?' : 'Confirm',
+	\ '!'  : 'Shell',
+	\}
+
+set statusline+=%#StatusLineHighlight#
+set statusline+=\ %{toupper(g:currentmode[mode()])}
+set statusline+=\ %*
+
+" Filename
+set statusline+=%#StatusLineInfo#
+set statusline+=\ %t
+set statusline+=\ %*
+
+" Filetype
+set statusline+=%*
+set statusline+=\ %y
+set statusline+=\ %*
+
+" Modified flag
+set statusline+=%#StatusLineError#
+set statusline+=%m
+set statusline+=%*
+
+" Left/Right separator
+set statusline+=%=
+
+" Flags
+set statusline+=%#StatusLineFlag#
+set statusline+=%{&paste?'[paste]':''}
+set statusline+=%h
+set statusline+=%r
+set statusline+=%w
+set statusline+=%*
+
+" Column,Line/Total lines
+set statusline+=%#StatusLineHighlight#
+set statusline+=\ %P\ LN\ %c,\ %l\ /\ %L
+set statusline+=\ %*
+
+"=========================================================================
+" $WRAP
+"=========================================================================
+
+" Apply wrap to the whole file
+noremap agq ggvGgq
+
+augroup autowrap
+  autocmd!
+  
+  " Auto-wrap at 72 in Mutt mail
+  autocmd FileType mail setlocal textwidth=72
+  autocmd FileType mail setlocal wrap
+
+  " Auto-wrap at 72 in Git Commit Messages
+  autocmd FileType gitcommit setlocal textwidth=72
+  autocmd FileType gitcommit setlocal wrap
+
+augroup END
+
+"=========================================================================
+" $SPELLCHECK
+"=========================================================================
+
+" Disable spellcheck
+set nospell
+
+" z= -> Show suggestions
+" zg -> Add to dictionary
+" augroup spellcheck
+  " autocmd!
+
+  " Only enable spellcheck on Markdown
+  " autocmd FileType markdown setlocal spell spelllang=en
+" augroup END
+
+"=========================================================================
+" $INDENTATION
+"=========================================================================
+
+" Set smart indent
+set autoindent
+
+" Control how many columns text is indented with the re indent operations
+set shiftwidth=2
+
+" Use spaces instead of tabs (soft tabs)
+set expandtab
+set tabstop=2
+
+" Enable language dependent indenting
+filetype plugin indent on
+
+" Convert spaces to tabs
+function! SpacesToTabs()
+  set noexpandtab
+  %retab!
+endfunction
+
+command! SpacesToTabs call SpacesToTabs()
+
+" Convert tabs to spaces
+function! TabsToSpaces()
+  set expandtab
+  %retab!
+endfunction
+
+command! TabsToSpaces call TabsToSpaces()
+
+" Reindent the whole file
+command! Reindent normal gg=G
+
+"=========================================================================
+" $GUI
+"=========================================================================
+
+" Clean GUI
+set guioptions-=T
+set guioptions-=L
+set guioptions-=r
+set guioptions-=l
+set guioptions-=b
+set guioptions-=m
+set guioptions-=e
+set guioptions-=c
+
+"=========================================================================
+" $ARROWS
+"=========================================================================
+
+" Disable arrow keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+"=========================================================================
+" $SUBSTITUTE
+"=========================================================================
+
+" Function to remove a certain pattern in a range
+function! RemovePattern(pattern) range
+  for line_number in range(a:firstline, a:lastline)
+    let current_line = getline(line_number)
+
+    if !empty(current_line)
+      let new_line = substitute(current_line, a:pattern, '', '')
+      call setline(line_number, new_line)
+    end
+  endfor
+endfunction
+
+" Usage: :%RemovePattern '<pattern>'
+command! -nargs=1 -range RemovePattern <line1>,<line2>call RemovePattern(<args>)
+
+"=========================================================================
+" $COMMANDS
+"=========================================================================
+
+" Open help in vertical split
+command! -nargs=* Help vert help <args>
+
+" Reload current file
+command! ReloadCurrentFile edit
+
+" Compensate the mistake I usually make when saving
+command! W write
+command! Wq wq
+command! WQ wq
+command! Q q
+
+"=========================================================================
+" $VIMRC
+"=========================================================================
+
+" Source vimrc
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+
+" Edit vimrc in a new tab
+nnoremap <Leader>ev :tabe $MYVIMRC<cr>
+
+"=========================================================================
+" $UTILITIES
+"=========================================================================
+
+" Swap current line with the line below
+nnoremap <Leader>j ddp
+
+" Swap current line with the line above
+nnoremap <Leader>k ddkP
+
+"=========================================================================
+" $TERMINAL
+"=========================================================================
+
+if !has("gui_running")
+
+  " Fix slow redraws in terminal vim
+  " http://www.atomaka.com/blog/slow-redraws-in-vim-terminal-edition/
+  set lazyredraw
+  set ttyfast
+
+endif
+
+"=========================================================================
+" $ABBREVIATIONS
+"=========================================================================
+
+" Correct typos
+iabbrev waht what
+iabbrev tehn then
+iabbrev adn and
+iabbrev unkown unknown
+iabbrev entires entries
+iabbrev rigth right
+iabbrev unsuscribe unsubscribe
+
+"=========================================================================
+" $SYNTAX
+"=========================================================================
+
+" Diff colours
+highlight DiffAdd ctermbg=34 ctermfg=15 guibg=#00af00 guifg=#ffffff
+highlight DiffDelete ctermbg=1 ctermfg=15 guibg=#800000 guifg=#ffffff
+highlight DiffChange ctermbg=9 ctermfg=15 guibg=#ff0000 guifg=#ffffff
+highlight DiffText ctermbg=32 ctermfg=15 guibg=#0087df guifg=#ffffff
