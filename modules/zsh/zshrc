@@ -181,6 +181,7 @@ DIRSTACKSIZE=20
 
 alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
+alias t="todo.sh"
 
 ##################################################
 # Git
