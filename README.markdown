@@ -41,14 +41,14 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m
+brew install ack mutt tmux w3m todo-txt
 pip install 1pass
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install ack-grep mutt tmux w3m
+sudo apt-get install ack-grep mutt tmux w3m todotxt-cli
 pip install 1pass
 ```
 
