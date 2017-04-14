@@ -182,6 +182,10 @@ DIRSTACKSIZE=20
 alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
 
+if which ack-grep >/dev/null; then
+  alias ack="ack-grep"
+fi
+
 ##################################################
 # Git
 ##################################################
