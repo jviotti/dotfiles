@@ -1,0 +1,54 @@
+" Set home page
+set! browser.startup.homepage=about:home
+
+" South American results suck
+set! browser.search.countryCode=US
+set! browser.search.region=US
+
+" Disable Flash
+set! plugin.state.flash=0
+set! plugins.notifyMissingFlash=false
+
+" Open new tabs at the end
+set! browser.tabs.insertRelatedAfterCurrent=false
+
+" Don't prefetch websites (useful in slow connections)
+set! network.prefetch-next=false
+
+" Turn off tooltips in the UI
+set! browser.chrome.toolbar_tips=false
+
+" =================================================
+" Privacy tips
+" See https://www.techworm.net/2016/02/12-coolest-firefox-aboutconfig-tips-and-tricks-to-protect-your-privacy.html
+" =================================================
+
+" Enable Mozilla tracking protection
+set! privacy.trackingprotection.enabled=true
+
+" Disable geolocation
+set! geo.enabled=false
+
+" Only accept from the originating site (block third party cookies)
+set! network.cookie.cookieBehavior=1
+
+" Delete cookies at the end of the session
+set! network.cookie.lifetimePolicy=2
+
+" Disable offline cache
+set! browser.cache.offline.enable=false
+set! browser.cache.offline.capacity=0
+
+" Disable WebGL
+set! webgl.disabled=true
+
+" Prevent web apps from accessing the battery status
+set! dom.battery.enabled=false
+
+autocmd LocationChange .*                             js modes.passAllKeys = false
+autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange www\\.google\\.com/calendar    js modes.passAllKeys = true
+autocmd LocationChange www\\.google\\.com/reader      js modes.passAllKeys = true
+autocmd LocationChange docs\\.google\\.com            js modes.passAllKeys = true
+autocmd LocationChange drive\\.google\\.com           js modes.passAllKeys = true
+autocmd LocationChange mail\\.google\\.com/tasks      js modes.passAllKeys = false
