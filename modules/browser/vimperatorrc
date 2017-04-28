@@ -1,3 +1,14 @@
+" Move between tabs
+map th :tabprevious<CR>
+map tl :tabnext<CR>
+
+" Use jk instead of escape
+inoremap jk <Esc>
+inoremap Jk <Esc>
+
+" Disable beep
+set noerrorbells
+
 " Set home page
 set! browser.startup.homepage=about:home
 
@@ -31,9 +42,6 @@ set! geo.enabled=false
 
 " Only accept from the originating site (block third party cookies)
 set! network.cookie.cookieBehavior=1
-
-" Delete cookies at the end of the session
-set! network.cookie.lifetimePolicy=2
 
 " Disable offline cache
 set! browser.cache.offline.enable=false
