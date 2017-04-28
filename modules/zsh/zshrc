@@ -183,6 +183,10 @@ alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
 alias t="todo.sh"
 
+if which ack-grep >/dev/null; then
+  alias ack="ack-grep"
+fi
+
 ##################################################
 # Git
 ##################################################
