@@ -43,6 +43,9 @@
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
+[diff "hex"]
+	textconv = hexdump
+	binary = true
 [mergetool]
 	prompt = false
 [status]
