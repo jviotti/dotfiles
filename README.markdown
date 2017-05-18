@@ -8,7 +8,6 @@ Supported Platforms
 
 - macOS
 - GNU/Linux
-- Cygwin
 
 Pre-requisites
 --------------

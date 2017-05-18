@@ -1,17 +1,9 @@
 # http://stackoverflow.com/a/12099167
-ifeq ($(OS),Windows_NT)
-	ifeq ($(shell uname -o),Cygwin)
-		HOST_PLATFORM = cygwin
-	else
-		HOST_PLATFORM = win32
-	endif
-else
-	ifeq ($(shell uname -s),Linux)
-		HOST_PLATFORM = linux
-	endif
-	ifeq ($(shell uname -s),Darwin)
-		HOST_PLATFORM = darwin
-	endif
+ifeq ($(shell uname -s),Linux)
+	HOST_PLATFORM = linux
+endif
+ifeq ($(shell uname -s),Darwin)
+	HOST_PLATFORM = darwin
 endif
 
 ifndef HOST_PLATFORM
@@ -41,5 +33,4 @@ execute-os-template = gpp \
 	-M "%%" "\n" " " " " "\n" "(" ")" $(1)
 template-file = : \
 	&& $(call execute-os-template,$(1),linux,$(2)) \
-	&& $(call execute-os-template,$(1),darwin,$(2)) \
-	&& $(call execute-os-template,$(1),cygwin,$(2))
+	&& $(call execute-os-template,$(1),darwin,$(2))
