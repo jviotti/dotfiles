@@ -6,6 +6,10 @@ export DOTFILES_LOCATION_SYSTEM=/
 export DOTFILES_OS=$(HOST_PLATFORM)
 export DOTFILES_MODULES=$(shell ls modules)
 
+# Versions
+export TMUX_VERSION=2.4
+export GIT_VERSION=2.13.0
+
 help:
 	@echo " ______   _______  _______  _______  ___   ___      _______  _______"
 	@echo "|      | |       ||       ||       ||   | |   |    |       ||       |"
