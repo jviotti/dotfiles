@@ -272,6 +272,14 @@ fi
 export ONEPASSWORD_KEYCHAIN="$HOME/Dropbox/Apps/1Password/1Password.agilekeychain"
 
 ##################################################
+# PASS
+##################################################
+
+# Enable loading extensions at $HOME/.password-store/.extensions
+# See `man pass`
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+
+##################################################
 # Prompt
 ##################################################
 
