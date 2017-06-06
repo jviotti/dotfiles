@@ -66,10 +66,6 @@ export EDITOR=vim
 
 export GPG_TTY=$(tty)
 
-if which gpg-agent >/dev/null; then
-  eval $(gpg-agent --daemon)
-fi
-
 ##################################################
 # HOMEBREW
 ##################################################
