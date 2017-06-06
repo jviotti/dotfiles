@@ -53,6 +53,13 @@ set! webgl.disabled=true
 " Prevent web apps from accessing the battery status
 set! dom.battery.enabled=false
 
+" Disable WebRTC
+" https://privacytoolsio.github.io/privacytools.io/#webrtc
+set! media.peerconnection.turn.disable=true
+set! media.peerconnection.use_document_iceservers=false
+set! media.peerconnection.video.enabled=false
+set! media.peerconnection.identity.timeout=1
+
 autocmd LocationChange .*                             js modes.passAllKeys = false
 autocmd LocationChange mail\\.google\\.com            js modes.passAllKeys = true
 autocmd LocationChange www\\.google\\.com/calendar    js modes.passAllKeys = true
