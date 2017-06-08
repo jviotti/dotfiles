@@ -6,7 +6,7 @@
 [user]
 	name = Juan Cruz Viotti
 	email = jviotti@openmailbox.org
-	signingkey = 91B08B2CBA5EAB1A
+	signingkey = EEA898DE0D47725CA98755A491B08B2CBA5EAB1A
 [color]
 	ui = true
 [push]
