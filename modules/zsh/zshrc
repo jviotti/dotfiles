@@ -265,13 +265,6 @@ if command -v mvim >/dev/null 2>&1; then
 fi
 
 ##################################################
-# 1PASS
-##################################################
-
-# From https://github.com/georgebrock/1pass
-export ONEPASSWORD_KEYCHAIN="$HOME/Dropbox/Apps/1Password/1Password.agilekeychain"
-
-##################################################
 # PASS
 ##################################################
 

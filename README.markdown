@@ -19,7 +19,7 @@ Pre-requisites
 - vim
 - gpp
 - python
-- 1pass
+- pass
 - reattach-to-user-namespace (macOS)
 
 ### macOS
@@ -40,15 +40,13 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt
-pip install 1pass
+brew install ack mutt tmux w3m todo-txt pass
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install ack-grep mutt tmux w3m todotxt-cli
-pip install 1pass
+sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass
 ```
 
 Documentation
