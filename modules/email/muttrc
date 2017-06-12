@@ -2,7 +2,7 @@
 # Passwords
 ########################################################################
 
-set imap_pass = "`1pass OpenMailbox`"
+set imap_pass = "`pass show personal/openmailbox.org | head -n 1`"
 set smtp_pass = $smtp_pass
 
 # Disable certain commands to be able to see the passwords in plain text
