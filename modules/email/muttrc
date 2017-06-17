@@ -2,8 +2,9 @@
 # Passwords
 ########################################################################
 
-set imap_pass = "`pass show personal/openmailbox.org | head -n 1`"
-set smtp_pass = $smtp_pass
+set my_password = "`pass show personal/openmailbox.org | head -n 1`"
+set imap_pass = $my_password
+set smtp_pass = $my_password
 
 # Disable certain commands to be able to see the passwords in plain text
 # See https://wiki.archlinux.org/index.php/mutt#Passwords_management
