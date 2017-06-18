@@ -2,7 +2,7 @@
 # Passwords
 ########################################################################
 
-set my_password = "`pass show personal/openmailbox.org | head -n 1`"
+set my_password = "`pass show personal/mailfence.com | head -n 1`"
 set imap_pass = $my_password
 set smtp_pass = $my_password
 
@@ -15,14 +15,14 @@ bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' no
 #######################################################################
 
 # IMAP/SMTP
-set imap_user = "jviotti@openmailbox.org"
-set smtp_url = "smtps://jviotti@openmailbox.org@openmailbox.org:465"
+set imap_user = "jviotti"
+set smtp_url = "smtps://jviotti@mailfence.com:465"
 
-set from = "jviotti@openmailbox.org"
+set from = "jv@jviotti.com"
 set realname = "Juan Cruz Viotti"
 
 # The server containing all our mail
-set folder = "imaps://imap.openmailbox.org:993";
+set folder = "imaps://imap.mailfence.com:993";
 
 # The spoolfile is the folder where our (unfiltered) e-mail arrives.
 set spoolfile = "+INBOX"
