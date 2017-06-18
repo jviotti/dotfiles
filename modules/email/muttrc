@@ -2,7 +2,8 @@
 # Passwords
 ########################################################################
 
-set my_password = "`pass show personal/mailfence.com | head -n 1`"
+set my_username = "`pass user personal/mailfence.com`"
+set my_password = "`pass key personal/mailfence.com`"
 set imap_pass = $my_password
 set smtp_pass = $my_password
 
@@ -15,8 +16,8 @@ bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' no
 #######################################################################
 
 # IMAP/SMTP
-set imap_user = "jviotti"
-set smtp_url = "smtps://jviotti@mailfence.com:465"
+set imap_user = $my_username
+set smtp_url = "smtps://$my_username@mailfence.com:465"
 
 set from = "jv@jviotti.com"
 set realname = "Juan Cruz Viotti"
