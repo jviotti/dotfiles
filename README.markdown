@@ -40,13 +40,13 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt pass
+brew install ack mutt tmux w3m todo-txt pass ispell urlview
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass
+sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass ispell urlview
 ```
 
 Documentation
