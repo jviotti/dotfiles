@@ -51,6 +51,9 @@ source $alias_file
 # See http://unix.stackexchange.com/a/242073/43448
 save-hook . '=Archive'
 
+# Disable beeps
+set beep = no
+
 #######################################################################
 # Status Bar
 #######################################################################
@@ -104,20 +107,27 @@ bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
 
+# Pager context lines to display when going to a new page
+set pager_context = 5
+
+# Don't move to the next message when at the end of a message
+set pager_stop = yes
+
 #######################################################################
 # Directories
 #######################################################################
 
-set header_cache = ~/.mutt/cache/headers
-set message_cachedir = ~/.mutt/cache/bodies
 set certificate_file = ~/.mutt/certificates
 
 #######################################################################
 # SSL
 #######################################################################
 
-set ssl_starttls = "yes"
-set ssl_force_tls = "yes"
+# Attempt to use STARTTLS on servers advertising the capability
+set ssl_starttls = yes
+
+# Require that all connections to remote servers be encrypted
+set ssl_force_tls = yes
 
 #######################################################################
 # Sort
@@ -142,6 +152,7 @@ alternative_order text/plain text/enriched text/html
 # Cache
 #######################################################################
 
+# These caches are stored in binary format
 set header_cache = ~/.mutt/cache
 set message_cachedir = ~/.mutt/cache
 
