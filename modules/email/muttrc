@@ -42,6 +42,11 @@ set postponed = "+Drafts"
 # The default email signature
 set signature = "~/.mutt/signature"
 
+# Set the default alias file
+# Use `a` in the index to interactively store an alias
+set alias_file = "~/.mutt/aliases"
+source $alias_file
+
 # Save emails to "Archive" by default
 # See http://unix.stackexchange.com/a/242073/43448
 save-hook . '=Archive'
@@ -168,11 +173,21 @@ set move = no
 set markers = no
 
 #######################################################################
+# URLs
+#######################################################################
+
+# Press Ctrl+B to open an interactive menu with all the URLs
+# from a message. `urlview` will open them in the default
+# OS web browser.
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
+
+#######################################################################
 # Bindings
 #######################################################################
 
 # Refresh an IMAP inbox
-bind index G imap-fetch-mail
+bind index R imap-fetch-mail
 
 # Reply to group by default
 bind pager r group-reply
