@@ -371,6 +371,21 @@ call Highlight("rustKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("rustFuncName", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("rustMacro", s:gui_blue, s:cterm_blue, "", "", "")
 
+" TypeScript highlighting
+call Highlight("typescriptReserved", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptIdentifier", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptConditional", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptParens", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("typescriptBraces", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("typescriptOpSymbols", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("typescriptLogicSymbols", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("typescriptNull", s:gui_orange, s:cterm_orange, "", "", "")
+call Highlight("typescriptInterpolationDelimiter", s:gui_orange, s:cterm_orange, "", "", "")
+call Highlight("typescriptExceptions", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptLabel", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptStatement", s:gui_purple, s:cterm_purple, "", "", "")
+
 if !has("gui_running")
   highlight Normal ctermbg=NONE
   highlight SignColumn ctermbg=NONE

@@ -57,6 +57,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " Language Specific Syntax
 Plug 'elzr/vim-json'
 Plug 'rust-lang/rust.vim'
+Plug 'leafgarland/typescript-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'kchmck/vim-coffee-script'
 let coffee_compile_vert = 1
