@@ -385,6 +385,7 @@ call Highlight("typescriptExceptions", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptLabel", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
 if !has("gui_running")
   highlight Normal ctermbg=NONE
