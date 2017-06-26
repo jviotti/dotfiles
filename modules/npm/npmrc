@@ -2,3 +2,4 @@ email=jviotti@openmailbox.org
 init.author.name=Juan Cruz Viotti
 init.author.email=jviotti@openmailbox.org
 //registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
+init-license=Apache-2.0
