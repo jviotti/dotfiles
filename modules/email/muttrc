@@ -4,8 +4,6 @@
 
 set my_username = "`pass user personal/mailfence.com`"
 set my_password = "`pass key personal/mailfence.com`"
-set imap_pass = $my_password
-set smtp_pass = $my_password
 
 # Disable certain commands to be able to see the passwords in plain text
 # See https://wiki.archlinux.org/index.php/mutt#Passwords_management
@@ -15,18 +13,19 @@ bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' no
 # Account
 #######################################################################
 
-# IMAP/SMTP
-set imap_user = $my_username
+# SMTP
 set smtp_url = "smtps://$my_username@mailfence.com:465"
+set smtp_pass = $my_password
 
 set from = "jv@jviotti.com"
 set realname = "Juan Cruz Viotti"
 
-# The server containing all our mail
-set folder = "imaps://imap.mailfence.com:993";
+# The folder containing all our mail
+set folder = "~/Mail"
+source ~/.mutt/mailboxes
 
 # The spoolfile is the folder where our (unfiltered) e-mail arrives.
-set spoolfile = "+INBOX"
+set spoolfile = "+Mailfence/INBOX"
 
 # The path of the folder where mails marked for
 # deletion will be moved. Requires >v1.7.0.
@@ -34,10 +33,10 @@ set spoolfile = "+INBOX"
 set trash = "+Trash"
 
 # Store sent messages in the corresponding mailbox
-set record = "+Sent"
+set record = "+Mailfence/Sent\ Items"
 
 # Specify where to save and/or look for postponed messages.
-set postponed = "+Drafts"
+set postponed = "+Mailfence/Drafts"
 
 # The default email signature
 set signature = "~/.mutt/signature"
@@ -203,9 +202,6 @@ macro pager \cb |urlview\n
 #######################################################################
 # Bindings
 #######################################################################
-
-# Refresh an IMAP inbox
-bind index R imap-fetch-mail
 
 # Reply to group by default
 bind pager r group-reply

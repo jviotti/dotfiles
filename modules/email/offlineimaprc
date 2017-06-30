@@ -1,0 +1,31 @@
+[general]
+accounts = mailfence
+
+# Load a Python file with "add-ons"
+pythonfile = ~/.offlineimap.py
+
+# Generate a Mutt configuration fragment with
+# information about the available mailboxes
+# See https://wiki.archlinux.org/index.php/OfflineIMAP
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"
+
+[Account mailfence]
+localrepository = mailfence-local
+remoterepository = mailfence-remote
+
+[Repository mailfence-local]
+type = Maildir
+localfolders = ~/Mail/Mailfence
+
+[Repository mailfence-remote]
+type = IMAP
+remotehost = imap.mailfence.com
+remoteuser = jv@jviotti.com
+remotepasseval = get_pass("personal/mailfence.com")
+sslcacertfile = /usr/local/etc/openssl/cert.pem
