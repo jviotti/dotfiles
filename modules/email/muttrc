@@ -17,10 +17,14 @@ bind generic,alias,attach,browser,editor,index,compose,pager,pgp,postpone ':' no
 set smtp_url = "smtps://$my_username@mailfence.com:465"
 set smtp_pass = $my_password
 
-set from = "jv@jviotti.com"
+# Change "From" header depending on the mailbox we're in
+# See http://www.offlineimap.org/doc/conf_examples.html
+folder-hook Mailfence set from="jv@jviotti.com"
+folder-hook OpenMailbox set from="jviotti@openmailbox.org"
 set realname = "Juan Cruz Viotti"
 
 # The folder containing all our mail
+set mbox_type = Maildir
 set folder = "~/Mail"
 source ~/.mutt/mailboxes
 

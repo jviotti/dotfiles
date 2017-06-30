@@ -1,5 +1,5 @@
 [general]
-accounts = mailfence
+accounts = mailfence, openmailbox
 
 # Load a Python file with "add-ons"
 pythonfile = ~/.offlineimap.py
@@ -28,4 +28,19 @@ type = IMAP
 remotehost = imap.mailfence.com
 remoteuser = jv@jviotti.com
 remotepasseval = get_pass("personal/mailfence.com")
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+
+[Account openmailbox]
+localrepository = openmailbox-local
+remoterepository = openmailbox-remote
+
+[Repository openmailbox-local]
+type = Maildir
+localfolders = ~/Mail/OpenMailbox
+
+[Repository openmailbox-remote]
+type = IMAP
+remotehost = imap.openmailbox.org
+remoteuser = jviotti@openmailbox.org
+remotepasseval = get_pass("personal/openmailbox.org")
 sslcacertfile = /usr/local/etc/openssl/cert.pem
