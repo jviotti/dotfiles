@@ -1,5 +1,9 @@
 [general]
 accounts = mailfence, openmailbox
+ui = ttyui
+
+# Synchronize two accounts at the same time
+maxsyncaccounts = 2
 
 # Load a Python file with "add-ons"
 pythonfile = ~/.offlineimap.py
