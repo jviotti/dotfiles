@@ -9,6 +9,7 @@ install:
 	$(call link-user-file,xzcompress.sh,bin/xzcompress.sh)
 	$(call link-user-file,mov2gif.sh,bin/mov2gif.sh)
 	$(call link-user-file,safe-delete.sh,bin/safe-delete.sh)
+	$(call link-user-file,unicode-hex.sh,bin/unicode-hex.sh)
 
 uninstall:
 	$(call unlink-user-file,bin/byte-size)
@@ -18,3 +19,4 @@ uninstall:
 	$(call unlink-user-file,bin/xzcompress.sh)
 	$(call unlink-user-file,bin/mov2gif.sh)
 	$(call unlink-user-file,bin/safe-delete.sh)
+	$(call unlink-user-file,bin/unicode-hex.sh)
