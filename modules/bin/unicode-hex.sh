@@ -3,7 +3,7 @@
 set -e
 set -u
 
-function usage() {
+usage() {
   echo "Usage: $0 [OPTIONS] <string>"
   echo ""
   echo "Options"
@@ -35,10 +35,10 @@ if [ -d "/usr/local/opt/icu4c/bin" ]; then
   PATH=$PATH:/usr/local/opt/icu4c/bin
 fi
 
-if [ "$ARGV_NORMALIZE" == "1" ]; then
-  UCONV_OPTIONS="-x any-nfd"
+if [ "$ARGV_NORMALIZE" = "1" ]; then
+  TRANSLITERATION="any-nfd"
 else
-  UCONV_OPTIONS="-x any-nfc"
+  TRANSLITERATION="any-nfc"
 fi
 
-echo "$ARGV_INPUT" | uconv $UCONV_OPTIONS | hexdump
+echo "$ARGV_INPUT" | uconv -x "$TRANSLITERATION" | hexdump
