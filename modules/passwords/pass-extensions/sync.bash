@@ -1,7 +1,6 @@
 #!/bin/bash
 
-set -e
-set -u
+source "$HOME/.std.sh"
 
 pass git pull
 pass git push

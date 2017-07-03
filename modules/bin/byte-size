@@ -2,14 +2,10 @@
 
 # Get file size in bytes
 
-set -u
-set -e
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <file>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <file>"
 fi
 
-FILE=$1
-
-stat -f '%z' $FILE
+stat -f '%z' "$1"

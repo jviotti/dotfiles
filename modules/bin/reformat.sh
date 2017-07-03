@@ -1,18 +1,16 @@
 #!/bin/sh
 
-set -e
+source "$HOME/.std.sh"
 
 DRIVE=$1
 
 OS=`uname`
 if [[ "$OS" != "Darwin" ]]; then
-  echo "This script is only meant to be run in OS X" 1>&2
-  exit 1
+  stdsh_fail "This script is only meant to be run in OS X"
 fi
 
-if [ -z $DRIVE ]; then
-  echo "Usage: $0 <drive>" 1>&2
-  exit 1
+if stdsh_is_undefined "$DRIVE"; then
+  stdsh_fail "Usage: $0 <drive>"
 fi
 
-diskutil eraseVolume FAT32 UNTITLED $DRIVE
+diskutil eraseVolume FAT32 UNTITLED "$DRIVE"

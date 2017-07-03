@@ -4,20 +4,17 @@
 # Run this script after updating the version in
 # package.json and potentially editing the README
 
-set -u
-set -e
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <profile>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <profile>"
 fi
 
 ARGV_PROFILE=$1
 PACKAGE_VERSION=`node -e "console.log(require('./package.json').version)"`
 
-if [ -z $PACKAGE_VERSION ]; then
-  echo "package.json version value missing"
-  exit 1
+if stdsh_is_undefined "$PACKAGE_VERSION"; then
+  stdsh_fail "package.json version value missing"
 fi
 
 git add . 

@@ -1,21 +1,18 @@
 #!/bin/sh
 
-set -e 
-set -u
+source "$HOME/.std.sh"
 
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <file...>" >&2
-  exit 1
+  stdsh_fail "Usage: $0 <file...>"
 fi
 
 ARGV_FILES="$*"
 SHRED_ARGS="-xu"
 
-if command -v shred 2>/dev/null 1>&2; then
+if stdsh_has_command "shred"; then
   shred "$SHRED_ARGS" "$ARGV_FILES"
-elif command -v gshred 2>/dev/null 1>&2; then
+elif stdsh_has_command "gshred"; then
   gshred "$SHRED_ARGS" "$ARGV_FILES"
 else 
-  echo "You have to install shred" 1>&2
-  exit 1
+  stdsh_fail "You have to install shred"
 fi

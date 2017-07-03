@@ -1,11 +1,9 @@
 #!/bin/sh
 
-set -e 
-set -u
+source "$HOME/.std.sh"
 
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 <email>" >&2
-  exit 1
+  stdsh_fail "Usage: $0 <email>"
 fi
 
 ARGV_EMAIL="$1"

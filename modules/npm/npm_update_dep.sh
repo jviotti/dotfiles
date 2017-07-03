@@ -1,19 +1,16 @@
 #!/bin/sh
 
-set -e
-set -u
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <name> <version>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <name> <version>"
 fi
 
 ARGV_NAME="$1"
 ARGV_VERSION="$2"
 
 if [ ! -f "$PWD/package.json" ]; then
-  echo "This doesn't look like a node project" 1>&2
-  exit 1
+  stdsh_fail "This doesn't look like a node project"
 fi
 
 echo "Upgrading $ARGV_NAME to $ARGV_VERSION"

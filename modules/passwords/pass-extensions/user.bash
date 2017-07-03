@@ -1,13 +1,11 @@
 #!/bin/bash
 
+source "$HOME/.std.sh"
+
 ARGV_ACCOUNT="$1"
 
-set -e
-set -u
-
-if [ -z "$ARGV_ACCOUNT" ]; then
-  echo "Please pass an account name" 1>&2
-  exit 1
+if stdsh_is_undefined "$ARGV_ACCOUNT"; then
+  stdsh_fail "Please pass an account name" 1>&2
 fi
 
 function get_value() {
@@ -20,7 +18,7 @@ CONTENT="$(pass show "$ARGV_ACCOUNT")"
 USERNAME="$(echo "$CONTENT" | grep '^username' || true)"
 EMAIL="$(echo "$CONTENT" | grep '^email' || true)"
 
-if [ -z "$USERNAME" ]; then
+if stdsh_is_undefined "$USERNAME"; then
   echo "$EMAIL" | get_value
 else
   echo "$USERNAME" | get_value

@@ -2,12 +2,10 @@
 
 # From https://gist.github.com/dergachev/4627207
 
-set -u
-set -e
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 <mov> <output.gif>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <mov> <output.gif>"
 fi
 
 ARGV_MOV="$1"

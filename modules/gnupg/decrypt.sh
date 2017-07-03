@@ -1,14 +1,12 @@
 #!/bin/sh
 
-set -e
-set -u
+source "$HOME/.std.sh"
 
 if [ "$#" -lt 1 ]; then
-  echo "Usage: $0 <gpg file>"
-  exit 1
+  stdsh_fail "Usage: $0 <gpg file>"
 fi
 
-if command -v gpg2 2>/dev/null 1>&2; then
+if stdsh_has_command "gpg2"; then
   gpg2 -dq "$1"
 else 
   gpg -d "$1"

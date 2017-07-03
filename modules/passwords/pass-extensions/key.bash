@@ -1,13 +1,11 @@
 #!/bin/bash
 
+source "$HOME/.std.sh"
+
 ARGV_ACCOUNT="$1"
 
-set -e
-set -u
-
-if [ -z "$ARGV_ACCOUNT" ]; then
-  echo "Please pass an account name" 1>&2
-  exit 1
+if stdsh_is_undefined "$ARGV_ACCOUNT"; then
+  stdsh_fail "Please pass an account name"
 fi
 
-pass show "$ARGV_ACCOUNT" | head -n 1
+pass show "$ARGV_ACCOUNT" | stdsh_filter_get_first_line

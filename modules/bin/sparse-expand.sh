@@ -2,12 +2,10 @@
 
 # Expand an sparse file
 
-set -u
-set -e
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <file>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <file>"
 fi
 
 dd if=$1 of=$1 conv=notrunc bs=1M

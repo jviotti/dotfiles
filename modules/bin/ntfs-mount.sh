@@ -1,10 +1,11 @@
 #!/bin/sh
 
+source "$HOME/.std.sh"
+
 DRIVE=$1
 
-if [ -z $DRIVE ]; then
-  echo "Usage: $0 <drive>"
-  exit 1
+if stdsh_is_undefined "$DRIVE"; then
+  stdsh_fail "Usage: $0 <drive>"
 fi
 
 mkdir -p /Volumes/NTFS

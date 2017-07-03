@@ -2,12 +2,10 @@
 
 # Compress a directory as `.tar.xz`
 
-set -u
-set -e
+source "$HOME/.std.sh"
 
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 <file>" 1>&2
-  exit 1
+  stdsh_fail "Usage: $0 <file>"
 fi
 
 tar cvJf "$1.tar.xz" "$1"

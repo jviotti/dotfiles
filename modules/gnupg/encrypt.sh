@@ -1,12 +1,9 @@
 #!/bin/sh
 
-set -e
-set -u
-set -x
+source "$HOME/.std.sh"
 
 if [ "$#" -lt 2 ]; then
-  echo "Usage: $0 <file> <recipients...>"
-  exit 1
+  stdsh_fail "Usage: $0 <file> <recipients...>"
 fi
 
 ARGV_FILE="$1"
