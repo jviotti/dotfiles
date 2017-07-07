@@ -40,13 +40,13 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt pass ispell urlview offlineimap openssl
+brew install ack mutt tmux w3m todo-txt pass ispell urlview offlineimap openssl msmtp
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass ispell urlview offlineimap
+sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass ispell urlview offlineimap msmtp
 ```
 
 Documentation
