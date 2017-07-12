@@ -19,7 +19,7 @@ fi
 
 git add . 
 git commit -m "v$PACKAGE_VERSION"
-git tag -s -a $PACKAGE_VERSION -m "v$PACKAGE_VERSION"
+git tag -s -a "v$PACKAGE_VERSION" -m "v$PACKAGE_VERSION"
 git push
 git push --tags
 
