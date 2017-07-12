@@ -196,6 +196,10 @@ fi
 # Git
 ##################################################
 
+# To mitigate typos :)
+alias gti="git"
+alias got="git"
+
 # This is a tricky way to define git aliases so
 # that we get git autocompletion with them as well
 # See https://github.com/robbyrussell/oh-my-zsh/issues/2394#issuecomment-45287624
