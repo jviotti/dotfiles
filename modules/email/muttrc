@@ -44,8 +44,6 @@ source $alias_file
 # Save emails to "Archive" by default
 # See http://unix.stackexchange.com/a/242073/43448
 save-hook . '+Mailfence/Archive'
-folder-hook Mailfence save-hook . '+Mailfence/Archive'
-folder-hook OpenMailbox save-hook . '+OpenMailbox/Archive'
 
 # Disable beeps
 set beep = no
