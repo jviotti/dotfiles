@@ -40,7 +40,7 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt pass ispell urlview offlineimap openssl msmtp
+brew install ack mutt tmux w3m todo-txt pass ispell urlview offlineimap openssl msmtp chainsawbaby/formula/bash-snippets
 ```
 
 ### Ubuntu
