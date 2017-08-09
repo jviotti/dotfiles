@@ -5,6 +5,9 @@ endif
 ifeq ($(shell uname -s),Darwin)
 	HOST_PLATFORM = darwin
 endif
+ifeq ($(shell uname -s),OpenBSD)
+	HOST_PLATFORM = openbsd
+endif
 
 ifndef HOST_PLATFORM
 $(error We couldn't detect your host platform)
