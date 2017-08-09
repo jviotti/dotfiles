@@ -154,7 +154,12 @@ bindkey '^R' history-incremental-search-backward
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-alias ls="ls -G -F"
+# Setting this variable has the same effect as 
+# passing the -G option, but its a better approach
+# since -G is not valid in OpenBSD
+export CLICOLOR=1
+
+alias ls="ls -F"
 
 ##################################################
 # History
