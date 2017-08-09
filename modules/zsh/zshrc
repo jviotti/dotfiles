@@ -73,7 +73,7 @@ export GPG_TTY=$(tty)
 # Allow compiling X11 programs on macOS
 XQUARTZ_DIRECTORY="/opt/X11"
 if [ -d "$XQUARTZ_DIRECTORY" ]; then
-  export PKG_CONFIG_PATH="$XQUARTZ_DIRECTORY/share/pkgconfig:$XQUARTZ_DIRECTORY/lib/pkgconfig"
+  export PKG_CONFIG_PATH="$XQUARTZ_DIRECTORY/share/pkgconfig:$XQUARTZ_DIRECTORY/lib/pkgconfig:$PKG_CONFIG_PATH"
 fi
 
 ##################################################
