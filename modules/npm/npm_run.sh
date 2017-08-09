@@ -42,5 +42,4 @@ echo "Loading profile $ARGV_PROFILE..."
 export NPM_AUTH_TOKEN=$(print -rl -- ${(P)TOKEN_ENVIRONMENT_VARIABLE})
 
 echo "Logged in as $(npm whoami)"
-read "?Press [Enter] key to continue..."
 npm ${@:2}
