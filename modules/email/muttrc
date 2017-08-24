@@ -217,6 +217,9 @@ bind pager r group-reply
 # Sign e-mails automatically
 set crypt_autosign = yes
 
+# Don't prompt for password every single time
+set pgp_use_gpg_agent = yes
+
 # %p    The empty string when no passphrase is needed,
 #       the string "PGPPASSFD=0" if one is needed.
 #
