@@ -8,6 +8,13 @@ set realname = "Juan Cruz Viotti"
 set from = "jv@jviotti.com"
 set use_from = yes
 
+# Default "catch-all" hook
+# See https://serverfault.com/a/75136
+reply-hook '~C .*' set from = "jv@jviotti.com"
+
+# Use certain addresses depending on the receiver
+reply-hook '~C ^juan@resin\.io$' set from = "juan@resin.io"
+
 # Pass `from` to `sendmail` using the `-f` option msmtp 
 # will select the right account based on this option, 
 # which is useful when configuring multiple acocunts
