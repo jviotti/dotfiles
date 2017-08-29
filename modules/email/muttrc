@@ -19,8 +19,8 @@ reply-hook '~C ^juan@resin\.io$' set from = "juan@resin.io"
 reply-hook '~C ^juancruz\.viotti@kellogg\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 
-# Pass `from` to `sendmail` using the `-f` option msmtp 
-# will select the right account based on this option, 
+# Pass `from` to `sendmail` using the `-f` option msmtp
+# will select the right account based on this option,
 # which is useful when configuring multiple acocunts
 # See http://www.mutt.org/doc/manual/#use-envelope-from
 set use_envelope_from = yes
@@ -190,7 +190,7 @@ set editor=`echo $EDITOR`
 #######################################################################
 
 # Stop asking to "move read messages to mbox"!
-set move = no  
+set move = no
 
 # Don't put '+' at the beginning of wrapped lines
 set markers = no
