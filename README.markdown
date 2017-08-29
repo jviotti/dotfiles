@@ -20,18 +20,19 @@ Pre-requisites
 - gpp
 - python
 - pass
+- duplicity
 - reattach-to-user-namespace (macOS)
 
 ### macOS
 
 ```sh
-brew install git gnupg macvim gpp python reattach-to-user-namespace
+brew install git gnupg macvim gpp python pass duplicity reattach-to-user-namespace
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install git make zsh gnupg vim gpp python
+sudo apt-get install git make zsh gnupg vim gpp python pass duplicity
 ```
 
 Tools
@@ -40,13 +41,13 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt pass ispell urlview offlineimap openssl msmtp chainsawbaby/formula/bash-snippets
+brew install ack mutt tmux w3m todo-txt ispell urlview offlineimap openssl msmtp chainsawbaby/formula/bash-snippets
 ```
 
 ### Ubuntu
 
 ```sh
-sudo apt-get install ack-grep mutt tmux w3m todotxt-cli pass ispell urlview offlineimap msmtp
+sudo apt-get install ack-grep mutt tmux w3m todotxt-cli ispell urlview offlineimap msmtp
 ```
 
 Documentation
