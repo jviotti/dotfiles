@@ -683,6 +683,7 @@ iabbrev unkown unknown
 iabbrev entires entries
 iabbrev rigth right
 iabbrev unsuscribe unsubscribe
+iabbrev dictionaty dictionary
 
 "=========================================================================
 " $SYNTAX
