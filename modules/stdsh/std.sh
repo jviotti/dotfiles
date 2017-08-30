@@ -30,6 +30,38 @@ stdsh_fail() {
 }
 
 ###
+# @summary Expect a path to be a directory
+# @function
+# @public
+#
+# @param {String} path
+#
+# @example
+# stdsh_expect_directory "foo"
+###
+stdsh_expect_directory() {
+  if [ ! -d "$1" ]; then
+    stdsh_fail "$1 is not a directory"
+  fi
+}
+
+###
+# @summary Ensure a directory exists
+# @function
+# @public
+#
+# @param {String} path
+#
+# @example
+# stdsh_ensure_directory "foo"
+###
+stdsh_ensure_directory() {
+  if [ ! -d "$1" ]; then
+    mkdir -p "$1"
+  fi
+}
+
+###
 # @summary Add a path to $PATH, if it exists
 # @function
 # @public
@@ -40,9 +72,7 @@ stdsh_fail() {
 # stdsh_path_add "/usr/local/bin"
 ###
 stdsh_path_add() {
-  if [ ! -d "$1" ]; then
-    stdsh_fail "$1 is not a directory"
-  fi
+  stdsh_expect_directory "$1"
   PATH=$PATH:$1
 }
 
@@ -60,6 +90,22 @@ stdsh_path_add() {
 ###
 stdsh_has_command() {
   command -v "$1" 2>/dev/null 1>&2
+}
+
+###
+# @summary Expect a command to be call-able
+# @function
+# @public
+#
+# @param {String} command
+#
+# @example
+# stdsh_expect_command "netstat"
+###
+stdsh_expect_command() {
+  if ! stdsh_has_command "$1"; then
+    stdsh_fail "You must install $1 to run this script"
+  fi
 }
 
 ###
