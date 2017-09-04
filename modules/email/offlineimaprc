@@ -1,5 +1,5 @@
 [general]
-accounts = mailfence
+accounts = mailfence,resin
 ui = ttyui
 
 # Synchronize one account at the same time
@@ -32,4 +32,19 @@ type = IMAP
 remotehost = imap.mailfence.com
 remoteuser = jv@jviotti.com
 remotepasseval = get_pass("personal/mailfence.com")
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+
+[Account resin]
+localrepository = resin-local
+remoterepository = resin-remote
+
+[Repository resin-local]
+type = Maildir
+localfolders = ~/Mail/Resin
+
+[Repository resin-remote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteusereval = get_user("work/resin/google.com")
+remotepasseval = get_pass("work/resin/google.com")
 sslcacertfile = /usr/local/etc/openssl/cert.pem
