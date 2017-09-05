@@ -1,28 +1,28 @@
 #!/bin/sh
 
 COMMAND="$1"
+shift
+RESOURCES="$*"
 GPGKEY="$DGPG_KEY"
 
 set -e
 set -u
 
-CLOUD_PATH_LOCAL="$HOME/Cloud"
-
-# Make sure this exists!
-CLOUD_PATH_REMOTE="dpbx:///Cloud"
-
 . "$HOME/.std.sh"
 
-if ! stdsh_has_command "duplicity"; then
-  stdsh_fail "You must install duplicity to run this tool"
-fi
+stdsh_expect_command "duplicity"
 
 if [ -z "$GPGKEY" ]; then
   stdsh_fail "DGPG_KEY is not set"
 fi
 
-if [ -z "$COMMAND" ]; then
-  echo "Usage: $0 [COMMAND]"
+# Default directories
+if [ "$RESOURCES" == "all" ]; then
+  RESOURCES="Audios Backups Docs Library Pictures Videos"
+fi
+
+if [ -z "$COMMAND" ] || [ -z "$RESOURCES" ]; then
+  echo "Usage: $0 <command> <resource...>"
   echo ""
   echo "Commands:"
   echo ""
@@ -34,41 +34,67 @@ if [ -z "$COMMAND" ]; then
   exit 1
 fi
 
-if [ "$COMMAND" = "incremental" ]; then
-  duplicity \
-    --progress \
-    --use-agent \
-    --allow-source-mismatch \
-    --encrypt-sign-key "$GPGKEY" \
-    incremental \
-    "$CLOUD_PATH_LOCAL" \
-    "$CLOUD_PATH_REMOTE"
-elif [ "$COMMAND" = "full" ]; then
-  duplicity \
-    --progress \
-    --use-agent \
-    --allow-source-mismatch \
-    --encrypt-sign-key "$GPGKEY" \
-    full \
-    "$CLOUD_PATH_LOCAL" \
-    "$CLOUD_PATH_REMOTE"
-elif [ "$COMMAND" = "verify" ]; then
-  duplicity \
-    verify \
-    --use-agent \
-    --compare-data \
-    "$CLOUD_PATH_REMOTE" \
-    "$CLOUD_PATH_LOCAL"
-elif [ "$COMMAND" = "restore" ]; then
-  duplicity \
-    --progress \
-    --force \
-    --use-agent \
-    restore \
-    "$CLOUD_PATH_REMOTE" \
-    "$CLOUD_PATH_LOCAL"
-elif [ "$COMMAND" = "ls" ]; then
-  duplicity list-current-files "$CLOUD_PATH_REMOTE"
-else
-  stdsh_fail "Unknown command: $COMMAND"
-fi
+for RESOURCE in $RESOURCES; do
+
+  RESOURCE_PATH_LOCAL="$HOME/SpiderOak Hive/$RESOURCE"
+
+  # Make sure this exists!
+  RESOURCE_PATH_REMOTE="dpbx:///Cloud/$RESOURCE"
+
+  echo "========================================"
+  echo "Processing: $RESOURCE"
+  echo "Command: $COMMAND"
+  echo "Local Path: $RESOURCE_PATH_LOCAL"
+  echo "Remote Path: $RESOURCE_PATH_REMOTE"
+  echo "========================================"
+
+  if [ "$COMMAND" = "incremental" ]; then
+    stdsh_expect_directory "$RESOURCE_PATH_LOCAL"
+
+    duplicity \
+      --progress \
+      --use-agent \
+      --allow-source-mismatch \
+      --encrypt-sign-key "$GPGKEY" \
+      incremental \
+      "$RESOURCE_PATH_LOCAL" \
+      "$RESOURCE_PATH_REMOTE"
+  elif [ "$COMMAND" = "full" ]; then
+    stdsh_expect_directory "$RESOURCE_PATH_LOCAL"
+
+    duplicity \
+      --progress \
+      --use-agent \
+      --allow-source-mismatch \
+      --encrypt-sign-key "$GPGKEY" \
+      full \
+      "$RESOURCE_PATH_LOCAL" \
+      "$RESOURCE_PATH_REMOTE"
+  elif [ "$COMMAND" = "verify" ]; then
+    stdsh_expect_directory "$RESOURCE_PATH_LOCAL"
+
+    # We could use `--compare-data` to make laser focused
+    # verification, however it obviously needs to check
+    # all the data, which means the whole remote needs to
+    # be downloaded
+    duplicity \
+      verify \
+      --use-agent \
+      "$RESOURCE_PATH_REMOTE" \
+      "$RESOURCE_PATH_LOCAL"
+  elif [ "$COMMAND" = "restore" ]; then
+    stdsh_ensure_directory "$RESOURCE_PATH_LOCAL"
+
+    duplicity \
+      --progress \
+      --force \
+      --use-agent \
+      restore \
+      "$RESOURCE_PATH_LOCAL" \
+      "$RESOURCE_PATH_REMOTE"
+  elif [ "$COMMAND" = "ls" ]; then
+    duplicity list-current-files "$RESOURCE_PATH_REMOTE"
+  else
+    stdsh_fail "Unknown command: $COMMAND"
+  fi
+done
