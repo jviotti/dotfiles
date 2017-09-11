@@ -180,6 +180,7 @@ call Highlight("pythonExClass", s:gui_orange, s:cterm_orange, "", "", "")
 
 " JavaScript Highlighting
 call Highlight("javaScriptBraces", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("javaScriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptFunction", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptLabel", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptReserved", s:gui_purple, s:cterm_purple, "", "", "")
