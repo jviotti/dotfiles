@@ -27,7 +27,7 @@ setopt pushdignoredups
 setopt pushdminus
 
 # Allow typing comments in the shell (that start with `#`)
-# They will be gracefully ignored 
+# They will be gracefully ignored
 setopt interactive_comments
 
 ##################################################
@@ -155,7 +155,7 @@ bindkey '^R' history-incremental-search-backward
 # Zsh to use the same colors as ls
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-# Setting this variable has the same effect as 
+# Setting this variable has the same effect as
 # passing the -G option, but its a better approach
 # since -G is not valid in OpenBSD
 export CLICOLOR=1
