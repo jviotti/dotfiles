@@ -1,0 +1,4 @@
+SYMLINK npmrc .npmrc
+SYMLINK npm_run.sh bin/npm_run.sh 755
+SYMLINK npm_publish.sh bin/npm_publish.sh 755
+SYMLINK npm_update_dep.sh bin/npm_update_dep.sh 755

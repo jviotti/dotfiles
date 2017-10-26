@@ -1,0 +1,8 @@
+DIRECTORY .mutt/cache
+DIRECTORY Mail
+SYMLINK mailcap .mailcap
+SYMLINK msmtprc .msmtprc 600
+SYMLINK offlineimaprc .offlineimaprc
+SYMLINK offlineimap.py .offlineimap.py
+SYMLINK muttrc .mutt/muttrc
+SYMLINK signature .mutt/signature

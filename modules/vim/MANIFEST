@@ -1,0 +1,4 @@
+SYMLINK vimrc .vimrc
+SYMLINK gvimrc .gvimrc
+SYMLINK colors .vim/colors
+SYMLINK autoload .vim/autoload

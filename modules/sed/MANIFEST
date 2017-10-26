@@ -1,0 +1,3 @@
+SYMLINK testsed.sh bin/testsed.sh 755
+SYMLINK runsed.sh bin/runsed.sh 755
+SYMLINK gres bin/gres 755

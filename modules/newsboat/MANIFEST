@@ -1,0 +1,2 @@
+SYMLINK config .newsboat/config
+SYMLINK urls .newsboat/urls

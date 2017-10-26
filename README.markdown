@@ -50,56 +50,6 @@ brew install ack mutt tmux w3m todo-txt ispell urlview offlineimap openssl msmtp
 sudo apt-get install ack-grep mutt tmux w3m todotxt-cli ispell urlview offlineimap msmtp
 ```
 
-Documentation
--------------
-
-```sh
-git clone git@github.com:jviotti/dotfiles.git
-cd dotfiles
-```
-
-### Show help
-
-```sh
-make help
-```
-
-### Install all modules
-
-```sh
-make install-all
-```
-
-### Install a single module
-
-```sh
-make install-<module>
-```
-
-### Uninstall all modules
-
-```sh
-make uninstall-all
-```
-
-### Uninstall a single module
-
-```sh
-make uninstall-<module>
-```
-
-### Rebuild a module
-
-```sh
-make build-<module>
-```
-
-### Install system changes (experimental)
-
-```sh
-sudo make system
-```
-
 Configuration
 -------------
 
