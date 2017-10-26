@@ -26,10 +26,10 @@ link-file-in-current-directory = $(call link-file,$(CURDIR)/$(1),$(2))
 unlink = rm -rf "$(1)"
 unlink-user-file = $(call unlink,$(DOTFILES_LOCATION_USER)/$(1))
 link-user-file = $(call link-file-in-current-directory,$(1),$(DOTFILES_LOCATION_USER)/$(2))
-link-user-file-by-os = $(call link-user-file,$(HOST_PLATFORM)-$(3)-$(1),$(2))
+link-user-file-by-os = $(call link-user-file,$(3)/$(HOST_PLATFORM)/$(1),$(2))
 link-system-file = $(call link-file-in-current-directory,$(1),$(DOTFILES_LOCATION_SYSTEM)/$(2))
-execute-os-template = gpp \
-	-o $(2)-$(3)-$(1) \
+execute-os-template = mkdir -p $(3)/$(2) && gpp \
+	-o $(3)/$(2)/$(1) \
 	-DOS=$(2) \
 	-DVERSION=$(3) \
 	-U "" "" "(" "," ")" "(" ")" "\#" "\\" \
