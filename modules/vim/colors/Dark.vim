@@ -278,9 +278,11 @@ call Highlight("adaSpecial", s:gui_aqua, s:cterm_aqua, "", "", "")
 call Highlight("adaConditional", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("adaStatement", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("adaAssignment", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("adaKeyword", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("adaTypeDef", s:gui_red, s:cterm_red, "", "", "")
+call Highlight("adaKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("adaTypeDef", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("adaStorageClass", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("adaAttribute", s:gui_yellow, s:cterm_yellow, "", "", "")
+call Highlight("adaInc", s:gui_purple, s:cterm_purple, "", "", "")
 
 " Clojure highlighting
 call Highlight("clojureConstant", s:gui_orange, s:cterm_orange, "", "", "")
