@@ -12,6 +12,7 @@ Supported Platforms
 Pre-requisites
 --------------
 
+- [dotf](https://github.com/jviotti/dotf)
 - git
 - make
 - zsh
@@ -22,6 +23,12 @@ Pre-requisites
 - pass
 - duplicity
 - reattach-to-user-namespace (macOS)
+
+```sh
+git clone https://github.com/jviotti/dotf
+cd dotf
+make install
+```
 
 ### macOS
 
@@ -41,7 +48,7 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt ispell urlview offlineimap openssl msmtp chainsawbaby/formula/bash-snippets
+brew install ack mutt tmux w3m todo-txt ispell urlview offlineimap openssl msmtp
 ```
 
 ### Ubuntu
