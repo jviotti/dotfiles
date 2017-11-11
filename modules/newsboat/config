@@ -17,6 +17,6 @@ bind-key ^D pagedown
 
 # Custom theme
 color listnormal white default
-color listfocus black color06
-color listfocus_unread black color06
-color info default color08
+color listfocus black color6
+color listfocus_unread black color6
+color info default color8
