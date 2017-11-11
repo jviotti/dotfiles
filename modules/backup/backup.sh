@@ -18,7 +18,7 @@ fi
 
 # Default directories
 if [ "$RESOURCES" == "all" ]; then
-  RESOURCES="Audios Backups Docs Library Pictures Videos"
+  RESOURCES="Audios Backups Docs Library Pass Pictures Videos"
 fi
 
 if [ -z "$COMMAND" ] || [ -z "$RESOURCES" ]; then
