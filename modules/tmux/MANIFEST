@@ -1,0 +1,2 @@
+SYMLINK tmux.conf .tmux.conf
+SYMLINK battery bin/battery 755

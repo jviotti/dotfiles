@@ -1,0 +1,3 @@
+SYMLINK gitconfig .gitconfig
+SYMLINK gitdefaultcommit .gitdefaultcommit
+SYMLINK gitignore_global .gitignore_global
