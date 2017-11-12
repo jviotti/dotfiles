@@ -137,7 +137,7 @@ if [ "$ARGV_COMMAND" = "add" ]; then
   fi
 
   FILENAME="$TITLE.$EXTENSION"
-  # TODO: Make sure this doesn't replace an 
+  # TODO: Make sure this doesn't replace an
   # existing note with the same title.
   mv "$TEMPFILE" "$NOTES_GIT_REPOSITORY/$FILENAME"
   notes_stage "$FILENAME"
@@ -160,7 +160,7 @@ elif [ "$ARGV_COMMAND" = "edit" ]; then
   if [ "$NEWTITLE" != "$ARGV_NOTE" ]; then
     NEWFILENAME="$NEWTITLE.$EXTENSION"
     mv "$NOTES_GIT_REPOSITORY/$FILENAME" "$NOTES_GIT_REPOSITORY/$NEWFILENAME"
-    notes_stage "$FILENAME" 
+    notes_stage "$FILENAME"
     notes_stage "$NEWFILENAME"
     notes_commit "move note $FILENAME to $NEWFILENAME"
   fi
