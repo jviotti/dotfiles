@@ -115,7 +115,7 @@ if [ -z "$ARGV_COMMAND" ]; then
   echo "" 1>&2
   echo "Commands:" 1>&2
   echo "" 1>&2
-  echo "  new          create a new note" 1>&2
+  echo "  add          create a new note" 1>&2
   echo "  ls           list all notes" 1>&2
   echo "  sync         sync notes repository" 1>&2
   echo "  edit <note>  edit a note" 1>&2
@@ -123,7 +123,7 @@ if [ -z "$ARGV_COMMAND" ]; then
   exit 1
 fi
 
-if [ "$ARGV_COMMAND" = "new" ]; then
+if [ "$ARGV_COMMAND" = "add" ]; then
   TEMPFILE="$(mktemp -t notes).$EXTENSION"
   "$EDITOR" "$TEMPFILE"
   if [ ! -f "$TEMPFILE" ]; then
