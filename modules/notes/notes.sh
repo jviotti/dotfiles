@@ -71,7 +71,7 @@ notes_get_title () (
 
 notes_fail () (
   message="$1"
-  echo "Aborting. $message" 1>&2
+  echo "$message" 1>&2
   exit 1
 )
 
