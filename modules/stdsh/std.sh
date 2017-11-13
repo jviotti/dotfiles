@@ -140,9 +140,9 @@ stdsh_dependency_check() {
 # > foo
 ##
 stdsh_if_expression() {
-  if stdsh_is_true "$1"; then 
+  if stdsh_is_true "$1"; then
     echo "$2"
-  else 
+  else
     echo "$3"
   fi
 }
