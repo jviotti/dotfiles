@@ -90,7 +90,7 @@ notes_commit () (
   $GIT commit -m "notes: $message"
 )
 
-notes_resolve_name () (
+notes_resolve_filename () (
   name="$1"
 
   if [ -z "$name" ]; then
@@ -140,7 +140,7 @@ notes_command_ls () (
 
 notes_command_edit () (
   note="$1"
-  filename="$(notes_resolve_name "$note")"
+  filename="$(notes_resolve_filename "$note")"
   "$EDITOR" "$NOTES_GIT_REPOSITORY/$filename"
 
   if notes_file_is_modified "$filename"; then
@@ -160,7 +160,7 @@ notes_command_edit () (
 
 notes_command_rm () (
   note="$1"
-  filename="$(notes_resolve_name "$note")"
+  filename="$(notes_resolve_filename "$note")"
   rm "$NOTES_GIT_REPOSITORY/$filename"
   notes_stage "$filename"
   notes_commit "remove note $filename"
