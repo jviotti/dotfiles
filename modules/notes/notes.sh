@@ -107,6 +107,75 @@ notes_resolve_name () (
 )
 
 # -------------------------------------------------
+# Commands
+# -------------------------------------------------
+
+notes_command_add () (
+  tempfile="$(mktemp -t notes).$EXTENSION"
+  "$EDITOR" "$tempfile"
+  if [ ! -f "$tempfile" ]; then
+    notes_fail "Nothing was written"
+  fi
+
+  title="$(notes_get_title "$tempfile")"
+  if [ -z "$title" ]; then
+    rm "$tempfile"
+    notes_fail "This note has no title"
+  fi
+
+  filename="$title.$EXTENSION"
+  # TODO: Make sure this doesn't replace an
+  # existing note with the same title.
+  mv "$tempfile" "$NOTES_GIT_REPOSITORY/$filename"
+  notes_stage "$filename"
+  notes_commit "add note $title using $EDITOR"
+)
+
+notes_command_ls () (
+  find "$NOTES_GIT_REPOSITORY" \
+    -type f \
+    -name "*.$EXTENSION" \
+    -exec basename -s ".$EXTENSION" {} \;
+)
+
+notes_command_edit () (
+  note="$1"
+  filename="$(notes_resolve_name "$note")"
+  "$EDITOR" "$NOTES_GIT_REPOSITORY/$filename"
+
+  if notes_file_is_modified "$filename"; then
+    notes_stage "$filename"
+    notes_commit "change note $filename using $EDITOR"
+  fi
+
+  newtitle="$(notes_get_title "$NOTES_GIT_REPOSITORY/$filename")"
+  if [ "$newtitle" != "$note" ]; then
+    newfilename="$newtitle.$EXTENSION"
+    mv "$NOTES_GIT_REPOSITORY/$filename" "$NOTES_GIT_REPOSITORY/$newfilename"
+    notes_stage "$filename"
+    notes_stage "$newfilename"
+    notes_commit "move note $filename to $newfilename"
+  fi
+)
+
+notes_command_rm () (
+  note="$1"
+  filename="$(notes_resolve_name "$note")"
+  rm "$NOTES_GIT_REPOSITORY/$filename"
+  notes_stage "$filename"
+  notes_commit "remove note $filename"
+)
+
+notes_command_sync () (
+  if [ -z "$($GIT remote -v)" ]; then
+    notes_fail "There are no configured remotes for $NOTES_GIT_REPOSITORY"
+  fi
+
+  $GIT pull
+  $GIT push
+)
+
+# -------------------------------------------------
 # CLI
 # -------------------------------------------------
 
@@ -123,61 +192,13 @@ if [ -z "$ARGV_COMMAND" ]; then
   exit 1
 fi
 
-if [ "$ARGV_COMMAND" = "add" ]; then
-  TEMPFILE="$(mktemp -t notes).$EXTENSION"
-  "$EDITOR" "$TEMPFILE"
-  if [ ! -f "$TEMPFILE" ]; then
-    notes_fail "Nothing was written"
-  fi
+case "$ARGV_COMMAND" in
+  add) notes_command_add ;;
+  ls) notes_command_ls ;;
+  edit) notes_command_edit "$ARGV_NOTE" ;;
+  rm) notes_command_rm "$ARGV_NOTE" ;;
+  sync) notes_command_sync ;;
+  *) notes_fail "Unknown command: $ARGV_COMMAND" ;;
+esac
 
-  TITLE="$(notes_get_title "$TEMPFILE")"
-  if [ -z "$TITLE" ]; then
-    rm "$TEMPFILE"
-    notes_fail "This note has no title"
-  fi
-
-  FILENAME="$TITLE.$EXTENSION"
-  # TODO: Make sure this doesn't replace an
-  # existing note with the same title.
-  mv "$TEMPFILE" "$NOTES_GIT_REPOSITORY/$FILENAME"
-  notes_stage "$FILENAME"
-  notes_commit "add note $TITLE using $EDITOR"
-elif [ "$ARGV_COMMAND" = "ls" ]; then
-  find "$NOTES_GIT_REPOSITORY" \
-    -type f \
-    -name "*.$EXTENSION" \
-    -exec basename -s ".$EXTENSION" {} \;
-elif [ "$ARGV_COMMAND" = "edit" ]; then
-  FILENAME="$(notes_resolve_name "$ARGV_NOTE")"
-  "$EDITOR" "$NOTES_GIT_REPOSITORY/$FILENAME"
-
-  if notes_file_is_modified "$FILENAME"; then
-    notes_stage "$FILENAME"
-    notes_commit "change note $FILENAME using $EDITOR"
-  fi
-
-  NEWTITLE="$(notes_get_title "$NOTES_GIT_REPOSITORY/$FILENAME")"
-  if [ "$NEWTITLE" != "$ARGV_NOTE" ]; then
-    NEWFILENAME="$NEWTITLE.$EXTENSION"
-    mv "$NOTES_GIT_REPOSITORY/$FILENAME" "$NOTES_GIT_REPOSITORY/$NEWFILENAME"
-    notes_stage "$FILENAME"
-    notes_stage "$NEWFILENAME"
-    notes_commit "move note $FILENAME to $NEWFILENAME"
-  fi
-elif [ "$ARGV_COMMAND" = "rm" ]; then
-  FILENAME="$(notes_resolve_name "$ARGV_NOTE")"
-  rm "$NOTES_GIT_REPOSITORY/$FILENAME"
-  notes_stage "$FILENAME"
-  notes_commit "remove note $FILENAME"
-elif [ "$ARGV_COMMAND" = "sync" ]; then
-  REMOTES="$($GIT remote -v)"
-
-  if [ -z "$REMOTES" ]; then
-    notes_fail "There are no configured remotes for $NOTES_GIT_REPOSITORY"
-  fi
-
-  $GIT pull
-  $GIT push
-else
-  notes_fail "Unknown command: $ARGV_COMMAND"
-fi
+exit 0
