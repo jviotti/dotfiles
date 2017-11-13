@@ -104,9 +104,8 @@ notes_resolve_filename () (
 # -------------------------------------------------
 
 notes_command_add () (
-  tempfile="$(mktemp -t notes).$EXTENSION"
-  "$EDITOR" "$tempfile"
-  if [ ! -f "$tempfile" ]; then
+  tempfile="$(stdsh_edit_in_tmpdir "notes" "$EXTENSION")"
+  if stdsh_is_undefined "$tempfile"; then
     stdsh_fail "Nothing was written"
   fi
 
