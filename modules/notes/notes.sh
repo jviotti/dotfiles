@@ -130,6 +130,12 @@ notes_command_ls () (
     -exec basename -s ".$EXTENSION" {} \;
 )
 
+notes_command_cat () (
+  note="$1"
+  filename="$(notes_resolve_filename "$note")"
+  cat "$NOTES_GIT_REPOSITORY/$filename"
+)
+
 notes_command_edit () (
   note="$1"
   filename="$(notes_resolve_filename "$note")"
@@ -179,6 +185,7 @@ if [ -z "$ARGV_COMMAND" ]; then
   echo "  add          create a new note" 1>&2
   echo "  ls           list all notes" 1>&2
   echo "  sync         sync notes repository" 1>&2
+  echo "  cat <note>   print a note" 1>&2
   echo "  edit <note>  edit a note" 1>&2
   echo "  rm <note>    remove a note" 1>&2
   exit 1
@@ -187,6 +194,7 @@ fi
 case "$ARGV_COMMAND" in
   add) notes_command_add ;;
   ls) notes_command_ls ;;
+  cat) notes_command_cat "$ARGV_NOTE" ;;
   edit) notes_command_edit "$ARGV_NOTE" ;;
   rm) notes_command_rm "$ARGV_NOTE" ;;
   sync) notes_command_sync ;;
