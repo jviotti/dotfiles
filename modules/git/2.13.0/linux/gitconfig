@@ -56,3 +56,5 @@
 	required = true
 [github]
 	user = jviotti
+[pass]
+	signcommits = true

@@ -61,6 +61,8 @@
 	required = true
 [github]
 	user = jviotti
+[pass]
+	signcommits = true
 %%ifeq OS darwin
 [gpg]
 	program = gpg
