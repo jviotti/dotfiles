@@ -31,6 +31,8 @@ ARGV_NOTE="$2"
 set -e
 set -u
 
+source "$HOME/.std.sh"
+
 # -------------------------------------------------
 # Settings
 # -------------------------------------------------
@@ -44,10 +46,7 @@ EXTENSION="markdown"
 # Initialization
 # -------------------------------------------------
 
-if [ ! -d "$NOTES_GIT_REPOSITORY" ]; then
-  echo "Notes directory doesn't exist. Creating..." 1>&2
-  mkdir -p "$NOTES_GIT_REPOSITORY"
-fi
+stdsh_ensure_directory "$NOTES_GIT_REPOSITORY"
 
 if [ ! -d "$NOTES_GIT_DIRECTORY" ]; then
   echo "Notes directory is not a git repository. Initializing..." 1>&2
@@ -69,12 +68,6 @@ notes_get_title () (
     | sed 's/^-//g'
 )
 
-notes_fail () (
-  message="$1"
-  echo "$message" 1>&2
-  exit 1
-)
-
 notes_file_is_modified () (
   path="$1"
   $GIT status --porcelain | grep "^ M $path" > /dev/null
@@ -93,14 +86,14 @@ notes_commit () (
 notes_resolve_filename () (
   name="$1"
 
-  if [ -z "$name" ]; then
-    notes_fail "Missing note name"
+  if stdsh_is_undefined "$name"; then
+    stdsh_fail "Missing note name"
   fi
 
   # TODO: Allow auto-completion
   FILENAME="$NOTES_GIT_REPOSITORY/$name.$EXTENSION"
   if [ ! -f "$FILENAME" ]; then
-    notes_fail "Invalid note name: $name"
+    stdsh_fail "Invalid note name: $name"
   fi
 
   echo "$name.$EXTENSION"
@@ -114,13 +107,13 @@ notes_command_add () (
   tempfile="$(mktemp -t notes).$EXTENSION"
   "$EDITOR" "$tempfile"
   if [ ! -f "$tempfile" ]; then
-    notes_fail "Nothing was written"
+    stdsh_fail "Nothing was written"
   fi
 
   title="$(notes_get_title "$tempfile")"
-  if [ -z "$title" ]; then
+  if stdsh_is_undefined "$title"; then
     rm "$tempfile"
-    notes_fail "This note has no title"
+    stdsh_fail "This note has no title"
   fi
 
   filename="$title.$EXTENSION"
@@ -167,8 +160,8 @@ notes_command_rm () (
 )
 
 notes_command_sync () (
-  if [ -z "$($GIT remote -v)" ]; then
-    notes_fail "There are no configured remotes for $NOTES_GIT_REPOSITORY"
+  if stdsh_is_undefined "$($GIT remote -v)"; then
+    stdsh_fail "There are no configured remotes for $NOTES_GIT_REPOSITORY"
   fi
 
   $GIT pull
@@ -198,7 +191,7 @@ case "$ARGV_COMMAND" in
   edit) notes_command_edit "$ARGV_NOTE" ;;
   rm) notes_command_rm "$ARGV_NOTE" ;;
   sync) notes_command_sync ;;
-  *) notes_fail "Unknown command: $ARGV_COMMAND" ;;
+  *) stdsh_fail "Unknown command: $ARGV_COMMAND" ;;
 esac
 
 exit 0
