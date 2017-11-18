@@ -229,32 +229,3 @@ stdsh_is_undefined() {
 stdsh_filter_get_first_line() {
   head -n 1
 }
-
-###
-# @summary Edit a file in the system's temporary directory
-# @function
-# @public
-#
-# @param {String} prefix
-# @param {String} extension
-# @returns {String|Undefined} temporary file
-#
-# @example
-# tmpfile="$(stdsh_edit_in_tmpdir myapp ".txt")"
-#
-# if stdsh_is_defined "$tmpfile"; then
-#   echo "This file was written"
-# fi
-###
-stdsh_edit_in_tmpdir () (
-  prefix="$1"
-  extension="$2"
-  tempfile="$(mktemp -t "$prefix").$extension"
-
-  "$EDITOR" "$tempfile"
-  if [ -f "$tempfile" ]; then
-    echo "$tempfile"
-  else
-    echo ""
-  fi
-)
