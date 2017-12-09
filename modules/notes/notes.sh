@@ -99,6 +99,24 @@ notes_resolve_filename () (
   echo "$name.$EXTENSION"
 )
 
+notes_interactive_select () (
+  result=""
+  PS3="Pick a number (or q to quit): "
+  select option in $(notes_command_ls | tr '\n' ' '); do
+    if [ "$REPLY" = "q" ] || [ "$REPLY" = "Q" ]; then
+      break
+    fi
+
+    if [ -n "$option" ]; then
+      result="$option"
+      break
+    else
+      continue
+    fi
+  done
+  echo "$result"
+)
+
 # -------------------------------------------------
 # Commands
 # -------------------------------------------------
@@ -133,12 +151,22 @@ notes_command_ls () (
 
 notes_command_cat () (
   note="$1"
+
+  if [ -z "$note" ]; then
+    note="$(notes_interactive_select)"
+  fi
+
   filename="$(notes_resolve_filename "$note")"
   cat "$NOTES_GIT_REPOSITORY/$filename"
 )
 
 notes_command_edit () (
   note="$1"
+
+  if [ -z "$note" ]; then
+    note="$(notes_interactive_select)"
+  fi
+
   filename="$(notes_resolve_filename "$note")"
   "$EDITOR" "$NOTES_GIT_REPOSITORY/$filename"
 
@@ -159,6 +187,11 @@ notes_command_edit () (
 
 notes_command_rm () (
   note="$1"
+
+  if [ -z "$note" ]; then
+    note="$(notes_interactive_select)"
+  fi
+
   filename="$(notes_resolve_filename "$note")"
   rm "$NOTES_GIT_REPOSITORY/$filename"
   notes_stage "$filename"
