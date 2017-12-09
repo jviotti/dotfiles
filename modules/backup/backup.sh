@@ -8,6 +8,11 @@ GPGKEY="$DGPG_KEY"
 set -e
 set -u
 
+# Otherwise duplicity fails on macOS
+if [ "$(uname)" = "Darwin" ]; then
+  ulimit -n 1024
+fi
+
 . "$HOME/.std.sh"
 
 stdsh_expect_command "duplicity"
