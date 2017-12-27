@@ -1,3 +1,4 @@
 SYMLINK gitconfig .gitconfig
 SYMLINK gitdefaultcommit .gitdefaultcommit
 SYMLINK gitignore_global .gitignore_global
+SYMLINK delete-file-from-history.sh bin/delete-file-from-history.sh
