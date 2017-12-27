@@ -90,6 +90,12 @@ set t_Co=256
 " Make all new vertical split windows appear on the right
 set splitright
 
+" Smart line joins (when dealing with comments)
+" See https://kinbiko.com/vim/my-shiniest-vim-gems/
+if v:version > 703 || v:version == 703 && has('patch541')
+  set formatoptions+=j
+endif
+
 "=========================================================================
 " $KEYWORDS
 "=========================================================================
@@ -657,6 +663,20 @@ nnoremap <Leader>j ddp
 
 " Swap current line with the line above
 nnoremap <Leader>k ddkP
+
+" Make Enter and Backspace navigate through paragraphs in normal mode
+" From https://kinbiko.com/vim/my-shiniest-vim-gems/
+nnoremap <BS> {
+onoremap <BS> {
+vnoremap <BS> {
+nnoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+onoremap <expr> <CR> empty(&buftype) ? '}' : '<CR>'
+vnoremap <CR> }
+
+" Keep selected text when fixing indentation
+" From https://kinbiko.com/vim/my-shiniest-vim-gems/
+vnoremap < <gv
+vnoremap > >gv
 
 "=========================================================================
 " $TERMINAL
