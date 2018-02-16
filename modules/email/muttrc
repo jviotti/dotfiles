@@ -209,8 +209,8 @@ macro pager \cb |urlview\n
 # Bindings
 #######################################################################
 
-# Reply to group by default
-bind pager r group-reply
+# Reply to group
+bind pager R group-reply
 
 #######################################################################
 # GPG (from gpg.rc distributed by Homebrew)
