@@ -47,4 +47,5 @@ type = IMAP
 remotehost = imap.gmail.com
 remoteusereval = get_user("work/resin/google.com")
 remotepasseval = get_pass("work/resin/google.com")
+folderfilter = lambda foldername: foldername not in ['[Gmail]/Starred', '[Gmail]/Important', 'Notes']
 sslcacertfile = /usr/local/etc/openssl/cert.pem
