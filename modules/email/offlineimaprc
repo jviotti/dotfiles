@@ -45,7 +45,7 @@ localfolders = ~/Mail/Resin
 [Repository resin-remote]
 type = IMAP
 remotehost = imap.gmail.com
-remoteusereval = get_user("work/resin/google.com")
-remotepasseval = get_pass("work/resin/google.com")
+remoteusereval = get_user("work/resin/gmail.com")
+remotepasseval = get_pass("work/resin/gmail.com")
 folderfilter = lambda foldername: foldername not in ['[Gmail]/Starred', '[Gmail]/Important', 'Notes']
 sslcacertfile = /usr/local/etc/openssl/cert.pem
