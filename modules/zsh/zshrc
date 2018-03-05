@@ -86,6 +86,10 @@ export HOMEBREW_NO_INSECURE_REDIRECT=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_CASK_OPTS=--require-sha
 
+# Prefer Python 2 over Python 3
+# See https://github.com/OfflineIMAP/offlineimap/issues/472
+export PATH="/usr/local/opt/python2/libexec/bin:$PATH"
+
 ##################################################
 # PAGER
 ##################################################
