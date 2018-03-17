@@ -82,10 +82,14 @@ else
   exit 1
 fi
 
-DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES" -c CONFIG"
+DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES" -c CONFIG -d"
 
 if [ -n "$ARGV_MODULE" ]; then
   DOTF_OPTIONS="$DOTF_OPTIONS -m $ARGV_MODULE"
+  dotf $DOTF_OPTIONS
+else
+  for module in modules/*; do
+    dotf $DOTF_OPTIONS -m "$module"
+  done
 fi
 
-dotf $DOTF_OPTIONS
