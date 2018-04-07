@@ -279,16 +279,6 @@ if hash rbenv 2>/dev/null; then
 fi
 
 ##################################################
-# VIM
-##################################################
-
-# If MacVim is available, use MacVim's precompiled
-# vim in the terminal, as it's known to be faster.
-if command -v mvim >/dev/null 2>&1; then
-  alias vim="mvim -v"
-fi
-
-##################################################
 # PASS
 ##################################################
 
