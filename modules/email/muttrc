@@ -98,6 +98,11 @@ color status     white         black
 color message    brightcyan    default
 color error      brightred     default
 
+# Highlight emails with direct mentions
+color index default red ~b@jviotti
+color index default red ~b@juan
+color index default red ~b@juan_cruz_viotti
+
 #######################################################################
 # Pager
 #######################################################################
