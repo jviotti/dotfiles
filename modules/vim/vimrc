@@ -656,6 +656,16 @@ nnoremap <Leader>sv :source $MYVIMRC<cr>
 nnoremap <Leader>ev :tabe $MYVIMRC<cr>
 
 "=========================================================================
+" $MAKE
+"=========================================================================
+
+" Execute Make with \m
+nnoremap <Leader>m :make<cr>
+
+" Automatically save the current file when running make
+set autowrite
+
+"=========================================================================
 " $UTILITIES
 "=========================================================================
 
