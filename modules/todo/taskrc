@@ -5,6 +5,12 @@
 # Location of task data
 data.location=~/.task
 
+urgency.user.project.jellyfish.coefficient=1.0
+urgency.user.tag.easy.coefficient=4.0
+urgency.active.coefficient=15.0
+urgency.user.tag.assign.coefficient=4.0
+urgency.user.tag.meeting.coefficient=2.0
+
 # -----------------------------------------------
 # Theme
 # -----------------------------------------------
@@ -26,7 +32,7 @@ color.debug=blue
 # Task state
 color.completed=
 color.deleted=
-color.active=color15 on rgb035
+color.active=white on red
 color.recurring=
 color.scheduled=
 color.until=
@@ -83,3 +89,10 @@ color.sync.rejected=gray23
 color.undo.before=rgb013
 color.undo.after=rgb035
 
+# -----------------------------------------------
+# Theme Overrides
+# -----------------------------------------------
+
+color.project.jellyfish=white on black
+color.tag.easy=black on green
+color.tag.assign=black on green
