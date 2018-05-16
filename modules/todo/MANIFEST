@@ -1,1 +1,2 @@
 SYMLINK todo.cfg .todo.cfg
+SYMLINK taskrc .taskrc
