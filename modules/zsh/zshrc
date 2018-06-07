@@ -206,7 +206,7 @@ DIRSTACKSIZE=20
 
 alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
-alias t="task"
+alias t="task.sh"
 
 if which ack-grep >/dev/null; then
   alias ack="ack-grep"
