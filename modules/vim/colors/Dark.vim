@@ -371,8 +371,10 @@ call Highlight("cppStatement", s:gui_purple, s:cterm_purple, "", "", "")
 
 " Rust highlighting
 call Highlight("rustKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("rustConditional", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("rustFuncName", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("rustMacro", s:gui_blue, s:cterm_blue, "", "", "")
+call Highlight("rustCommentLineDoc", s:gui_comment, s:cterm_comment, "", "", "")
 
 " TypeScript highlighting
 call Highlight("typescriptReserved", s:gui_purple, s:cterm_purple, "", "", "")
