@@ -715,6 +715,13 @@ iabbrev entires entries
 iabbrev rigth right
 iabbrev unsuscribe unsubscribe
 iabbrev dictionaty dictionary
+iabbrev gatter gather
+
+"=========================================================================
+" $GIT
+"=========================================================================
+
+nnoremap <Leader>ss :!git add .<cr><cr>
 
 "=========================================================================
 " $SYNTAX
