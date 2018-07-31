@@ -269,6 +269,21 @@ call Highlight("goConstants", s:gui_orange, s:cterm_orange, "", "", "")
 call Highlight("goTodo", s:gui_yellow, s:cterm_yellow, "", "", "")
 call Highlight("goDeclType", s:gui_blue, s:cterm_blue, "", "", "")
 call Highlight("goBuiltins", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("goDeclaration", s:gui_purple, s:cterm_purple, "", "", "")
+
+" C# Highlighting
+call Highlight("csModifier", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csType", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csStorage", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csClass", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csClassType", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csRepeat", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csException", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csAsync", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csUnspecifiedStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csNew", s:gui_blue, s:cterm_blue, "", "", "")
+call Highlight("csLinq", s:gui_blue, s:cterm_blue, "", "", "")
+call Highlight("csNewType", s:gui_foreground, s:cterm_foreground, "", "", "")
 
 " Ada Highlighting
 call Highlight("adaBegin", s:gui_purple, s:cterm_purple, "", "", "")
