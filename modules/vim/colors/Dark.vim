@@ -408,6 +408,20 @@ call Highlight("typescriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptStatement", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
+" Erlang highlighting
+call Highlight("erlangLocalFuncCall", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("erlangLocalFuncRef", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("erlangBIF", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("erlangGlobalFuncCall", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangVariable", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("erlangAttribute", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangDefine", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangRecordDef", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangRecord", s:gui_yellow, s:cterm_yellow, "", "", "")
+call Highlight("erlangMacro", s:gui_aqua, s:cterm_aqua, "", "", "")
+call Highlight("erlangAtom", s:gui_red, s:cterm_red, "", "", "")
+
 " ProtoBuffers
 call Highlight("protoRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
