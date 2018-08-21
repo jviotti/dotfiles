@@ -89,7 +89,7 @@ if [ -n "$ARGV_MODULE" ]; then
   dotf $DOTF_OPTIONS
 else
   for module in modules/*; do
-    dotf $DOTF_OPTIONS -m "$module"
+    dotf $DOTF_OPTIONS -m "$(basename "$module")"
   done
 fi
 
