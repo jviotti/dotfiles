@@ -260,8 +260,9 @@ fi
 # NVM
 ##################################################
 
-if [[ -f $HOME/.nvm/nvm.sh ]]; then
-  source $HOME/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+if [[ -f $NVM_DIR/nvm.sh ]]; then
+  source $NVM_DIR/nvm.sh
 fi
 
 ##################################################
