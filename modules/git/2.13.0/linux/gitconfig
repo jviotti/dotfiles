@@ -24,7 +24,6 @@
 	sync = "!f() { git fetch $1 && git checkout master && git merge $1/master; }; f"
 	push-track = push -u origin
 	track-master = "!f() { git fetch && git branch --set-upstream-to=origin/master master; }; f"
-	ci = commit -v --signoff
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	publish = "!f() { git push-track && hub pull-request; }; f"
 	amend-with-files = commit --amend -C HEAD

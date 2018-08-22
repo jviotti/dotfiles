@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+set -u
+
+REMOTE="$(git remote get-url origin)"
+if [[ $REMOTE =~ "resin-io" ]]
+then
+  echo "Using resin email..."
+  git config user.email "juan@resin.io"
+fi
+
+git commit -v --signoff $*
