@@ -19,6 +19,12 @@ reply-hook '~C ^juan@resin\.io$' set from = "juan@resin.io"
 reply-hook '~C ^juancruz\.viotti@kellogg\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 
+# Don't CC these addresses when replying to all
+set metoo = no
+alternates juan@resin.io
+alternates juancruz.viotti@jellogg.ox.ac.uk
+alternates kell4769@nexus.ox.ac.uk
+
 # Pass `from` to `sendmail` using the `-f` option msmtp
 # will select the right account based on this option,
 # which is useful when configuring multiple acocunts
