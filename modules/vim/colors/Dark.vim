@@ -402,6 +402,7 @@ call Highlight("typescriptLogicSymbols", s:gui_foreground, s:cterm_foreground, "
 call Highlight("typescriptNull", s:gui_orange, s:cterm_orange, "", "", "")
 call Highlight("typescriptInterpolationDelimiter", s:gui_orange, s:cterm_orange, "", "", "")
 call Highlight("typescriptExceptions", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("typescriptStorageClass", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptLabel", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptFuncKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
