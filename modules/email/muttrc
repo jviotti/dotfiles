@@ -213,6 +213,12 @@ set markers = no
 # Press Ctrl+B to open an interactive menu with all the URLs
 # from a message. `urlview` will open them in the default
 # OS web browser.
+
+# This option makes mutt decode the e-mail before piping it 
+# to `urlview`, so we don't send a plain multipart messages 
+# that really confuses the program.
+set pipe_decode = yes
+
 macro index \cb |urlview\n
 macro pager \cb |urlview\n
 
