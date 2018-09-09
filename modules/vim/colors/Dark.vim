@@ -284,6 +284,8 @@ call Highlight("csUnspecifiedStatement", s:gui_purple, s:cterm_purple, "", "", "
 call Highlight("csNew", s:gui_blue, s:cterm_blue, "", "", "")
 call Highlight("csLinq", s:gui_blue, s:cterm_blue, "", "", "")
 call Highlight("csNewType", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("csConditional", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("csLogicSymbols", s:gui_blue, s:cterm_blue, "", "", "")
 
 " Ada Highlighting
 call Highlight("adaBegin", s:gui_purple, s:cterm_purple, "", "", "")
