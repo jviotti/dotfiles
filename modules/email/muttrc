@@ -22,7 +22,7 @@ reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg
 # Don't CC these addresses when replying to all
 set metoo = no
 alternates juan@resin.io
-alternates juancruz.viotti@jellogg.ox.ac.uk
+alternates juancruz.viotti@kellogg.ox.ac.uk
 alternates kell4769@nexus.ox.ac.uk
 
 # Pass `from` to `sendmail` using the `-f` option msmtp
