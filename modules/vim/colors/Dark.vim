@@ -221,6 +221,7 @@ call Highlight("javaScriptBrowserObjects", s:gui_foreground, s:cterm_foreground,
 call Highlight("javaScriptEventListenerKeywords", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("javaScriptWebAPI", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("javaScriptFuncKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaScriptFuncdef", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("javaScriptExceptions", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptTemplateDelim", s:gui_orange, s:cterm_orange, "", "", "")
 
