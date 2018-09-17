@@ -178,6 +178,17 @@ call Highlight("pythonPreCondit", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("pythonRepeat", s:gui_aqua, s:cterm_aqua, "", "", "")
 call Highlight("pythonExClass", s:gui_orange, s:cterm_orange, "", "", "")
 
+" Java Highlighting
+call Highlight("javaCommentTitle", s:gui_comment, s:cterm_comment, "", "", "")
+call Highlight("javaScopeDecl", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaStorageClass", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaExternal", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaConditional", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaTypedef", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("javaAnnotation", s:gui_blue, s:cterm_blue, "", "", "")
+call Highlight("javaType", s:gui_purple, s:cterm_purple, "", "", "")
+
 " JavaScript Highlighting
 call Highlight("javaScriptBraces", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("javaScriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
