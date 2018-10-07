@@ -66,6 +66,8 @@ export EDITOR=vim
 
 export GPG_TTY=$(tty)
 export GPGKEY="EEA898DE0D47725CA98755A491B08B2CBA5EAB1A"
+export GPGKEY_ENCRYPT="$GPGKEY"
+export GPGKEY_SIGN="D01B10083038B3E8"
 
 ##################################################
 # XQuartz
