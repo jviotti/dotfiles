@@ -7,7 +7,7 @@ REMOTE="$(git remote get-url origin)"
 if [[ $REMOTE =~ "resin-io" ]]
 then
   echo "Using resin email..."
-  git config user.email "juan@resin.io"
+  git config user.email "juan@balena.io"
 fi
 
 git commit -v --signoff $*
