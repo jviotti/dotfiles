@@ -424,8 +424,8 @@ call Highlight("typescriptStatement", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
 " Erlang highlighting
-call Highlight("erlangLocalFuncCall", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("erlangLocalFuncRef", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("erlangLocalFuncCall", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("erlangLocalFuncRef", s:gui_red, s:cterm_red, "", "", "")
 call Highlight("erlangBIF", s:gui_aqua, s:cterm_aqua, "", "", "")
 call Highlight("erlangKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("erlangGlobalFuncCall", s:gui_aqua, s:cterm_aqua, "", "", "")
@@ -437,8 +437,21 @@ call Highlight("erlangRecord", s:gui_yellow, s:cterm_yellow, "", "", "")
 call Highlight("erlangMacro", s:gui_aqua, s:cterm_aqua, "", "", "")
 call Highlight("erlangAtom", s:gui_red, s:cterm_red, "", "", "")
 
+" Dafny
+call Highlight("dafnyFunction", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyMethod", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyConditional", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyRepeat", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dafnyLogic", s:gui_red, s:cterm_red, "", "", "")
+
 " ProtoBuffers
 call Highlight("protoRepeat", s:gui_purple, s:cterm_purple, "", "", "")
+
+" DTrace
+call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")
 
 if !has("gui_running")
   highlight Normal ctermbg=NONE
