@@ -15,7 +15,8 @@ set use_from = yes
 reply-hook '~C .*' set from = $my_default_from
 
 # Use certain addresses depending on the receiver
-reply-hook '~C ^juan@resin\.io$' set from = "juan@resin.io"
+reply-hook '~C ^juan@resin\.io$' set from = "juan@balena.io"
+reply-hook '~C ^juan@balena\.io$' set from = "juan@balena.io"
 reply-hook '~C ^juancruz\.viotti@kellogg\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 
@@ -23,6 +24,7 @@ reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg
 set metoo = no
 alternates jv@jviotti.com
 alternates juan@resin.io
+alternates juan@balena.io
 alternates juancruz.viotti@kellogg.ox.ac.uk
 alternates kell4769@nexus.ox.ac.uk
 
@@ -215,8 +217,8 @@ set markers = no
 # from a message. `urlview` will open them in the default
 # OS web browser.
 
-# This option makes mutt decode the e-mail before piping it 
-# to `urlview`, so we don't send a plain multipart messages 
+# This option makes mutt decode the e-mail before piping it
+# to `urlview`, so we don't send a plain multipart messages
 # that really confuses the program.
 set pipe_decode = yes
 
