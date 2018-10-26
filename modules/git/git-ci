@@ -4,7 +4,7 @@ set -e
 set -u
 
 REMOTE="$(git remote get-url origin)"
-if [[ $REMOTE =~ "resin-io" ]]
+if [[ $REMOTE =~ "resin" ]]
 then
   echo "Using resin email..."
   git config user.email "juan@balena.io"
