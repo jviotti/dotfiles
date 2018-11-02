@@ -86,10 +86,10 @@ DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES" -c CONFIG"
 
 if [ -n "$ARGV_MODULE" ]; then
   DOTF_OPTIONS="$DOTF_OPTIONS -m $ARGV_MODULE"
-  ./deps/dotf/dotf $DOTF_OPTIONS
+  ./deps/dotf/dotf.sh $DOTF_OPTIONS
 else
   for module in modules/*; do
-    ./deps/dotf/dotf $DOTF_OPTIONS -m "$(basename "$module")"
+    ./deps/dotf/dotf.sh $DOTF_OPTIONS -m "$(basename "$module")"
   done
 fi
 
