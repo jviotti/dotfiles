@@ -1,1 +1,2 @@
 SYMLINK config .irssi/config
+SYMLINK default.theme .irssi/default.theme

@@ -241,9 +241,17 @@ settings = {
     nick = "jviotti";
   };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { hilight_nick_matches_everywhere = "yes"; };
+  "fe-common/core" = {
+    hilight_nick_matches_everywhere = "yes";
+    completion_auto = "yes";
+    completion_keep_privates = "10";
+    theme = "default";
+    tls_verbose_connect = "yes";
+  };
+  "irc/core" = { skip_motd = "yes"; };
 };
 hilights = (
   { text = "jviotti"; nick = "yes"; word = "yes"; },
   { text = "nick"; nick = "yes"; word = "yes"; }
 );
+ignores = ( { level = "JOINS PARTS QUITS"; network = "Freenode"; } );
