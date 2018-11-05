@@ -194,7 +194,7 @@ setopt SHARE_HISTORY
 DIRSTACKFILE="$HOME/.zshdirs"
 
 if [[ -f $DIRSTACKFILE  ]] && [[ $#dirstack -eq 0  ]]; then
-  dirstack=( ${(f)"$(< $DIRSTACKFILE)"}  )
+  dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
 fi
 
 chpwd() {
