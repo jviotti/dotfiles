@@ -54,6 +54,11 @@ Plug 'editorconfig/editorconfig-vim'
 " -- VimTmuxNavigator
 Plug 'christoomey/vim-tmux-navigator'
 
+" -- CtrlP
+Plug 'ctrlpvim/ctrlp.vim'
+" Ignore files ignored by git
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
 " Language Specific Syntax
 Plug 'elzr/vim-json'
 Plug 'rust-lang/rust.vim'
@@ -258,9 +263,9 @@ command! MarksToggle set list!
 
 function! SetFont(size)
   if has("gui_macvim")
-    execute ':set guifont=Monaco:h' . a:size 
+    execute ':set guifont=Monaco:h' . a:size
   elseif has("gui_gtk2")
-    execute ':set guifont=Ubuntu\ Mono\ ' . a:size 
+    execute ':set guifont=Ubuntu\ Mono\ ' . a:size
   elseif has("gui_win32")
 
     " Font displays larger than usual on Windows
@@ -521,7 +526,7 @@ noremap agq ggvGgq
 
 augroup autowrap
   autocmd!
-  
+
   " Auto-wrap at 72 in Mutt mail
   autocmd FileType mail setlocal textwidth=72
   autocmd FileType mail setlocal wrap
