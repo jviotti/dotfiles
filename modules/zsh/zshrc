@@ -310,21 +310,11 @@ export PASSWORD_STORE_DIR="$HOME/SpiderOak Hive/Pass"
 # Apply parameter expansion each time prompt is displayed
 setopt prompt_subst
 
-# Checks if working tree is dirty
-parse_git_dirty() {
-  local STATUS=''
-  STATUS=$(command git status --porcelain 2> /dev/null | tail -n1)
-
-  if [[ -n $STATUS ]]; then
-    echo "*"
-  fi
-}
-
 # Get the name of the branch we're on
 git_prompt_info() {
   ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
   ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-  echo "${ref#refs/heads/}$(parse_git_dirty) "
+  echo "${ref#refs/heads/} "
 }
 
 _git_prompt() {
