@@ -211,6 +211,10 @@ alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
 alias t="task.sh"
 
+# Diff using git from outside of a git repo
+# See https://stackoverflow.com/questions/16683121/git-diff-between-two-different-files
+alias gdiff="git diff --no-index"
+
 if which ack-grep >/dev/null; then
   alias ack="ack-grep"
 fi
