@@ -16,7 +16,7 @@ endif
 
 argument_file = arguments{1, 1};
 option_output = "output.svg";
-option_title = "Example";
+option_title = "";
 
 for index = 2:length(arguments)
   argument = arguments{index, 1};
