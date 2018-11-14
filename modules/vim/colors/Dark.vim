@@ -449,6 +449,9 @@ call Highlight("dafnyLogic", s:gui_red, s:cterm_red, "", "", "")
 " ProtoBuffers
 call Highlight("protoRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
+" OpenCL
+call Highlight("clType", s:gui_yellow, s:cterm_yellow, "", "", "")
+
 " DTrace
 call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")

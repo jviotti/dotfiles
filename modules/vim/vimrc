@@ -67,6 +67,7 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'jvirtanen/vim-octave'
 Plug 'mlr-msft/vim-loves-dafny'
+Plug 'petRUShka/vim-opencl'
 Plug 'jvoorhis/coq.vim'
 Plug 'kchmck/vim-coffee-script'
 let coffee_compile_vert = 1
