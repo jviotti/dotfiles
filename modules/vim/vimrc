@@ -727,6 +727,9 @@ iabbrev rigth right
 iabbrev unsuscribe unsubscribe
 iabbrev dictionaty dictionary
 iabbrev gatter gather
+iabbrev contetxt context
+iabbrev congext context
+iabbrev conext context
 
 "=========================================================================
 " $GIT
