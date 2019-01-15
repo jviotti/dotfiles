@@ -153,10 +153,12 @@ set wildignore+=.DS_Store
 
 " Map jk to <Esc> in insert mode
 inoremap jk <Esc>
+vnoremap jk <Esc>
 inoremap <Esc> <nop>
 
 " Map Jk as well as I always make the same mistake
 inoremap Jk <Esc>
+vnoremap Jk <Esc>
 
 " Map Leader key
 let mapleader = "\\"
