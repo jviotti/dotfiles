@@ -1,1 +1,2 @@
 settings set prompt "(lldb) "
+settings set target.x86-disassembly-flavor intel
