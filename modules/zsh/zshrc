@@ -223,6 +223,8 @@ fi
 # Git
 ##################################################
 
+alias pr="git push-track && hub pull-request"
+
 # To mitigate typos :)
 alias gti="git"
 alias got="git"
