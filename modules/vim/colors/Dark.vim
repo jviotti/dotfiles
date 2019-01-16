@@ -452,6 +452,13 @@ call Highlight("protoRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 " OpenCL
 call Highlight("clType", s:gui_yellow, s:cterm_yellow, "", "", "")
 
+" NuSMV
+call Highlight("nusmvSectionKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("nusmvModuleKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("nusmvOperator", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("nusmvControlKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("nusmvVariable", s:gui_foreground, s:cterm_foreground, "", "", "")
+
 " DTrace
 call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")
