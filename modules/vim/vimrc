@@ -363,6 +363,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Infinite undo
+set undofile
+set undodir=~/.vimundo
+
 "=========================================================================
 " $TABLINE
 "=========================================================================

@@ -1,3 +1,4 @@
+DIRECTORY .vimundo
 SYMLINK vimrc .vimrc
 SYMLINK gvimrc .gvimrc
 SYMLINK colors .vim/colors
