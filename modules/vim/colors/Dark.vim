@@ -126,6 +126,7 @@ call Highlight("Operator", s:gui_aqua, s:cterm_aqua, "", "", "none")
 call Highlight("Type", s:gui_blue, s:cterm_blue, "", "", "none")
 call Highlight("Define", s:gui_purple, s:cterm_purple, "", "", "none")
 call Highlight("Include", s:gui_blue, s:cterm_blue, "", "", "")
+call Highlight("Quote", s:gui_green, s:cterm_green, "", "", "")
 
 " Vim Highlighting
 call Highlight("vimCommand", s:gui_red, s:cterm_red, "", "", "none")
@@ -458,6 +459,11 @@ call Highlight("nusmvModuleKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("nusmvOperator", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("nusmvControlKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("nusmvVariable", s:gui_foreground, s:cterm_foreground, "", "", "")
+
+" SQL
+call Highlight("sqlStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("sqlKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("sqlType", s:gui_foreground, s:cterm_foreground, "", "", "")
 
 " DTrace
 call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
