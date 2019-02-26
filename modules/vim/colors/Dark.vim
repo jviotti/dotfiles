@@ -462,6 +462,7 @@ call Highlight("nusmvVariable", s:gui_foreground, s:cterm_foreground, "", "", ""
 
 " SQL
 call Highlight("sqlStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("sqlSpecial", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("sqlKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("sqlType", s:gui_foreground, s:cterm_foreground, "", "", "")
 
