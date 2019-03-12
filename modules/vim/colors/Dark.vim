@@ -470,6 +470,11 @@ call Highlight("sqlType", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")
 
+" CSP
+call Highlight("cspType", s:gui_red, s:cterm_red, "", "", "")
+call Highlight("cspKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("cspOperator", s:gui_aqua, s:cterm_aqua, "", "", "")
+
 if !has("gui_running")
   highlight Normal ctermbg=NONE
   highlight SignColumn ctermbg=NONE
