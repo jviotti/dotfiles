@@ -473,6 +473,7 @@ call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")
 " CSP
 call Highlight("cspType", s:gui_red, s:cterm_red, "", "", "")
 call Highlight("cspKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("cspConditional", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cspOperator", s:gui_aqua, s:cterm_aqua, "", "", "")
 
 if !has("gui_running")
