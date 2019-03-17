@@ -272,8 +272,8 @@ fi
 
 # Prefer clang
 if hash clang 2>/dev/null; then
-  CC=clang
-  CXX=clang++
+  export CC=clang
+  export CXX=clang++
 fi
 
 ##################################################
