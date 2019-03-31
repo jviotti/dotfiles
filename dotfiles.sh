@@ -35,7 +35,7 @@ template () (
   version="$*"
 
   for version in $version; do
-    for os in darwin linux; do
+    for os in darwin linux openbsd; do
       path="$module/$version/$os"
       echo "Generating $path"
       mkdir -p "$path"
