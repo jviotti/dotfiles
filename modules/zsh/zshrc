@@ -334,5 +334,5 @@ _code_prompt() {
 }
 
 PROMPT='
-$(_code_prompt) $(_git_prompt)$fg[blue]%3~$reset_color
+$(_code_prompt) $(_git_prompt)$fg[yellow][$(uname)] $fg[blue]%3~$reset_color
 $ '
