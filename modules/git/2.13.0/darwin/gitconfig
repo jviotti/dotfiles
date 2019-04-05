@@ -7,6 +7,11 @@
 	name = Juan Cruz Viotti
 	email = jv@jviotti.com
 	signingkey = D01B10083038B3E8
+[sendemail]
+	smtpServer = smtp.mailfence.com
+	smtpUser = jviotti
+	smtpEncryption = ssl
+	smtpServerPort = 465
 [color]
 	ui = true
 [push]
