@@ -160,6 +160,8 @@ vnoremap <Esc> <nop>
 
 " Map Jk as well as I always make the same mistake
 inoremap Jk <Esc>
+" And kj
+inoremap kj <Esc>
 
 " Map Leader key
 let mapleader = "\\"
