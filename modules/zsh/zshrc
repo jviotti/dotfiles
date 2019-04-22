@@ -227,6 +227,7 @@ alias pr="git push-track && hub pull-request"
 
 # To mitigate typos :)
 alias gti="git"
+alias ggit="git"
 alias got="git"
 
 # This is a tricky way to define git aliases so
@@ -238,8 +239,10 @@ alias __git-checkout_main=_git_checkout
 compdef _git gc=git-checkout
 
 alias gt="git status"
+alias tg="git status"
 alias __git-status_main=_git_status
 compdef _git gt=git-status
+compdef _git tg=git-status
 
 alias gb="git branch"
 alias __git-branch_main=_git_branch
