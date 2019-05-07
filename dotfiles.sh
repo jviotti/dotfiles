@@ -65,7 +65,7 @@ if [ "$ARGV_COMMAND" = "build" ]; then
   fi
 
   if [ "$ARGV_MODULE" = "tmux" ]; then
-    template "$DIRECTORY_MODULES/$ARGV_MODULE" "tmux.conf" "1.8" "2.4"
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "tmux.conf" "1.8" "2.4" "2.9"
     exit 0
   fi
 
