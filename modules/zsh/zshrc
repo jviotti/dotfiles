@@ -42,9 +42,25 @@ PATHS_FILE=$HOME/.paths
 if [ -f $PATHS_FILE ]; then
   while read directory; do
     if [[ $PATH != *"$directory"* ]]; then
+      # Prepend
       export PATH="$directory:$PATH"
     fi
   done < $PATHS_FILE
+fi
+
+# Directories to jump to with "cd"
+# See https://zwischenzugs.com/2019/05/11/seven-surprising-bash-variables/
+export CDPATH="."
+
+# Import paths from a local file
+DIRS_FILE=$HOME/.hotdirs
+if [ -f $DIRS_FILE ]; then
+  while read directory; do
+    if [[ $PATH != *"$directory"* ]]; then
+      # Append
+      export CDPATH="$CDPATH:$directory"
+    fi
+  done < $DIRS_FILE
 fi
 
 ##################################################
