@@ -8,4 +8,4 @@ if [ "$#" -ne 1 ]; then
   stdsh_fail "Usage: $0 <file>"
 fi
 
-tar cvJf "$1.tar.xz" "$1"
+tar cvf - "$1" | xz -9e -c - > "$1.tar.xz"
