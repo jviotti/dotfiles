@@ -55,12 +55,21 @@ Configuration
 
 ### `$PATH`
 
-Add machine independent custom paths to a file called `$HOME/.paths`. For
+Add machine dependent custom paths to a file called `$HOME/.paths`. For
 example:
 
 ```sh
 /opt/depot_tools
 /opt/gnat/bin
+```
+
+### `$CDPATH`
+
+Add machine dependent custom paths to append to `$CDPATH` in a file called
+`$HOME/.hotdirs`. For example:
+
+```sh
+/home/jviotti/projects
 ```
 
 ### Private environment variables
