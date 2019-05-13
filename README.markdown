@@ -8,6 +8,7 @@ Supported Platforms
 
 - macOS
 - GNU/Linux
+- OpenBSD
 
 Pre-requisites
 --------------
