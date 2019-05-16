@@ -1,1 +1,1 @@
-SYMLINK backup.sh bin/backup.sh
+SYMLINK sync.sh bin/sync.sh
