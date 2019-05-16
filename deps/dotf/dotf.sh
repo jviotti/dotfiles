@@ -99,7 +99,7 @@ dotf__fs_chmod () (
 dotf__utils_get_absolute_path () (
   path="$1"
   current="$(pwd -P)"
-  cd "$(dirname "$path")"
+  cd ./"$(dirname "$path")"
   absolute="$(pwd -P)"
   cd "$current"
   echo "$absolute/$(basename "$path")"
