@@ -223,6 +223,7 @@ DIRSTACKSIZE=20
 # Aliases
 ##################################################
 
+alias youtube="mpsyt"
 alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
 alias t="task.sh"
