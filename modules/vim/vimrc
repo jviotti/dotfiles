@@ -158,6 +158,13 @@ vnoremap C-c <Esc>
 inoremap <Esc> <nop>
 vnoremap <Esc> <nop>
 
+" Map Ctrl-C to Escape in insert mode
+" as otherwise exiting insert mode with
+" Ctrl-C doesn't trigger the `InsertLeave`
+" event that updates the status bar color.
+" See https://stackoverflow.com/q/10757020
+inoremap <C-c> <ESC>
+
 " Map Jk as well as I always make the same mistake
 inoremap Jk <Esc>
 " And kj
