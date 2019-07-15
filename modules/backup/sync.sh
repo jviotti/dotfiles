@@ -2,36 +2,22 @@
 
 set -e
 COMMAND="$1"
+ARGV_LOCAL_DIRECTORY="$2"
 ENCRYPT_KEY="$GPGKEY_ENCRYPT"
 SIGN_KEY="$GPGKEY_SIGN"
+
+if [ -z "$DPBX_ACCESS_TOKEN" ]; then
+  echo "Please set DPBX_ACCESS_TOKEN" >&2
+  exit 1
+fi
 set -u
 
 function usage() {
-  echo "Usage: $0 <command> <options>" >&2
-  echo "" >&2
-  echo "Options" >&2
-  echo "" >&2
-  echo "    -l <local directory>" >&2
+  echo "Usage: $0 <command> <directory>" >&2
   exit 1
 }
 
-if [ -z "$COMMAND" ]
-then
-  usage
-fi
-
-ARGV_LOCAL_DIRECTORY=""
-
-shift
-
-while getopts ":l:" option; do
-  case $option in
-    l) ARGV_LOCAL_DIRECTORY=$OPTARG ;;
-    *) usage ;;
-  esac
-done
-
-if [ -z "$ARGV_LOCAL_DIRECTORY" ]
+if [ -z "$COMMAND" ] || [ -z "$ARGV_LOCAL_DIRECTORY" ]
 then
   usage
 fi
