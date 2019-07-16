@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 noremap <C-z> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
-let NERDTreeIgnore=['.DS_Store', '.git', '*.o', '*.beam', 'npm-debug.log*']
+let NERDTreeIgnore=['.DS_Store', '.git', '*.o', '*.beam', 'npm-debug.log*', '*.pyc']
 let NERDTreeAutoDeleteBuffer=1
 
 function! NERDTreeCloseIfLastWindow()
