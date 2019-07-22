@@ -59,6 +59,11 @@ if [ "$ARGV_COMMAND" = "build" ]; then
     usage
   fi
 
+  if [ "$ARGV_MODULE" = "email" ]; then
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "offlineimaprc" "current"
+    exit 0
+  fi
+
   if [ "$ARGV_MODULE" = "git" ]; then
     template "$DIRECTORY_MODULES/$ARGV_MODULE" "gitconfig" "2.13.0"
     exit 0

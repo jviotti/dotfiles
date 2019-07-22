@@ -17,7 +17,7 @@ filename = ~/.mutt/mailboxes
 header = "mailboxes "
 peritem = "+%(accountname)s/%(foldername)s"
 sep = " "
-footer = "\n"
+footer = "n"
 
 [Account mailfence]
 localrepository = mailfence-local
@@ -32,11 +32,7 @@ type = IMAP
 remotehost = imap.mailfence.com
 remoteuser = jv@jviotti.com
 remotepasseval = get_pass("personal/mailfence.com")
-%%ifeq OS openbsd
-sslcacertfile = /etc/ssl/cert.pem
-%%else
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-%%endif
 
 [Account resin]
 localrepository = resin-local
@@ -52,8 +48,4 @@ remotehost = imap.gmail.com
 remoteusereval = get_user("work/resin/gmail.com")
 remotepasseval = get_pass("work/resin/gmail.com")
 folderfilter = lambda foldername: foldername not in ['[Gmail]/Starred', '[Gmail]/Important', '[Gmail]/All Mail', '[Gmail]Trash', '[Gmail]/Drafts', '[Gmail]/Sent Mail', 'Notes']
-%%ifeq OS openbsd
-sslcacertfile = /etc/ssl/cert.pem
-%%else
 sslcacertfile = /usr/local/etc/openssl/cert.pem
-%%endif
