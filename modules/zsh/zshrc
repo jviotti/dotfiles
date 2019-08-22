@@ -228,6 +228,11 @@ alias reload="source $HOME/.zshrc"
 alias ll="ls -l"
 alias t="task.sh"
 
+# To mitigate typos. This makes it possible
+# for the shell to understand i.e. "gitp ush" given
+# "ush" is also an alias for "push"
+alias gitp="git"
+
 # Diff using git from outside of a git repo
 # See https://stackoverflow.com/questions/16683121/git-diff-between-two-different-files
 alias gdiff="git diff --no-index"

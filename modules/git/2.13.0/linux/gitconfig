@@ -18,6 +18,8 @@
 	default = current
 	followtags = true
 [alias]
+	ush = push
+	ull = pull
 	merge = merge --no-ff
 	undo-commit = reset --soft HEAD^
 	delete-remote-branch = "!f() { git push origin :$1; }; f"
