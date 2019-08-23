@@ -139,6 +139,11 @@ call Highlight("cLabel", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cStatement", s:gui_purple, s:cterm_purple, "", "", "")
 
+" Shell Highlighting
+call Highlight("shLoop", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("shConditional", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("shSet", s:gui_aqua, s:cterm_aqua, "", "", "")
+
 " ZSH Highlighting
 call Highlight("zshKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("zshConditional", s:gui_purple, s:cterm_purple, "", "", "")
