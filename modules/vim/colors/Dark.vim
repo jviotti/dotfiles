@@ -406,6 +406,7 @@ call Highlight("hsConditional", s:gui_purple, s:cterm_purple, "", "", "")
 
 " C++ highlighting
 call Highlight("cppStatement", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("cppExceptions", s:gui_purple, s:cterm_purple, "", "", "")
 
 " Rust highlighting
 call Highlight("rustKeyword", s:gui_purple, s:cterm_purple, "", "", "")
