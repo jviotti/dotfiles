@@ -49,3 +49,5 @@ remoteusereval = get_user("work/resin/gmail.com")
 remotepasseval = get_pass("work/resin/gmail.com")
 folderfilter = lambda foldername: foldername not in ['[Gmail]/Starred', '[Gmail]/Important', '[Gmail]/All Mail', '[Gmail]Trash', '[Gmail]/Drafts', '[Gmail]/Sent Mail', 'Notes']
 sslcacertfile = /usr/local/etc/openssl/cert.pem
+ssl_version = tls1_2
+ssl = yes
