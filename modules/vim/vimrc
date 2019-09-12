@@ -755,6 +755,9 @@ nnoremap <Leader>ss :!git add .<cr><cr>
 " $SYNTAX
 "=========================================================================
 
+" Google Scripts files are pretty much JavaScript
+autocmd BufNewFile,BufRead *.gs set syntax=javascript
+
 " Diff colours
 highlight DiffAdd ctermbg=34 ctermfg=15 guibg=#00af00 guifg=#ffffff
 highlight DiffDelete ctermbg=1 ctermfg=15 guibg=#800000 guifg=#ffffff
