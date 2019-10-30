@@ -8,10 +8,9 @@
 	email = jv@jviotti.com
 	signingkey = D01B10083038B3E8
 [sendemail]
-	smtpServer = smtp.mailfence.com
-	smtpUser = jviotti
-	smtpEncryption = ssl
-	smtpServerPort = 465
+	smtpserver = /usr/local/bin/msmtp
+	smtpserveroption=--account
+	smtpserveroption=mailfence
 [color]
 	ui = true
 [push]
