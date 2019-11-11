@@ -11,6 +11,8 @@
 	smtpserver = /usr/local/bin/msmtp
 	smtpserveroption=--account
 	smtpserveroption=mailfence
+	suppresscc = self
+	annotate = yes
 [color]
 	ui = true
 [push]
