@@ -68,6 +68,9 @@ save-hook . '+Mailfence/Archive'
 # Disable beeps
 set beep = no
 
+# Default to not quote previous message
+set include = ask-no
+
 #######################################################################
 # Status Bar
 #######################################################################
@@ -232,7 +235,7 @@ macro pager \cb |urlview\n
 # Reply to group
 bind pager R group-reply
 
-# Apply patch to the git repo in the current working 
+# Apply patch to the git repo in the current working
 # directory from the list view
 macro index L '| git am --signoff'\n
 
