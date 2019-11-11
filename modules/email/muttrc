@@ -232,6 +232,10 @@ macro pager \cb |urlview\n
 # Reply to group
 bind pager R group-reply
 
+# Apply patch to the git repo in the current working 
+# directory from the list view
+macro index L '| git am --signoff'\n
+
 #######################################################################
 # GPG (from gpg.rc distributed by Homebrew)
 #######################################################################
