@@ -31,6 +31,7 @@ do
   fi
 
 	echo ">>>> Processing: [$COLUMN_NUMBER] - $COLUMN_TITLE"
+  hub ci-status --verbose --format "%S %t %n" | grep -v "^success"
 	hub pr checkout "$COLUMN_NUMBER"
   echo ">>>> Rebasing pull request branch"
 	git rebase master
