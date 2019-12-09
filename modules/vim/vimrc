@@ -141,7 +141,7 @@ set sessionoptions+=unix,slash
 
 " A file that matches with one of these patterns is ignored
 " when expanding wildcards, completing file or directory names,
-" and influences the result of expand(), glob() and globpath()
+" and influences the result of expand(), glob(), globpath(), and netrw
 set wildignore+=*/tmp/*
 set wildignore+=*.so
 set wildignore+=*.swp
@@ -431,6 +431,52 @@ function! TabLine()
 endfunction
 
 set tabline=%!TabLine()
+
+"=========================================================================
+" $NETRW
+"=========================================================================
+
+" Tree style
+let g:netrw_liststyle = 3
+
+" Remove banner
+let g:netrw_banner = 0
+
+" Change from left splitting to right splitting
+let g:netrw_altv = 1
+
+" Open files in the previous window by default
+let g:netrw_browse_split = 4
+
+" Set the pane width to 25 characters
+let g:netrw_winsize = -25
+
+" Hide items from the wildignore list
+let g:netrw_list_hide = &wildignore
+
+" Show directories first
+" https://stackoverflow.com/a/23920240/1641422
+let g:netrw_sort_sequence = '[\/]$,*'
+
+" Key combination to toggle netrw
+noremap <C-e> :Lexplore<cr>
+
+" Setup custom netrw settings
+augroup netrw_settings
+  autocmd!
+  autocmd FileType netrw call NetrwSettings()
+augroup END
+function! NetrwSettings()
+
+  " Unmap unused keybindings
+  noremap <buffer> o <NOP>
+  noremap <buffer> p <NOP>
+  noremap <buffer> s <NOP>
+
+  " netrw overrides some of the navigation keybindings
+  noremap <buffer> <C-l> :TmuxNavigateRight<cr>
+
+endfunction
 
 "=========================================================================
 " $STATUSLINE
