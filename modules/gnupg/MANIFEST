@@ -2,4 +2,5 @@ SYMLINK gpg.conf .gnupg/gpg.conf 700
 SYMLINK gpg-agent.conf .gnupg/gpg-agent.conf
 SYMLINK decrypt.sh bin/decrypt.sh 755
 SYMLINK encrypt.sh bin/encrypt.sh 755
+SYMLINK recipients.sh bin/recipients.sh 755
 SYMLINK gnupg-keypair-export.sh bin/gnupg-keypair-export.sh 755
