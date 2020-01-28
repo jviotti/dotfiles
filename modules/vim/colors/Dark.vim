@@ -199,6 +199,7 @@ call Highlight("javaType", s:gui_purple, s:cterm_purple, "", "", "")
 
 " JavaScript Highlighting
 call Highlight("javaScriptBraces", s:gui_foreground, s:cterm_foreground, "", "", "")
+call Highlight("javaScriptFetchAPIMethods", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("javaScriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptFunction", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptLabel", s:gui_purple, s:cterm_purple, "", "", "")
