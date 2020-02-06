@@ -491,9 +491,3 @@ if !has("gui_running")
   highlight SignColumn ctermbg=NONE
   highlight FoldColumn ctermbg=NONE
 endif
-
-" Diff colours
-highlight DiffAdd ctermbg=34 ctermfg=15 guibg=#00af00 guifg=#ffffff
-highlight DiffDelete ctermbg=1 ctermfg=15 guibg=#800000 guifg=#ffffff
-highlight DiffChange ctermbg=9 ctermfg=15 guibg=#ff0000 guifg=#ffffff
-highlight DiffText ctermbg=32 ctermfg=15 guibg=#0087df guifg=#ffffff
