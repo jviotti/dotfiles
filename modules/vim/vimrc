@@ -294,12 +294,7 @@ call SetFont(13)
 " $THEME
 "=========================================================================
 
-
-if has("gui_running")
-  colorscheme Light
-else
-  colorscheme Dark
-endif
+colorscheme Light
 
 " Enable syntax highlighting
 " Note: Must be **after** set background
