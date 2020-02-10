@@ -103,17 +103,17 @@ color signature  red           default
 color hdrdefault red           default
 
 # UI
-color indicator  black         cyan
-color status     white         black
+color indicator  white         blue
+color status     black         default
 
 # Ribbons
 color message    brightcyan    default
 color error      brightred     default
 
 # Highlight emails with direct mentions
-color index default red ~b@jviotti
-color index default red ~b@juan
-color index default red ~b@juan_cruz_viotti
+color index default yellow ~b@jviotti
+color index default yellow ~b@juan
+color index default yellow ~b@juan_cruz_viotti
 
 #######################################################################
 # Pager
