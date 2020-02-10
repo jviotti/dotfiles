@@ -11,8 +11,6 @@ let s:gui_selection_dark = "d6d6d6"
 let s:cterm_selection_dark = 188
 let s:gui_line = "efefef"
 let s:cterm_line = 254
-let s:gui_current_line = "eeeeee"
-let s:cterm_current_line = 255
 let s:gui_comment = "8e908c"
 let s:cterm_comment = 102
 let s:gui_red = "c82829"
@@ -79,7 +77,7 @@ call Highlight("TabLineFill", s:gui_line, s:cterm_line, s:gui_foreground, s:cter
 call Highlight("TabLineSel", s:gui_highlight, s:cterm_highlight, s:gui_foreground, s:cterm_foreground, "reverse")
 
 " Status line
-call Highlight("StatusLine", s:gui_line, s:cterm_line, s:gui_foreground, s:cterm_foreground, "reverse")
+call Highlight("StatusLine", s:gui_selection_dark, s:cterm_selection_dark, s:gui_foreground, s:cterm_foreground, "reverse")
 call Highlight("StatusLineNC", s:gui_selection_dark, s:cterm_selection_dark, s:gui_foreground, s:cterm_foreground, "reverse")
 call Highlight("StatusLineInfo", s:gui_selection_dark, s:cterm_selection_dark, s:gui_foreground, s:cterm_foreground, "reverse")
 call Highlight("StatusLineError", s:gui_red, s:cterm_red, s:gui_foreground, s:cterm_foreground, "reverse")
@@ -100,8 +98,8 @@ call Highlight("Folded", s:gui_comment, s:cterm_comment, s:gui_background, s:cte
 call Highlight("FoldColumn", "", "", s:gui_background, s:cterm_background, "")
 
 if version >= 700
-  call Highlight("CursorLine", "", "", s:gui_current_line, s:cterm_current_line, "none")
-  call Highlight("CursorColumn", "", "", s:gui_current_line, s:cterm_current_line, "none")
+  call Highlight("CursorLine", "", "", s:gui_line, s:cterm_line, "none")
+  call Highlight("CursorColumn", "", "", s:gui_line, s:cterm_line, "none")
   call Highlight("PMenu", s:gui_foreground, s:cterm_foreground, s:gui_selection, s:cterm_selection, "none")
   call Highlight("PMenuSel", s:gui_foreground, s:cterm_foreground, s:gui_selection, s:cterm_selection, "reverse")
   call Highlight("SignColumn", "", "", s:gui_background, s:cterm_background, "none")
