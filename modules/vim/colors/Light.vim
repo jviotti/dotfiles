@@ -86,7 +86,7 @@ call Highlight("StatusLineHighlightNormal", s:gui_highlight, s:cterm_highlight, 
 call Highlight("StatusLineHighlightInsert", s:gui_insert, s:cterm_insert, s:gui_background, s:cterm_background, "reverse")
 call Highlight("StatusLineHighlightReplace", s:gui_replace, s:cterm_replace, s:gui_background, s:cterm_background, "reverse")
 
-call Highlight("VertSplit", s:gui_window, s:cterm_window, s:gui_window, s:cterm_window, "none")
+call Highlight("VertSplit", s:gui_selection_dark, s:cterm_selection_dark, s:gui_window, s:cterm_window, "none")
 call Highlight("Visual", "", "", s:gui_selection, s:cterm_selection, "")
 call Highlight("Directory", s:gui_blue, s:cterm_blue, "", "", "")
 call Highlight("ModeMsg", s:gui_green, s:cterm_green, "", "", "")
