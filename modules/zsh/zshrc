@@ -81,15 +81,14 @@ export EDITOR=vim
 ##################################################
 
 export GPG_TTY=$(tty)
-export GPGKEY="EEA898DE0D47725CA98755A491B08B2CBA5EAB1A"
 
 # Its important to set this to the master key,
 # as otherwise we might be encrypting things
 # specifically for a subkey that might no longer
 # be available, and then not even the master key
 # will be able to decrypt it.
-export GPGKEY_ENCRYPT="$GPGKEY"
-export GPGKEY_SIGN="$GPGKEY"
+export GPGKEY_ENCRYPT="0x91B08B2CBA5EAB1A"
+export GPGKEY_SIGN="$GPGKEY_ENCRYPT"
 
 ##################################################
 # XQuartz

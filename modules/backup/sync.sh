@@ -38,7 +38,9 @@ duplicity \
   cleanup \
   --progress \
   --use-agent \
-  --encrypt-key "$ENCRYPT_KEY" \
+  --encrypt-key "0xBC5EB4A7A76C6BD3!" \
+  --encrypt-key "0x3325A768B99243CA!" \
+  --encrypt-key "0x37505437EA6B4630!" \
   --sign-key "$SIGN_KEY" \
   --force \
   "$REMOTE_DIRECTORY"
@@ -50,14 +52,18 @@ if [ "$COMMAND" = "push" ]; then
     --use-agent \
     --full-if-older-than 1M \
     --allow-source-mismatch \
-    --encrypt-key "$ENCRYPT_KEY" \
+    --encrypt-key "0xBC5EB4A7A76C6BD3!" \
+    --encrypt-key "0x3325A768B99243CA!" \
+    --encrypt-key "0x37505437EA6B4630!" \
     --sign-key "$SIGN_KEY" \
     "$ARGV_LOCAL_DIRECTORY" \
     "$REMOTE_DIRECTORY"
   duplicity \
     remove-all-but-n-full 2 \
     --use-agent \
-    --encrypt-key "$ENCRYPT_KEY" \
+    --encrypt-key "0xBC5EB4A7A76C6BD3!" \
+    --encrypt-key "0x3325A768B99243CA!" \
+    --encrypt-key "0x37505437EA6B4630!" \
     --sign-key "$SIGN_KEY" \
     "$REMOTE_DIRECTORY"
 elif [ "$COMMAND" = "pull" ]; then
