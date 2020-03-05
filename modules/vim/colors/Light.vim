@@ -66,6 +66,7 @@ call Highlight("Normal", s:gui_foreground, s:cterm_foreground, s:gui_background,
 call Highlight("NonText", s:gui_selection, s:cterm_selection, "", "", "")
 call Highlight("SpecialKey", s:gui_selection, s:cterm_selection, "", "", "")
 call Highlight("Search", s:gui_background, s:cterm_background, s:gui_yellow, s:cterm_yellow, "")
+call Highlight("ErrorMsg", s:gui_red, s:cterm_red, s:gui_background, s:cterm_background, "reverse")
 
 " Line number
 call Highlight("LineNr", s:gui_selection, s:cterm_selection, "", "", "")
