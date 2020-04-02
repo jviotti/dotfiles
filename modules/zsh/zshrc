@@ -6,7 +6,7 @@ export DOTFILES_PRIVATE=$HOME/.private
 
 # Load private environment variables, if any
 if [ -d $DOTFILES_PRIVATE ]; then
-  for file in "$DOTFILES_PRIVATE"/*; do
+  for file in "$DOTFILES_PRIVATE"/*.conf; do
     source $file
   done
 fi
