@@ -58,8 +58,10 @@ if [ "$COMMAND" = "push" ]; then
     --sign-key "$SIGN_KEY" \
     "$ARGV_LOCAL_DIRECTORY" \
     "$REMOTE_DIRECTORY"
+  echo "Attempting to remove old full backups"
   duplicity \
     remove-all-but-n-full 2 \
+    --force \
     --use-agent \
     --encrypt-key "0xBC5EB4A7A76C6BD3!" \
     --encrypt-key "0x3325A768B99243CA!" \
