@@ -27,13 +27,6 @@ Create Both
 Expunge Both
 SyncState *
 
-Channel balena-trash
-Master :balena-remote:"[Gmail]/Trash"
-Slave :balena-local:Trash
-Create Both
-Expunge Both
-SyncState *
-
 Channel balena-spam
 Master :balena-remote:"[Gmail]/Spam"
 Slave :balena-local:Spam
@@ -43,7 +36,6 @@ SyncState *
 
 Group balena
 Channel balena-inbox
-Channel balena-trash
 Channel balena-spam
 
 #################################################
