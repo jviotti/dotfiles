@@ -364,5 +364,5 @@ _code_prompt() {
 }
 
 PROMPT='
-$(_code_prompt) $(_git_prompt)$fg[yellow][$(uname):$(hostname)] $fg[blue]%3~$reset_color
+$fg[blue]$(date +"[%H:%M:%S]") $(_code_prompt) $(_git_prompt)$fg[yellow][$(uname):$(hostname)] $fg[blue]%3~$reset_color
 $ '
