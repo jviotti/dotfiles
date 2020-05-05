@@ -1,3 +1,7 @@
+#################################################
+# Balena GMail 
+#################################################
+
 IMAPAccount balena
 Host imap.gmail.com
 User juan@balena.io
@@ -11,7 +15,8 @@ IMAPStore balena-remote
 Account balena
 
 MaildirStore balena-local
-Path ~/Mail/Balena
+# Trailing / is important
+Path ~/Mail/Balena/
 Inbox ~/Mail/Balena/INBOX
 
 Channel balena-inbox
@@ -24,14 +29,14 @@ SyncState *
 
 Channel balena-trash
 Master :balena-remote:"[Gmail]/Trash"
-Slave :balena-local:"Trash"
+Slave :balena-local:Trash
 Create Both
 Expunge Both
 SyncState *
 
 Channel balena-spam
 Master :balena-remote:"[Gmail]/Spam"
-Slave :balena-local:"Spam"
+Slave :balena-local:Spam
 Create Both
 Expunge Both
 SyncState *
@@ -40,3 +45,33 @@ Group balena
 Channel balena-inbox
 Channel balena-trash
 Channel balena-spam
+
+#################################################
+# Mailfence 
+#################################################
+
+IMAPAccount personal
+Host imap.mailfence.com
+User jv@jviotti.com
+PassCmd +"pass key personal/mailfence.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore personal-remote
+Account personal
+
+MaildirStore personal-local
+Path ~/Mail/Personal/
+Inbox ~/Mail/Personal/INBOX
+
+Channel personal-all
+Master :personal-remote:
+Slave :personal-local:
+Patterns *
+Create Both
+Expunge Both
+SyncState *
+
+Group personal
+Channel personal-all
