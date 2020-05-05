@@ -1,0 +1,42 @@
+IMAPAccount balena
+Host imap.gmail.com
+User juan@balena.io
+PassCmd +"pass key work/resin/gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+SSLVersions SSLv3
+CertificateFile /usr/local/etc/openssl/cert.pem
+
+IMAPStore balena-remote
+Account balena
+
+MaildirStore balena-local
+Path ~/Mail/Balena
+Inbox ~/Mail/Balena/INBOX
+
+Channel balena-inbox
+Master :balena-remote:
+Slave :balena-local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Channel balena-trash
+Master :balena-remote:"[Gmail]/Trash"
+Slave :balena-local:"Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Channel balena-spam
+Master :balena-remote:"[Gmail]/Spam"
+Slave :balena-local:"Spam"
+Create Both
+Expunge Both
+SyncState *
+
+Group balena
+Channel balena-inbox
+Channel balena-trash
+Channel balena-spam
