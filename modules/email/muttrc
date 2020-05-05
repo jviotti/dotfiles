@@ -40,18 +40,18 @@ set folder = "~/Mail"
 source ~/.mutt/mailboxes
 
 # The spoolfile is the folder where our (unfiltered) e-mail arrives.
-set spoolfile = "+Mailfence/INBOX"
+set spoolfile = "+Personal/INBOX"
 
 # The path of the folder where mails marked for
 # deletion will be moved. Requires >v1.7.0.
 # See http://unix.stackexchange.com/a/305044/43448
-set trash = "+Mailfence/Trash"
+set trash = "+Personal/Trash"
 
 # Store sent messages in the corresponding mailbox
-set record = "+Mailfence/Sent\ Items"
+set record = "+Personal/Sent\ Items"
 
 # Specify where to save and/or look for postponed messages.
-set postponed = "+Mailfence/Drafts"
+set postponed = "+Personal/Drafts"
 
 # The default email signature
 set signature = "~/.mutt/signature"
@@ -63,7 +63,7 @@ source $alias_file
 
 # Save emails to "Archive" by default
 # See http://unix.stackexchange.com/a/242073/43448
-save-hook . '+Mailfence/Archive'
+save-hook . '+Personal/Archive'
 
 # Disable beeps
 set beep = no
