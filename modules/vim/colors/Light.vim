@@ -489,6 +489,9 @@ call Highlight("cspOperator", s:gui_aqua, s:cterm_aqua, "", "", "")
 
 " Spell Checking
 call Highlight("SpellBad", s:gui_background, s:cterm_background, s:gui_red, s:cterm_red, "")
+call Highlight("SpellLocal", s:gui_background, s:cterm_background, s:gui_blue, s:cterm_blue, "")
+call Highlight("SpellCap", s:gui_background, s:cterm_background, s:gui_highlight, s:cterm_highlight, "")
+call Highlight("SpellRare", s:gui_background, s:cterm_background, s:gui_purple, s:cterm_purple, "")
 
 if !has("gui_running")
   highlight Normal ctermbg=NONE
