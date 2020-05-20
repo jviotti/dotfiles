@@ -246,7 +246,8 @@ set clipboard=unnamed
 command! SpellCheck setlocal spell spelllang=en_us
 
 " Set the file that stores known words, etc
-set spellfile=~/.vim/spellfile
+" It must end with ".add"
+set spellfile=~/.vim/spellfile.add
 
 "=========================================================================
 " $MOUSE
