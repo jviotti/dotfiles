@@ -242,8 +242,11 @@ set clipboard=unnamed
 " $SPELLCHECK
 "=========================================================================
 
-" Use z= to show alternatives 
+" Use z= to show alternatives
 command! SpellCheck setlocal spell spelllang=en_us
+
+" Set the file that stores known words, etc
+set spellfile=~/.vim/spellfile
 
 "=========================================================================
 " $MOUSE
