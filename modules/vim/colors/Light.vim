@@ -487,6 +487,9 @@ call Highlight("cspKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cspConditional", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cspOperator", s:gui_aqua, s:cterm_aqua, "", "", "")
 
+" Spell Checking
+call Highlight("SpellBad", s:gui_background, s:cterm_background, s:gui_red, s:cterm_red, "")
+
 if !has("gui_running")
   highlight Normal ctermbg=NONE
   highlight SignColumn ctermbg=NONE
