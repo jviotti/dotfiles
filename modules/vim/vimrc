@@ -283,6 +283,16 @@ set listchars=tab:>-,trail:-
 command! MarksToggle set list!
 
 "=========================================================================
+" $LATEX
+"=========================================================================
+
+" Render current file to its current directory
+nnoremap <Leader>p :!pdflatex 
+  \ -halt-on-error 
+  \ -file-line-error 
+  \ -output-directory=%:p:h %<cr>
+
+"=========================================================================
 " $FONT
 "=========================================================================
 
