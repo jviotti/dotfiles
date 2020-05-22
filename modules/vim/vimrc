@@ -244,6 +244,7 @@ set clipboard=unnamed
 
 " Use z= to show alternatives
 command! SpellCheck setlocal spell spelllang=en_us
+command! NoSpellCheck setlocal nospell
 
 " Set the file that stores known words, etc
 " It must end with ".add"
