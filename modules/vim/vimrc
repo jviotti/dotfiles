@@ -288,10 +288,14 @@ command! MarksToggle set list!
 "=========================================================================
 
 " Render current file to its current directory
-nnoremap <Leader>p :!pdflatex 
-  \ -halt-on-error 
-  \ -file-line-error 
-  \ -output-directory=%:p:h %<cr>
+nnoremap <Leader>p <NOP>
+augroup latex
+  autocmd! latex
+  autocmd Filetype tex nnoremap <buffer> <Leader>p :!pdflatex 
+    \ -halt-on-error 
+    \ -file-line-error 
+    \ -output-directory=%:p:h %<cr><cr>
+augroup END
 
 "=========================================================================
 " $FONT
