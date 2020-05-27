@@ -115,6 +115,9 @@ color index default yellow ~b@jviotti
 color index default yellow ~b@juan
 color index default yellow ~b@juan_cruz_viotti
 
+# Highlight GitHub emails
+color index default green ~fgithub.com
+
 #######################################################################
 # Pager
 #######################################################################
