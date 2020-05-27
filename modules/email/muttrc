@@ -110,13 +110,13 @@ color status     black         default
 color message    brightcyan    default
 color error      brightred     default
 
+# Highlight GitHub emails
+color index default green ~fgithub.com
+
 # Highlight emails with direct mentions
 color index default yellow ~b@jviotti
 color index default yellow ~b@juan
 color index default yellow ~b@juan_cruz_viotti
-
-# Highlight GitHub emails
-color index default green ~fgithub.com
 
 #######################################################################
 # Pager
