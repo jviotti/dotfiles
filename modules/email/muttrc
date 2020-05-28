@@ -111,7 +111,7 @@ color message    brightcyan    default
 color error      brightred     default
 
 # Highlight GitHub emails
-color index default green ~fgithub.com
+color index white green ~fgithub.com
 
 # Highlight emails with direct mentions
 color index default yellow ~b@jviotti
