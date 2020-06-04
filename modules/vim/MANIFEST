@@ -3,3 +3,5 @@ SYMLINK vimrc .vimrc
 SYMLINK gvimrc .gvimrc
 SYMLINK colors .vim/colors
 SYMLINK autoload .vim/autoload
+SYMLINK spellfile.add .vim/spellfile.add
+SYMLINK spellfile.add.spl .vim/spellfile.add.spl
