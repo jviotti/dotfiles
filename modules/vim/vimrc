@@ -304,7 +304,7 @@ augroup latex
   autocmd Filetype tex nnoremap <buffer> <Leader>p :!pdflatex 
     \ -halt-on-error 
     \ -file-line-error 
-    \ -output-directory=%:p:h % <cr><cr>
+    \ -output-directory=%:p:h % <cr>
 augroup END
 
 "=========================================================================
