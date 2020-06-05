@@ -194,6 +194,12 @@ augroup filetype
   autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 augroup END
 
+" Open all folds by default when editing git commits
+augroup filetype
+  autocmd!
+  autocmd Filetype gitcommit set foldlevel=9999
+augroup END
+
 "=========================================================================
 " $MAN
 "=========================================================================
