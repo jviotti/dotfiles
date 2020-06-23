@@ -242,7 +242,7 @@ alias gitp="git"
 # See https://stackoverflow.com/questions/16683121/git-diff-between-two-different-files
 alias gdiff="git diff --no-index"
 
-if which ack-grep >/dev/null; then
+if which ack-grep >/dev/null 2>/dev/null; then
   alias ack="ack-grep"
 fi
 
