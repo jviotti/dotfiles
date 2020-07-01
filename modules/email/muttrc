@@ -166,6 +166,10 @@ set sort = threads
 set sort_browser = date
 set sort_aux = reverse-last-date-received
 
+# Toggle thread collapsing
+bind index <Space> collapse-thread
+bind index _ collapse-all
+
 #######################################################################
 # HTML
 #######################################################################
