@@ -253,8 +253,8 @@ macro index L '| git am --signoff'\n
 # GPG (from gpg.rc distributed by Homebrew)
 #######################################################################
 
-# Sign e-mails automatically
-set crypt_autosign = yes
+# Do not sign e-mails automatically
+set crypt_autosign = no
 
 # Don't prompt for password every single time
 set pgp_use_gpg_agent = yes
