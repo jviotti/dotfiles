@@ -42,7 +42,7 @@ Tools
 ### macOS
 
 ```sh
-brew install ack mutt tmux w3m todo-txt ispell urlview isync openssl msmtp
+brew install ack mutt tmux w3m todo-txt ispell urlview isync openssl msmtp gh
 ```
 
 ### Ubuntu
