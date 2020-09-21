@@ -258,7 +258,7 @@ fi
 
 alias pr="git push-track && gh pr create --fill"
 alias checks="gh pr checks"
-alias merge="gh pr merge --delete-branch --merge"
+alias merge="gh pr merge --delete-branch --merge && git pull"
 alias approve="gh pr review --approve"
 
 # To mitigate typos :)
