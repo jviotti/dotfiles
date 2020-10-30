@@ -14,6 +14,8 @@
 	annotate = yes
 [color]
 	ui = true
+[pull]
+	rebase = false
 [push]
 	default = current
 	followtags = true
