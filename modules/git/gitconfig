@@ -23,6 +23,7 @@
 	ush = push
 	ull = pull
 	merge = merge --no-ff
+	contributors = shortlog --summary --numbered --all --no-merges
 	undo-commit = reset --soft HEAD^
 	delete-remote-branch = "!f() { git push origin :$1; }; f"
 	delete-merged-branches = "!f() { git checkout --quiet master && git branch --merged | grep --invert-match '\\\\*' | xargs -n 1 git branch --delete; git checkout --quiet @{-1};  }; f"
