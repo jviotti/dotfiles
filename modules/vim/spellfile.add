@@ -29,3 +29,11 @@ automata
 endianness
 Explorable
 explorable
+versioned
+streamable
+deserializing
+deserializer
+nullable
+truthy
+falsy
+32-bit
