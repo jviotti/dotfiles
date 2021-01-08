@@ -115,11 +115,6 @@ color error      brightred     default
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
-# Highlight emails with direct mentions
-color index default yellow ~b@jviotti
-color index default yellow ~b@juan
-color index default yellow ~b@juan_cruz_viotti
-
 #######################################################################
 # Pager
 #######################################################################
