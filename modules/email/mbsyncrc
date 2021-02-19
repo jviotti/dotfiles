@@ -14,8 +14,8 @@ Path ~/Mail/Personal/
 Inbox ~/Mail/Personal/INBOX
 
 Channel personal-all
-Master :personal-remote:
-Slave :personal-local:
+Far :personal-remote:
+Near :personal-local:
 Patterns *
 Create Both
 Expunge Both
