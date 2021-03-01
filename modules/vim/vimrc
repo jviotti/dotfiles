@@ -70,6 +70,7 @@ Plug 'jvirtanen/vim-octave'
 Plug 'mlr-msft/vim-loves-dafny'
 Plug 'petRUShka/vim-opencl'
 Plug 'jvoorhis/coq.vim'
+Plug 'cstrahan/vim-capnp'
 Plug 'kchmck/vim-coffee-script'
 let coffee_compile_vert = 1
 let coffee_run_vert = 1
