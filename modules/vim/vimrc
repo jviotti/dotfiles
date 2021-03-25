@@ -62,15 +62,9 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " Language Specific Syntax
 Plug 'elzr/vim-json'
 Plug 'rust-lang/rust.vim'
-Plug 'wannesm/wmnusmv.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
-Plug 'jvirtanen/vim-octave'
-Plug 'mlr-msft/vim-loves-dafny'
-Plug 'petRUShka/vim-opencl'
-Plug 'jvoorhis/coq.vim'
-Plug 'cstrahan/vim-capnp'
 Plug 'kchmck/vim-coffee-script'
 let coffee_compile_vert = 1
 let coffee_run_vert = 1
