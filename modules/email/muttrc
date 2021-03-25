@@ -17,6 +17,7 @@ reply-hook '~C .*' set from = $my_default_from
 # Use certain addresses depending on the receiver
 reply-hook '~C ^juancruz\.viotti@kellogg\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 reply-hook '~C ^kell4769@nexus\.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
+reply-hook '~C ^juan\.viotti@postman\.com$' set from = "juan.viotti@postman.com"
 
 # Don't CC these addresses when replying to all
 set metoo = no
