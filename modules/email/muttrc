@@ -22,11 +22,9 @@ reply-hook '~C ^juan\.viotti@postman\.com$' set from = "juan.viotti@postman.com"
 # Don't CC these addresses when replying to all
 set metoo = no
 alternates jv@jviotti.com
-alternates jviotti@openmailbox.org
-alternates juan@resin.io
-alternates juan@balena.io
 alternates juancruz.viotti@kellogg.ox.ac.uk
 alternates kell4769@nexus.ox.ac.uk
+alternates juan.viotti@postman.com
 
 # Pass `from` to `sendmail` using the `-f` option msmtp
 # will select the right account based on this option,
