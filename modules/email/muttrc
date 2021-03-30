@@ -2,6 +2,11 @@
 # Account
 #######################################################################
 
+# Dummy hostname to avoid a DNS lookup that takes several seconds
+# when the hostname as a period.
+# See https://gitlab.com/muttmua/mutt/-/issues/347
+set hostname = "jviotti.local"
+
 set my_default_from = "jv@jviotti.com"
 
 # SMTP
