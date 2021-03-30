@@ -35,7 +35,6 @@ set use_envelope_from = yes
 # The folder containing all our mail
 set mbox_type = Maildir
 set folder = "~/Mail"
-source ~/.mutt/mailboxes
 
 # The spoolfile is the folder where our (unfiltered) e-mail arrives.
 set spoolfile = "+Personal/INBOX"
