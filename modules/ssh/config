@@ -12,4 +12,4 @@ Host github.com
 Host *
   UseKeychain yes
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_ed25519
