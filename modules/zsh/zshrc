@@ -123,6 +123,14 @@ then
   export PATH="$HOMEBREW_M1_PATH_BIN:$PATH"
 fi
 
+HOMEBREW_M1_ZSH_SITE_FUNCTIONS="/opt/homebrew/share/zsh/site-functions"
+if [ -d "$HOMEBREW_M1_ZSH_SITE_FUNCTIONS" ]
+then
+  # Avoid zsh complaining about insecure directory
+  chmod -R g-w "$(dirname "$HOMEBREW_M1_ZSH_SITE_FUNCTIONS")"
+  fpath=($fpath "$HOMEBREW_M1_ZSH_SITE_FUNCTIONS")
+fi
+
 ##################################################
 # PAGER
 ##################################################
