@@ -1,4 +1,0 @@
-SYMLINK check-duplicated.pl bin/check-duplicated.pl 755
-SYMLINK check-passive-voice.sh bin/check-passive-voice.sh 755
-SYMLINK check-weasels.sh bin/check-weasels.sh 755
-SYMLINK proof.sh bin/proof.sh 755
