@@ -60,6 +60,7 @@ if [ "$ARGV_COMMAND" = "build" ]; then
 
   if [ "$ARGV_MODULE" = "email" ]; then
     template "$DIRECTORY_MODULES/$ARGV_MODULE" "muttrc"
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "msmtprc"
     exit 0
   fi
 
