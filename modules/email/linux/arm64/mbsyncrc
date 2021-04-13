@@ -5,15 +5,7 @@ PassCmd +"pass key personal/mailfence.com"
 AuthMechs LOGIN
 SSLType IMAPS
 
-%%ifeq OS darwin
-%%ifeq ARCH arm64
-CertificateFile /opt/homebrew/etc/openssl@1.1/cert.pem
-%%else
 CertificateFile /usr/local/etc/openssl@1.1/cert.pem
-%%endif
-%%else
-CertificateFile /usr/local/etc/openssl@1.1/cert.pem
-%%endif
 
 IMAPStore personal-remote
 Account personal
