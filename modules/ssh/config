@@ -9,7 +9,8 @@ Host github.com
 
 # Load ssh/id_rsa from the keychain by default
 # See https://apple.stackexchange.com/a/250572
+# TODO: This is macOS only
 Host *
   UseKeychain yes
   AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_rsa
+  IdentityFile ~/.ssh/id_ed25519
