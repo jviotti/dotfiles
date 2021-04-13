@@ -64,6 +64,11 @@ if [ "$ARGV_COMMAND" = "build" ]; then
     exit 0
   fi
 
+  if [ "$ARGV_MODULE" = "ssh" ]; then
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "config"
+    exit 0
+  fi
+
   echo "Don't know how to build $ARGV_MODULE" 1>&2
   exit 1
 fi
