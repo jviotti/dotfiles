@@ -2,5 +2,4 @@ SYMLINK gitconfig .gitconfig
 SYMLINK git-ci bin/git-ci 755
 SYMLINK gitdefaultcommit .gitdefaultcommit
 SYMLINK gitignore_global .gitignore_global
-SYMLINK rebase-master.sh bin/rebase-master.sh 755
 SYMLINK delete-file-from-history.sh bin/delete-file-from-history.sh
