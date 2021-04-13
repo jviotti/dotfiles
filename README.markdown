@@ -27,7 +27,7 @@ Pre-requisites
 ### macOS
 
 ```sh
-brew install git gnupg macvim gpp python pass duplicity reattach-to-user-namespace
+brew install git gnupg gpp python pass reattach-to-user-namespace
 ```
 
 ### Ubuntu
@@ -62,15 +62,6 @@ example:
 ```sh
 /opt/depot_tools
 /opt/gnat/bin
-```
-
-### `$CDPATH`
-
-Add machine dependent custom paths to append to `$CDPATH` in a file called
-`$HOME/.hotdirs`. For example:
-
-```sh
-/home/jviotti/projects
 ```
 
 ### Private environment variables
