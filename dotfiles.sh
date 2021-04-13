@@ -31,22 +31,17 @@ usage () {
 template () (
   module="$1"
   file="$2"
-  shift 2
-  version="$*"
 
-  for version in $version; do
-    for os in darwin linux openbsd; do
-      path="$module/$version/$os"
-      echo "Generating $path"
-      mkdir -p "$path"
-      gpp \
-        -o "$path/$file" \
-        -DOS="$os" \
-        -DVERSION="$version" \
-        -U "" "" "(" "," ")" "(" ")" "\#" "\\" \
-        -M "%%" "\n" " " " " "\n" "(" ")" \
-        "$module/$file"
-    done
+  for os in darwin linux openbsd; do
+    path="$module/$os"
+    echo "Generating $path"
+    mkdir -p "$path"
+    gpp \
+      -o "$path/$file" \
+      -DOS="$os" \
+      -U "" "" "(" "," ")" "(" ")" "\#" "\\" \
+      -M "%%" "\n" " " " " "\n" "(" ")" \
+      "$module/$file"
   done
 )
 
@@ -59,18 +54,13 @@ if [ "$ARGV_COMMAND" = "build" ]; then
     usage
   fi
 
-  if [ "$ARGV_MODULE" = "email" ]; then
-    template "$DIRECTORY_MODULES/$ARGV_MODULE" "offlineimaprc" "current"
-    exit 0
-  fi
-
   if [ "$ARGV_MODULE" = "git" ]; then
-    template "$DIRECTORY_MODULES/$ARGV_MODULE" "gitconfig" "2.13.0"
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "gitconfig"
     exit 0
   fi
 
   if [ "$ARGV_MODULE" = "tmux" ]; then
-    template "$DIRECTORY_MODULES/$ARGV_MODULE" "tmux.conf" "2.9"
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "tmux.conf"
     exit 0
   fi
 
@@ -87,7 +77,7 @@ else
   exit 1
 fi
 
-DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES" -c CONFIG"
+DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES""
 
 if [ -n "$ARGV_MODULE" ]; then
   DOTF_OPTIONS="$DOTF_OPTIONS -m $ARGV_MODULE"

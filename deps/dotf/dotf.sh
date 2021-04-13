@@ -134,43 +134,6 @@ dotf__utils_os () (
 )
 
 # -------------------------------------------------
-# Configuration
-# -------------------------------------------------
-
-dotf_configuration_get_entry () (
-  configuration="$1"
-  module_name="$2"
-  file_name="$3"
-
-  # Make sure the configuration file exists before
-  # trying to run grep on it.
-  if [ -f "$configuration" ]
-  then
-    grep \
-      --max-count=1 \
-      "^$module_name $file_name" \
-      "$configuration" \
-      || true
-  fi
-)
-
-dotf_configuration_find_version () (
-  module="$1"
-  file="$2"
-  version="$3"
-  os="$(dotf__utils_os)"
-
-  # Try the OS specific location first
-  if [ -f "$module/$version/$os/$file" ]
-  then
-    echo "$module/$version/$os/$file"
-  elif [ -f "$module/$version/$file" ]
-  then
-    echo "$module/$version/$file"
-  fi
-)
-
-# -------------------------------------------------
 # Command
 # -------------------------------------------------
 
@@ -181,8 +144,7 @@ dotf_command_directory () (
   direction="$1"
   module="$2"
   basedir="$3"
-  configuration="$4"
-  arguments="$5"
+  arguments="$4"
 
   directory="$(dotf__utils_get_column "$arguments" "1")"
 
@@ -210,8 +172,7 @@ dotf_command_symlink () (
   direction="$1"
   module="$2"
   basedir="$3"
-  configuration="$4"
-  arguments="$5"
+  arguments="$4"
 
   file="$(dotf__utils_get_column "$arguments" "1")"
   destination="$(dotf__utils_get_column "$arguments" "2")"
@@ -223,25 +184,15 @@ dotf_command_symlink () (
       "$direction" \
       "$module" \
       "$basedir" \
-      "$configuration" \
       "$(dirname "$destination")"
 
     absolute_file="$module/$file"
-    configentry="$(dotf_configuration_get_entry \
-      "$configuration" \
-      "$(basename "$module")" \
-      "$file")"
-    if [ -n "$configentry" ]
+
+    # Try the OS specific
+    os="$(dotf__utils_os)"
+    if [ -f "$module/$os/$file" ]
     then
-      version="$(dotf__utils_get_column "$configentry" "3")"
-      absolute_file="$(dotf_configuration_find_version \
-        "$module" \
-        "$file" \
-        "$version")"
-      if [ -z "$absolute_file" ]
-      then
-        dotf__utils_fail "Couldn't find version $version of file $file in $module"
-      fi
+      absolute_file="$module/$os/$file"
     fi
 
     dotf__fs_ln "$absolute_file" "$basedir/$destination"
@@ -275,7 +226,6 @@ dotf_manifest_execute () (
   module="$1"
   direction="$2"
   basedir="$3"
-  configuration="$4"
   manifest="$(dotf_manifest_get_path "$module")"
 
   while read -r line
@@ -296,7 +246,6 @@ dotf_manifest_execute () (
         "$direction" \
         "$module" \
         "$basedir" \
-        "$configuration" \
         "$arguments"
     elif [ "$command" = "$DOTF_MANIFEST_COMMAND_SYMLINK" ]
     then
@@ -304,7 +253,6 @@ dotf_manifest_execute () (
         "$direction" \
         "$module" \
         "$basedir" \
-        "$configuration" \
         "$arguments"
     else
       dotf__utils_fail "Invalid command: $command on $module"
@@ -328,14 +276,13 @@ dotf_module_is_valid () (
 
 ARGV_ACTION=""
 ARGV_BASE_DIRECTORY=""
-ARGV_CONFIGURATION=""
 ARGV_MODULE=""
 ARGV_NAMESPACE=""
 ARGV_HELP=""
 ARGV_VERSION=""
 
 usage () {
-  echo "Usage: $0 [-dhv] [-a action] [-c file] [-m directory]"
+  echo "Usage: $0 [-dhv] [-a action] [-m directory]"
   echo "          [-n directory] [-o directory]"
   echo ""
   echo "Consult the man page for details"
@@ -346,7 +293,6 @@ while getopts ":a:c:m:n:o:dhv" option
 do
   case $option in
     a) ARGV_ACTION=$OPTARG ;;
-    c) ARGV_CONFIGURATION=$OPTARG ;;
     m) ARGV_MODULE=$OPTARG ;;
     n) ARGV_NAMESPACE=$OPTARG ;;
     o) ARGV_BASE_DIRECTORY=$OPTARG ;;
@@ -378,11 +324,6 @@ then
   ARGV_BASE_DIRECTORY="$HOME"
 fi
 
-if [ -n "$ARGV_CONFIGURATION" ]
-then
-  ARGV_CONFIGURATION="$(dotf__utils_get_absolute_path "$ARGV_CONFIGURATION")"
-fi
-
 if [ -z "$ARGV_NAMESPACE" ]
 then
   ARGV_NAMESPACE="$PWD"
@@ -411,5 +352,4 @@ fi
 dotf_manifest_execute \
   "$ARGV_MODULE" \
   "$ARGV_ACTION" \
-  "$ARGV_BASE_DIRECTORY" \
-  "$ARGV_CONFIGURATION"
+  "$ARGV_BASE_DIRECTORY"
