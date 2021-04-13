@@ -3,32 +3,8 @@ dotfiles
 
 > My personal dotfiles
 
-Supported Platforms
--------------------
-
-- macOS
-- GNU/Linux
-- OpenBSD
-
 Pre-requisites
 --------------
-
-- git
-- make
-- zsh
-- gpg
-- vim
-- gpp
-- python
-- pass
-- duplicity
-- reattach-to-user-namespace (macOS)
-
-### macOS
-
-```sh
-brew install git gnupg gpp python pass reattach-to-user-namespace
-```
 
 ### Ubuntu
 
@@ -38,12 +14,6 @@ sudo apt-get install git make zsh gnupg vim gpp python pass duplicity
 
 Tools
 -----
-
-### macOS
-
-```sh
-brew install ack mutt tmux w3m todo-txt ispell urlview isync openssl msmtp gh
-```
 
 ### Ubuntu
 

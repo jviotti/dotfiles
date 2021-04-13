@@ -188,7 +188,7 @@ dotf_command_symlink () (
 
     absolute_file="$module/$file"
 
-    # Try the OS specific
+    # Try the OS specific one
     os="$(dotf__utils_os)"
     if [ -f "$module/$os/$file" ]
     then
