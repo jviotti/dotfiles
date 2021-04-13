@@ -133,6 +133,10 @@ dotf__utils_os () (
   uname | tr '[:upper:]' '[:lower:]'
 )
 
+dotf__utils_arch () (
+  uname -m
+)
+
 # -------------------------------------------------
 # Command
 # -------------------------------------------------
@@ -188,9 +192,12 @@ dotf_command_symlink () (
 
     absolute_file="$module/$file"
 
-    # Try the OS specific one
     os="$(dotf__utils_os)"
-    if [ -f "$module/$os/$file" ]
+    arch="$(dotf__utils_arch)"
+    if [ -f "$module/$os/$arch/$file" ]
+    then
+      absolute_file="$module/$os/$arch/$file"
+    elif [ -f "$module/$os/$file" ]
     then
       absolute_file="$module/$os/$file"
     fi

@@ -32,16 +32,20 @@ template () (
   module="$1"
   file="$2"
 
-  for os in darwin linux openbsd; do
-    path="$module/$os"
-    echo "Generating $path"
-    mkdir -p "$path"
-    gpp \
-      -o "$path/$file" \
-      -DOS="$os" \
-      -U "" "" "(" "," ")" "(" ")" "\#" "\\" \
-      -M "%%" "\n" " " " " "\n" "(" ")" \
-      "$module/$file"
+  for os in darwin linux; do
+    for architecture in x86_64 arm64;
+    do
+      path="$module/$os/$architecture"
+      echo "Generating $path"
+      mkdir -p "$path"
+      gpp \
+        -o "$path/$file" \
+        -DOS="$os" \
+        -DARCH="$architecture" \
+        -U "" "" "(" "," ")" "(" ")" "\#" "\\" \
+        -M "%%" "\n" " " " " "\n" "(" ")" \
+        "$module/$file"
+    done
   done
 )
 
@@ -86,10 +90,10 @@ DOTF_OPTIONS="-a "$ACTION" -n "$DIRECTORY_MODULES""
 
 if [ -n "$ARGV_MODULE" ]; then
   DOTF_OPTIONS="$DOTF_OPTIONS -m $ARGV_MODULE"
-  ./dotf.sh $DOTF_OPTIONS
+  ./_dotf.sh $DOTF_OPTIONS
 else
   for module in modules/*; do
-    ./dotf.sh $DOTF_OPTIONS -m "$(basename "$module")"
+    ./_dotf.sh $DOTF_OPTIONS -m "$(basename "$module")"
   done
 fi
 
