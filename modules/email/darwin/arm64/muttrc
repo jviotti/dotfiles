@@ -79,15 +79,15 @@ set include = ask-no
 # Status Bar
 #######################################################################
 
-set status_format = "M ($from): %f
-[Msgs:%?M?%M/?%m%?n?
-New:%n?%?o?
-Old:%o?%?d?
-Del:%d?%?F?
-Flag:%F?%?t?
-Tag:%t?%?p?
-Post:%p?%?b?
-Inc:%b?%?l?
+set status_format = "M ($from): %f\
+[Msgs:%?M?%M/?%m%?n?\
+New:%n?%?o?\
+Old:%o?%?d?\
+Del:%d?%?F?\
+Flag:%F?%?t?\
+Tag:%t?%?p?\
+Post:%p?%?b?\
+Inc:%b?%?l?\
 %l?]%> (%P)"
 
 #######################################################################
@@ -251,33 +251,33 @@ set pgp_use_gpg_agent = yes
 #       a list of key IDs.
 
 # Decode application/pgp
-set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? 
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
   --no-verbose --quiet --batch --output - %f"
 
 # Verify a pgp/mime signature
-set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet 
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet \
   --batch --output - --verify %s %f"
 
 # Decrypt a pgp/mime attachment
-set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? 
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
   --no-verbose --quiet --batch --output - %f"
 
 # Create a pgp/mime signed attachment
-set pgp_sign_command="gpg --no-verbose --batch --quiet --output 
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output \
   - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
 
 # Create a application/pgp signed (old-style) message
-set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output 
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output \
   - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
 
 # Create a pgp/mime encrypted attachment
-set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet 
-  --no-verbose --output 
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet \
+  --no-verbose --output \
   - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
 
 # Create a pgp/mime encrypted and signed attachment
-set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? 
-  --batch --quiet --no-verbose --textmode --output 
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? \
+  --batch --quiet --no-verbose --textmode --output \
   - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
 
 # Import a key into the public key ring
@@ -287,18 +287,18 @@ set pgp_import_command="gpg --no-verbose --import %f"
 set pgp_export_command="gpg --no-verbose --export --armor %r"
 
 # Verify a key
-set pgp_verify_key_command="gpg --verbose --batch --fingerprint 
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint \
   --check-sigs %r"
 
 # Read in the public key ring
-set pgp_list_pubring_command="gpg --no-verbose --batch --quiet 
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet \
   --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
 
 # Read in the secret key ring
-set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons 
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons \
   --with-fingerprint --with-fingerprint --list-secret-keys %r"
 
 # Pattern to determine if the output of pgp_verify_command means
 # that the tool was successful
 # TODO: Check if this is valid
-set pgp_good_sign="^\[GNUPG:\] GOODSIG"
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
