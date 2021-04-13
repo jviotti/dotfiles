@@ -58,6 +58,11 @@ if [ "$ARGV_COMMAND" = "build" ]; then
     usage
   fi
 
+  if [ "$ARGV_MODULE" = "email" ]; then
+    template "$DIRECTORY_MODULES/$ARGV_MODULE" "muttrc"
+    exit 0
+  fi
+
   if [ "$ARGV_MODULE" = "git" ]; then
     template "$DIRECTORY_MODULES/$ARGV_MODULE" "gitconfig"
     exit 0
