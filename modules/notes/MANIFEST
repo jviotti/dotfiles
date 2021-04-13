@@ -1,2 +1,0 @@
-DIRECTORY .notes
-SYMLINK notes.sh bin/notes 755

@@ -1,2 +1,0 @@
-SYMLINK taskrc .taskrc
-SYMLINK task.sh bin/task.sh 755
