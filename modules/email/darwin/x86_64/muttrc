@@ -20,8 +20,8 @@ set use_from = yes
 reply-hook '~C .*' set from = $my_default_from
 
 # Use certain addresses depending on the receiver
-reply-hook '~C .ox.ac.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
-reply-hook '~C @postman.com$' set from = "juan.viotti@postman.com"
+reply-hook '~C \.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
+reply-hook '~C @postman\.com$' set from = "juan.viotti@postman.com"
 
 # Don't CC these addresses when replying to all
 set metoo = no
@@ -49,7 +49,7 @@ set spoolfile = "+Personal/INBOX"
 set trash = "+Personal/Trash"
 
 # Store sent messages in the corresponding mailbox
-set record = "+Personal/Sent Items"
+set record = "+Personal/Sent\ Items"
 
 # Specify where to save and/or look for postponed messages.
 set postponed = "+Personal/Drafts"
@@ -67,7 +67,7 @@ source $alias_file
 # See http://mutt.org/doc/manual/#fcc-hook
 save-hook . '+Personal/Archive'
 set fcc_delimiter = ','
-fcc-hook . '+Personal/Archive,+Personal/Sent Items'
+fcc-hook . '+Personal/Archive,+Personal/Sent\ Items'
 
 # Disable beeps
 set beep = no
@@ -124,8 +124,8 @@ color index white green ~fgithub.com
 # Vim mode
 bind pager j next-line
 bind pager k previous-line
-bind attach,index,pager CD next-page
-bind attach,index,pager CU previous-page
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
@@ -207,8 +207,8 @@ set markers = no
 # that really confuses the program.
 set pipe_decode = yes
 
-macro index cb |urlviewn
-macro pager cb |urlviewn
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
 
 #######################################################################
 # Bindings
@@ -219,7 +219,7 @@ bind pager R group-reply
 
 # Apply patch to the git repo in the current working
 # directory from the list view
-macro index L '| git am --signoff'n
+macro index L '| git am --signoff'\n
 
 #######################################################################
 # GPG (from gpg.rc distributed by Homebrew)
