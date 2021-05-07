@@ -1,2 +1,3 @@
 SYMLINK xzcompress.sh bin/xzcompress.sh 755
 SYMLINK repeat.sh bin/repeat.sh 755
+SYMLINK youtube-mp3.sh bin/youtube-mp3.sh 755
