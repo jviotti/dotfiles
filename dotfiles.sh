@@ -33,7 +33,7 @@ template () (
   file="$2"
 
   for os in darwin linux; do
-    for architecture in x86_64 arm64;
+    for architecture in x86_64 arm64 aarch64;
     do
       path="$module/$os/$architecture"
       echo "Generating $path"

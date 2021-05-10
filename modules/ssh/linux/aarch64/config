@@ -1,0 +1,9 @@
+Host *
+  IPQoS=throughput
+
+# Make GitHub work on coffee shops that block SSH
+# See https://stackoverflow.com/questions/7953806/github-ssh-via-public-wifi-port-22-blocked
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+
