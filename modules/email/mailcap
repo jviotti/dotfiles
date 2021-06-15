@@ -1,4 +1,4 @@
 # The copiousoutput option tells clients that the command
 # will possibly pass large amount of text to stdout,
 # and therefore hints that a pager should be used.
-text/html; w3m -I %{charset} -T text/html; copiousoutput;
+text/html; w3m -s -I %{charset} -T text/html; copiousoutput;
