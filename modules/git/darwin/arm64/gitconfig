@@ -73,3 +73,5 @@
 	program = gpg
 [http]
 	cookiefile = ~/.gitcookies
+[gerrit]
+	host = true

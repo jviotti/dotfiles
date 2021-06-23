@@ -80,3 +80,5 @@
 %%endif
 [http]
 	cookiefile = ~/.gitcookies
+[gerrit]
+	host = true
