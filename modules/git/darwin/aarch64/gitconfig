@@ -71,3 +71,5 @@
 	signcommits = true
 [gpg]
 	program = gpg
+[http]
+	cookiefile = ~/.gitcookies

@@ -78,3 +78,5 @@
 [gpg]
 	program = gpg
 %%endif
+[http]
+	cookiefile = ~/.gitcookies

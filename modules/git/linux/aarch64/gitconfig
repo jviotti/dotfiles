@@ -69,3 +69,5 @@
 	user = jviotti
 [pass]
 	signcommits = true
+[http]
+	cookiefile = ~/.gitcookies
