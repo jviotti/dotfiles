@@ -82,3 +82,5 @@
 	cookiefile = ~/.gitcookies
 [gerrit]
 	host = true
+[init]
+	defaultBranch = master
