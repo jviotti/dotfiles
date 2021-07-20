@@ -1,5 +1,6 @@
-# Shorter alias for CoffeeScript
+# Types
 --type-set=coffee:ext:coffee
+--type-set=gn:ext:gn
 
 --smart-case
 --sort-files
