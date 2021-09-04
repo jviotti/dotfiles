@@ -68,10 +68,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
-Plug 'kchmck/vim-coffee-script'
-let coffee_compile_vert = 1
-let coffee_run_vert = 1
-let coffee_watch_vert = 1
 
 call plug#end()
 
