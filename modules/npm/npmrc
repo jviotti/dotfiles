@@ -5,3 +5,4 @@ init-license=Apache-2.0
 sign-git-tag=true
 fetch-retries=100
 fetch-retry-maxtimeout=600000
+//registry.npmjs.org/:_authToken=${NPM_AUTH_TOKEN}
