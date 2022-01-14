@@ -10,7 +10,7 @@ set hostname = "jviotti.local"
 set my_default_from = "jv@jviotti.com"
 
 # SMTP
-set sendmail = "/opt/homebrew/bin/msmtp"
+set sendmail = "/usr/local/bin/msmtp"
 set realname = "Juan Cruz Viotti"
 set from = $my_default_from
 set use_from = yes
@@ -200,7 +200,7 @@ set markers = no
 
 # Press Ctrl+B to open an interactive menu with all the URLs
 # from a message. `urlview` will open them in the default
-# darwin web browser.
+# macos web browser.
 
 # This option makes mutt decode the e-mail before piping it
 # to `urlview`, so we don't send a plain multipart messages
