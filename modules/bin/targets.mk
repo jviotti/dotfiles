@@ -9,4 +9,4 @@ $(DESTINATION)/bin/youtube-mp3.sh: modules/bin/youtube-mp3.sh | $(DESTINATION)/b
 	$(SYMLINK)
 
 bin: $(DESTINATION)/bin/xzcompress.sh $(DESTINATION)/bin/repeat.sh $(DESTINATION)/bin/youtube-mp3.sh
-TARGETS += bin
+MODULES += bin
