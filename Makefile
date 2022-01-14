@@ -1,3 +1,7 @@
+ifeq ($(OS),Windows_NT)
+SHELL=$(SYSTEMROOT)/System32/cmd
+endif
+
 GPP ?= gpp
 
 include vendor/vendorpull/targets.mk
