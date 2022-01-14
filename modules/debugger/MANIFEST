@@ -1,2 +1,0 @@
-SYMLINK gdbinit .gdbinit
-SYMLINK lldbinit .lldbinit

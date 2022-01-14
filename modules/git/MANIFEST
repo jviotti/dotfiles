@@ -1,3 +1,0 @@
-SYMLINK gitconfig .gitconfig
-SYMLINK git-ci bin/git-ci 755
-SYMLINK gitdefaultcommit .gitdefaultcommit

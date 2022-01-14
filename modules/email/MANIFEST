@@ -1,8 +1,0 @@
-DIRECTORY .mutt/cache
-DIRECTORY Mail
-SYMLINK mailcap .mailcap
-SYMLINK msmtprc .msmtprc 600
-SYMLINK mbsyncrc .mbsyncrc
-SYMLINK muttrc .mutt/muttrc
-SYMLINK signature .mutt/signature
-SYMLINK email.sh bin/email 755
