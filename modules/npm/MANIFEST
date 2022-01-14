@@ -1,2 +1,0 @@
-SYMLINK npmrc .npmrc
-SYMLINK npm_publish.sh bin/npm_publish.sh 755

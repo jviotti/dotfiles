@@ -30,6 +30,7 @@ include modules/git/targets.mk
 include modules/gnupg/targets.mk
 include modules/irc/targets.mk
 include modules/npm/targets.mk
+include modules/sed/targets.mk
 
 .PHONY: all help $(MODULES)
 all: bootstrap $(MODULES)
