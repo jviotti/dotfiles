@@ -1,0 +1,304 @@
+#######################################################################
+# Account
+#######################################################################
+
+# Dummy hostname to avoid a DNS lookup that takes several seconds
+# when the hostname as a period.
+# See https://gitlab.com/muttmua/mutt/-/issues/347
+set hostname = "jviotti.local"
+
+set my_default_from = "jv@jviotti.com"
+
+# SMTP
+set sendmail = "/usr/local/bin/msmtp"
+set realname = "Juan Cruz Viotti"
+set from = $my_default_from
+set use_from = yes
+
+# Default "catch-all" hook
+# See https://serverfault.com/a/75136
+reply-hook '~C .*' set from = $my_default_from
+
+# Use certain addresses depending on the receiver
+reply-hook '~C \.ox\.ac\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
+reply-hook '~C @postman\.com$' set from = "juan.viotti@postman.com"
+
+# Don't CC these addresses when replying to all
+set metoo = no
+alternates jv@jviotti.com
+alternates juancruz.viotti@kellogg.ox.ac.uk
+alternates kell4769@nexus.ox.ac.uk
+alternates juan.viotti@postman.com
+
+# Pass `from` to `sendmail` using the `-f` option msmtp
+# will select the right account based on this option,
+# which is useful when configuring multiple acocunts
+# See http://www.mutt.org/doc/manual/#use-envelope-from
+set use_envelope_from = yes
+
+# The folder containing all our mail
+set mbox_type = Maildir
+set folder = "~/Mail"
+
+# The spoolfile is the folder where our (unfiltered) e-mail arrives.
+set spoolfile = "+Personal/INBOX"
+
+# The path of the folder where mails marked for
+# deletion will be moved. Requires >v1.7.0.
+# See http://unix.stackexchange.com/a/305044/43448
+set trash = "+Personal/Trash"
+
+# Store sent messages in the corresponding mailbox
+set record = "+Personal/Sent\ Items"
+
+# Specify where to save and/or look for postponed messages.
+set postponed = "+Personal/Drafts"
+
+# The default email signature
+set signature = "~/.mutt/signature"
+
+# Set the default alias file
+# Use `a` in the index to interactively store an alias
+set alias_file = "~/.mutt/aliases"
+source $alias_file
+
+# Save emails to both "Archive" and "Sent Items"
+# See http://unix.stackexchange.com/a/242073/43448
+# See http://mutt.org/doc/manual/#fcc-hook
+save-hook . '+Personal/Archive'
+set fcc_delimiter = ','
+fcc-hook . '+Personal/Archive,+Personal/Sent\ Items'
+
+# Disable beeps
+set beep = no
+
+# Default to not quote previous message
+set include = ask-no
+
+#######################################################################
+# Status Bar
+#######################################################################
+
+set status_format = "M ($from): %f\
+[Msgs:%?M?%M/?%m%?n?\
+New:%n?%?o?\
+Old:%o?%?d?\
+Del:%d?%?F?\
+Flag:%F?%?t?\
+Tag:%t?%?p?\
+Post:%p?%?b?\
+Inc:%b?%?l?\
+%l?]%> (%P)"
+
+#######################################################################
+# Theme
+#######################################################################
+
+# Colors
+color normal     default       default
+color search     default       green
+color tree       magenta       default
+
+# Message
+color tilde      magenta       default
+color quoted     brightblue    default
+color attachment brightmagenta default
+color signature  red           default
+color hdrdefault red           default
+
+# UI
+color indicator  white         blue
+color status     black         default
+
+# Ribbons
+color message    brightcyan    default
+color error      brightred     default
+
+# Highlight GitHub emails
+color index white green ~fgithub.com
+
+#######################################################################
+# Pager
+#######################################################################
+
+# Vim mode
+bind pager j next-line
+bind pager k previous-line
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+# Pager context lines to display when going to a new page
+set pager_context = 5
+
+# Don't move to the next message when at the end of a message
+set pager_stop = yes
+
+#######################################################################
+# Sort
+#######################################################################
+
+# Sort in descending order
+set sort = threads
+set sort_browser = date
+set sort_aux = reverse-last-date-received
+
+# Toggle thread collapsing
+bind index <Space> collapse-thread
+bind index _ collapse-all
+
+#######################################################################
+# HTML
+#######################################################################
+
+# View HTML automatically
+auto_view text/html
+
+# Prefer plain text and enriched text to HTML
+alternative_order text/plain text/enriched text/html
+
+#######################################################################
+# Headers
+#######################################################################
+
+# Headers show order
+hdr_order Date From To Cc Subject
+
+# See headers when writing email
+set edit_headers = yes
+
+#######################################################################
+# Editing
+#######################################################################
+
+# Go directly to the message editor without prompting for recipient or subject.
+set autoedit = yes
+set fast_reply = yes
+
+# Automatically fill the From: header
+set use_from = yes
+
+# Use the environment's editor
+set editor=`echo $EDITOR`
+
+#######################################################################
+# Settings
+#######################################################################
+
+# Stop asking to "move read messages to mbox"!
+set move = no
+
+# Don't put '+' at the beginning of wrapped lines
+set markers = no
+
+#######################################################################
+# URLs
+#######################################################################
+
+# Press Ctrl+B to open an interactive menu with all the URLs
+# from a message. `urlview` will open them in the default
+# linux web browser.
+
+# This option makes mutt decode the e-mail before piping it
+# to `urlview`, so we don't send a plain multipart messages
+# that really confuses the program.
+set pipe_decode = yes
+
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
+
+#######################################################################
+# Bindings
+#######################################################################
+
+# Reply to group
+bind pager R group-reply
+
+# Apply patch to the git repo in the current working
+# directory from the list view
+macro index L '| git am --signoff'\n
+
+#######################################################################
+# GPG (from gpg.rc distributed by Homebrew)
+#######################################################################
+
+# Do not sign e-mails automatically
+set crypt_autosign = no
+
+# Don't prompt for password every single time
+set pgp_use_gpg_agent = yes
+
+# %p    The empty string when no passphrase is needed,
+#       the string "PGPPASSFD=0" if one is needed.
+#
+#       This is mostly used in conditional % sequences.
+#
+# %f    Most PGP commands operate on a single file or a file
+#       containing a message.  %f expands to this file's name.
+#
+# %s    When verifying signatures, there is another temporary file
+#       containing the detached signature.  %s expands to this
+#       file's name.
+#
+# %a    In "signing" contexts, this expands to the value of the
+#       configuration variable $pgp_sign_as.  You probably need to
+#       use this within a conditional % sequence.
+#
+# %r    In many contexts, mutt passes key IDs to pgp.  %r expands to
+#       a list of key IDs.
+
+# Decode application/pgp
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
+  --no-verbose --quiet --batch --output - %f"
+
+# Verify a pgp/mime signature
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet \
+  --batch --output - --verify %s %f"
+
+# Decrypt a pgp/mime attachment
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
+  --no-verbose --quiet --batch --output - %f"
+
+# Create a pgp/mime signed attachment
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output \
+  - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
+
+# Create a application/pgp signed (old-style) message
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output \
+  - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
+
+# Create a pgp/mime encrypted attachment
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet \
+  --no-verbose --output \
+  - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+
+# Create a pgp/mime encrypted and signed attachment
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? \
+  --batch --quiet --no-verbose --textmode --output \
+  - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+
+# Import a key into the public key ring
+set pgp_import_command="gpg --no-verbose --import %f"
+
+# Export a key from the public key ring
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+
+# Verify a key
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint \
+  --check-sigs %r"
+
+# Read in the public key ring
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet \
+  --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
+
+# Read in the secret key ring
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons \
+  --with-fingerprint --with-fingerprint --list-secret-keys %r"
+
+# Pattern to determine if the output of pgp_verify_command means
+# that the tool was successful
+# TODO: Check if this is valid
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"
