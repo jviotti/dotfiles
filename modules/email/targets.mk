@@ -19,6 +19,7 @@ $(DESTINATION)/bin/email.sh: modules/email/email.sh | $(DESTINATION)/bin
 email: \
 	$(DESTINATION)/.mutt/cache \
 	$(DESTINATION)/.mbsyncrc \
+	$(DESTINATION)/.msmtprc \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/Mail \
 	$(DESTINATION)/.mailcap \
