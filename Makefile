@@ -10,7 +10,7 @@ PLATFORM = $(PLATFORM_OS)-$(PLATFORM_ARCH)
 DESTINATION ?= $(HOME)
 
 define SYMLINK
-ln -s $(realpath $<) $@
+ln -f -s $(realpath $<) $@
 endef
 
 # This is a common rule that we not want to
