@@ -40,6 +40,8 @@ modules/$1/%.$2: modules/$1/%.tpl
 endef
 $(foreach module,$(MODULES),$(foreach platform,$(PLATFORMS),$(eval $(call TEMPLATE_META_RULE,$(module),$(platform)))))
 
+# TODO: Create a "build" target that compiles templates for every platform
+
 help:
 	@echo " ______   _______  _______  _______  ___   ___      _______  _______"
 	@echo "|      | |       ||       ||       ||   | |   |    |       ||       |"
