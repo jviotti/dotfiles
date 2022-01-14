@@ -5,8 +5,11 @@ include vendor/bootstrap/targets.mk
 .DEFAULT_GOAL = all
 DESTINATION ?= $(HOME)
 
-SYMLINK ?= ln -s
+define SYMLINK
+ln -s $(realpath $<) $@
+endef
 
 include modules/ack/targets.mk
+include modules/bin/targets.mk
 
-all: ack
+all: ack bin
