@@ -1,6 +1,6 @@
 .PHONY: ack
 
 $(DESTINATION)/.ackrc: modules/ack/ackrc
-	ln -s $(realpath $<) $@
+	$(SYMLINK) $(realpath $<) $@
 
 ack: $(DESTINATION)/.ackrc
