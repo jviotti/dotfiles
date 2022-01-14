@@ -24,6 +24,7 @@ include modules/bin/targets.mk
 include modules/curl/targets.mk
 include modules/debugger/targets.mk
 include modules/email/targets.mk
+include modules/gem/targets.mk
 
 .PHONY: all help $(MODULES)
 all: $(MODULES)
