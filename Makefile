@@ -27,6 +27,7 @@ include modules/email/targets.mk
 include modules/gem/targets.mk
 include modules/ghc/targets.mk
 include modules/git/targets.mk
+include modules/gnupg/targets.mk
 
 .PHONY: all help $(MODULES)
 all: bootstrap $(MODULES)
