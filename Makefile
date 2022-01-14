@@ -1,5 +1,7 @@
 ifeq ($(OS),Windows_NT)
-SHELL=$(SYSTEMROOT)/System32/cmd
+ifneq ($(MSYSTEM),MSYS)
+SHELL = $(SYSTEMROOT)/System32/cmd
+endif
 endif
 
 GPP ?= gpp
