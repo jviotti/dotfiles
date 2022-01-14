@@ -1,10 +1,4 @@
-$(DESTINATION)/bin/decrypt.sh: modules/gnupg/decrypt.sh | $(DESTINATION)/bin
-	$(SYMLINK)
-$(DESTINATION)/bin/encrypt.sh: modules/gnupg/encrypt.sh | $(DESTINATION)/bin
-	$(SYMLINK)
-$(DESTINATION)/bin/recipients.sh: modules/gnupg/recipients.sh | $(DESTINATION)/bin
-	$(SYMLINK)
-$(DESTINATION)/bin/gnupg-keypair-export.sh: modules/gnupg/gnupg-keypair-export.sh | $(DESTINATION)/bin
+$(DESTINATION)/bin/%: modules/gnupg/% | $(DESTINATION)/bin
 	$(SYMLINK)
 
 $(DESTINATION)/.gnupg:
