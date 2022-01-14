@@ -44,7 +44,7 @@
 	clean-branches = "!f() { git branch | grep -v "master" | xargs git branch -D; }; f"
 	authors = "!f() { git log --all --format='%aN <%cE>' | sort -u; }; f"
 [credential]
-	helper = cache --timeout=3600
+	helper = osxkeychain
 [filter "media"]
 	clean = git-media-clean -- %f
 	smudge = git-media-smudge -- %f
@@ -71,6 +71,8 @@
 	user = jviotti
 [pass]
 	signcommits = true
+[gpg]
+	program = gpg
 [http]
 	cookiefile = ~/.gitcookies
 [gerrit]

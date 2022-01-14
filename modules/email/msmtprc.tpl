@@ -9,7 +9,7 @@ tls            on
 # See http://msmtp.sourceforge.net/doc/msmtp.html
 tls_starttls   off
 
-%%ifeq OS darwin
+%%ifeq OS macos
 %%ifeq ARCH arm64
 tls_trust_file /opt/homebrew/etc/openssl@1.1/cert.pem
 %%else

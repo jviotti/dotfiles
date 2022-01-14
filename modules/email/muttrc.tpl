@@ -10,7 +10,7 @@ set hostname = "jviotti.local"
 set my_default_from = "jv@jviotti.com"
 
 # SMTP
-%%ifeq OS darwin
+%%ifeq OS macos
 %%ifeq ARCH arm64
 set sendmail = "/opt/homebrew/bin/msmtp"
 %%else

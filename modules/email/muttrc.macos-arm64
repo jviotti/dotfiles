@@ -10,7 +10,7 @@ set hostname = "jviotti.local"
 set my_default_from = "jv@jviotti.com"
 
 # SMTP
-set sendmail = "/usr/local/bin/msmtp"
+set sendmail = "/opt/homebrew/bin/msmtp"
 set realname = "Juan Cruz Viotti"
 set from = $my_default_from
 set use_from = yes

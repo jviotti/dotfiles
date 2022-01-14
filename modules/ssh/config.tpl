@@ -9,7 +9,7 @@ Host github.com
   # https://github.blog/2021-09-01-improving-git-protocol-security-github/
   UpdateHostKeys yes
 
-%%ifeq OS darwin
+%%ifeq OS macos
 # Load ssh/id_rsa from the keychain by default
 # See https://apple.stackexchange.com/a/250572
 Host *

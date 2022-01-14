@@ -43,7 +43,7 @@
 	delete-remote-tag = "!f() { git push origin :refs/tags/$1; }; f"
 	clean-branches = "!f() { git branch | grep -v "master" | xargs git branch -D; }; f"
 	authors = "!f() { git log --all --format='%aN <%cE>' | sort -u; }; f"
-%%ifeq OS darwin
+%%ifeq OS macos
 [credential]
 	helper = osxkeychain
 %%else
@@ -76,7 +76,7 @@
 	user = jviotti
 [pass]
 	signcommits = true
-%%ifeq OS darwin
+%%ifeq OS macos
 [gpg]
 	program = gpg
 %%endif

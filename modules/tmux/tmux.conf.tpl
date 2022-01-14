@@ -138,12 +138,12 @@ bind -T copy-mode-vi C-\\\\ select-pane -l
 # Vim like yanking support
 bind-key -T copy-mode-vi v send-keys -X begin-selection
 
-%%ifeq OS darwin
+%%ifeq OS macos
 # Support vim yank/paste
 set-option -g default-command "reattach-to-user-namespace -l zsh"
 %%endif
 
-%%ifeq OS darwin
+%%ifeq OS macos
 bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 %%endif
 
@@ -154,7 +154,7 @@ bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xsel -i -p -b"
 # Update default binding of `Enter` to also use copy-pipe
 unbind -T copy-mode-vi Enter
 
-%%ifeq OS darwin
+%%ifeq OS macos
 bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 %%endif
 
@@ -164,7 +164,7 @@ bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xsel -i -p -b"
 
 # Map p to paste
 unbind p
-%%ifeq OS darwin
+%%ifeq OS macos
 bind p run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
 %%endif
 %%ifeq OS linux
