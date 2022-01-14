@@ -33,6 +33,7 @@ include modules/npm/targets.mk
 include modules/sed/targets.mk
 include modules/ssh/targets.mk
 include modules/stdsh/targets.mk
+include modules/zsh/targets.mk
 
 .PHONY: all help $(MODULES)
 all: bootstrap $(MODULES)
