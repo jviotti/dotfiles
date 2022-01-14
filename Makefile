@@ -18,7 +18,6 @@ endef
 $(DESTINATION)/bin:
 	mkdir $@
 
-MODULES =
 include modules/ack/targets.mk
 include modules/bin/targets.mk
 include modules/curl/targets.mk
@@ -63,7 +62,7 @@ help:
 	@echo ""
 	@echo "Supported modules:"
 	@echo ""
-	@echo " $(MODULES)"
+	@echo "  $(MODULES)"
 	@echo ""
 	@echo "Supported platforms:"
 	@echo ""
