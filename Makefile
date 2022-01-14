@@ -12,6 +12,7 @@ TARGETS =
 include modules/ack/targets.mk
 include modules/bin/targets.mk
 include modules/curl/targets.mk
+include modules/debugger/targets.mk
 
 .PHONY: all help $(TARGETS)
 all: $(TARGETS)
