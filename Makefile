@@ -29,7 +29,7 @@ include modules/ghc/targets.mk
 include modules/git/targets.mk
 
 .PHONY: all help $(MODULES)
-all: $(MODULES)
+all: bootstrap $(MODULES)
 
 # Instantiate the template meta target for all platforms and modules
 define TEMPLATE_META_RULE
