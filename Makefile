@@ -31,6 +31,7 @@ include modules/gnupg/targets.mk
 include modules/irc/targets.mk
 include modules/npm/targets.mk
 include modules/sed/targets.mk
+include modules/ssh/targets.mk
 
 .PHONY: all help $(MODULES)
 all: bootstrap $(MODULES)
