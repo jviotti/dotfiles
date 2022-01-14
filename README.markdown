@@ -3,24 +3,6 @@ dotfiles
 
 > My personal dotfiles
 
-Pre-requisites
---------------
-
-### Ubuntu
-
-```sh
-sudo apt-get install git make zsh gnupg vim gpp python pass duplicity
-```
-
-Tools
------
-
-### Ubuntu
-
-```sh
-sudo apt-get install ack-grep mutt tmux w3m todotxt-cli ispell urlview isync msmtp
-```
-
 Configuration
 -------------
 
