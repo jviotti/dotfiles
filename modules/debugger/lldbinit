@@ -1,2 +1,7 @@
 settings set prompt "(lldb) "
 settings set target.x86-disassembly-flavor intel
+
+# Remove LLDB's "b" GDB command implementation
+# to force me to use LLDB in LLDB's way.
+command unalias b
+command alias b breakpoint
