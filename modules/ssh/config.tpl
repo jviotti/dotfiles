@@ -9,6 +9,15 @@ Host github.com
   # https://github.blog/2021-09-01-improving-git-protocol-security-github/
   UpdateHostKeys yes
 
+# Make BitBucket work on coffee shops that block SSH
+# See https://doclazy.wordpress.com/2018/09/25/using-ssh-over-https-for-bitbucket-org/
+Host bitbucket.org
+  Hostname altssh.bitbucket.org
+  Port 443
+Host bitbucket.com
+  Hostname altssh.bitbucket.org
+  Port 443
+
 %%ifeq OS macos
 # Load ssh/id_rsa from the keychain by default
 # See https://apple.stackexchange.com/a/250572
