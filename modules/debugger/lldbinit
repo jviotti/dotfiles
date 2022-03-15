@@ -5,3 +5,6 @@ settings set target.x86-disassembly-flavor intel
 # to force me to use LLDB in LLDB's way.
 command unalias b
 command alias b breakpoint
+
+# Allow stepping into functions that do not have debugging symbols
+settings show target.process.thread.step-in-avoid-nodebug
