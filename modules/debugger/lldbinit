@@ -7,4 +7,4 @@ command unalias b
 command alias b breakpoint
 
 # Allow stepping into functions that do not have debugging symbols
-settings show target.process.thread.step-in-avoid-nodebug
+settings set target.process.thread.step-in-avoid-nodebug true
