@@ -1,10 +1,13 @@
 settings set prompt "(lldb) "
 settings set target.x86-disassembly-flavor intel
 
+# Do not skip function prologues
+settings set target.skip-prologue false
+
 # Remove LLDB's "b" GDB command implementation
 # to force me to use LLDB in LLDB's way.
 command unalias b
 command alias b breakpoint
 
 # Allow stepping into functions that do not have debugging symbols
-settings set target.process.thread.step-in-avoid-nodebug true
+settings set target.process.thread.step-in-avoid-nodebug false
