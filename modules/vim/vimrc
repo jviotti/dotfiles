@@ -38,7 +38,7 @@ command! SyntaxAttr call SyntaxAttr()
 " -- AutoPairs --
 Plug 'jiangmiao/auto-pairs'
 
-let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`', '<':'>'}
+let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
 
 " -- GitGutter --
 Plug 'airblade/vim-gitgutter'
