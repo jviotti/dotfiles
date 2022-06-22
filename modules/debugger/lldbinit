@@ -11,3 +11,6 @@ command alias b breakpoint
 
 # Allow stepping into functions that do not have debugging symbols
 settings set target.process.thread.step-in-avoid-nodebug false
+
+# Load .lldbinit files from the current working directory
+settings set target.load-cwd-lldbinit true
