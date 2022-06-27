@@ -117,6 +117,14 @@ color error      brightred     default
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
+# Highlight Postman emails
+color index white red ~fpostmanlabs.atlassian.net
+color index white red ~fbitbucket.org
+color index white red ~tpostman-app-support@noreply.github.com
+
+# Highlight Electron emails
+color index white cyan ~telectron@noreply.github.com
+
 #######################################################################
 # Pager
 #######################################################################
