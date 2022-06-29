@@ -14,3 +14,6 @@ settings set target.process.thread.step-in-avoid-nodebug false
 
 # Load .lldbinit files from the current working directory
 settings set target.load-cwd-lldbinit true
+
+# Automatically break on C++ exceptions
+breakpoint set --language-exception c++
