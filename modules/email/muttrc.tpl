@@ -30,6 +30,9 @@ reply-hook '~C .*' set from = $my_default_from
 # Use certain addresses depending on the receiver
 reply-hook '~C \\.ox\\.ac\\.uk$' set from = "juancruz.viotti@kellogg.ox.ac.uk"
 reply-hook '~C @postman\\.com$' set from = "juan.viotti@postman.com"
+reply-hook '~C hello@sourcemeta\\.com$' set from = "hello@sourcemeta.com"
+reply-hook '~C admin@sourcemeta\\.com$' set from = "admin@sourcemeta.com"
+reply-hook '~C jviotti@sourcemeta\\.com$' set from = "jviotti@sourcemeta.com"
 
 # Don't CC these addresses when replying to all
 set metoo = no
@@ -37,6 +40,9 @@ alternates jv@jviotti.com
 alternates juancruz.viotti@kellogg.ox.ac.uk
 alternates kell4769@nexus.ox.ac.uk
 alternates juan.viotti@postman.com
+alternates hello@sourcemeta.com
+alternates admin@sourcemeta.com
+alternates jviotti@sourcemeta.com
 
 # Pass `from` to `sendmail` using the `-f` option msmtp
 # will select the right account based on this option,
