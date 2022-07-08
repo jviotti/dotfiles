@@ -139,6 +139,11 @@ color index white red ~tpostman-app-support@noreply.github.com
 # Highlight Electron emails
 color index white cyan ~telectron@noreply.github.com
 
+# Highlight certain projects
+color index white brightred ~spostmanlabs/starship
+color index white brightred ~spostmanlabs/talaria
+color index white brightred ~spostmanlabs/postject
+
 #######################################################################
 # Pager
 #######################################################################
