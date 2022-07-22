@@ -20,15 +20,6 @@ from           jv@jviotti.com
 user           jviotti
 passwordeval   "pass key personal/mailfence.com"
 
-# Oxford
-account        oxford
-host           smtp.ox.ac.uk
-port           587
-from           juancruz.viotti@kellogg.ox.ac.uk
-user           kell4769
-passwordeval   "pass key education/sso.ox.ac.uk"
-tls_starttls   on
-
 # Postman
 account        postman
 host           smtp.gmail.com
