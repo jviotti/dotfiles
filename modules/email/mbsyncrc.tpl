@@ -11,7 +11,6 @@ CertificateFile /opt/homebrew/etc/openssl@1.1/cert.pem
 CertificateFile /usr/local/etc/openssl@1.1/cert.pem
 %%endif
 %%else
-CertificateFile /usr/local/etc/openssl@1.1/cert.pem
 %%endif
 
 IMAPStore personal-remote
