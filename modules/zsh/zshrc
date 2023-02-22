@@ -78,7 +78,7 @@ export GPG_TTY=$(tty)
 # specifically for a subkey that might no longer
 # be available, and then not even the master key
 # will be able to decrypt it.
-export GPGKEY_ENCRYPT="0x91B08B2CBA5EAB1A"
+export GPGKEY_ENCRYPT="0x9FB15665AD73D9B7"
 export GPGKEY_SIGN="$GPGKEY_ENCRYPT"
 
 ##################################################
