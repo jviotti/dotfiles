@@ -8,7 +8,7 @@
 [user]
 	name = Juan Cruz Viotti
 	email = jv@jviotti.com
-	signingkey = D01B10083038B3E8
+	signingkey = 9FB15665AD73D9B7
 [sendemail]
 	smtpserver = /usr/local/bin/msmtp
 	smtpserveroption=--account
