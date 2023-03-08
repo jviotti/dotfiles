@@ -85,4 +85,4 @@
 [gerrit]
 	host = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
