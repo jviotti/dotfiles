@@ -117,6 +117,9 @@ color status     black         default
 color message    brightcyan    default
 color error      brightred     default
 
+# Sourcemeta 
+color index white magenta ~tsourcemeta.com
+
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
