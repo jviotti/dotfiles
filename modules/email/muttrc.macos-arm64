@@ -117,7 +117,7 @@ color status     black         default
 color message    brightcyan    default
 color error      brightred     default
 
-# Sourcemeta 
+# Sourcemeta
 color index white magenta ~tsourcemeta.com
 
 # Highlight GitHub emails
@@ -132,7 +132,7 @@ color index white red ~tpostman-app-support@noreply.github.com
 color index white cyan ~telectron@noreply.github.com
 
 # Highlight certain projects
-color index white brightred ~spostmanlabs/starship-next
+color index white brightred ~spostmanlabs/starship
 
 #######################################################################
 # Pager
