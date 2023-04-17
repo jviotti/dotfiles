@@ -3,4 +3,4 @@
 set -e
 set -u
 
-git commit -v --signoff $*
+git commit --signoff $*
