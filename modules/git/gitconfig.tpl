@@ -57,6 +57,7 @@
 [commit]
 	template = ~/.gitdefaultcommit
 	gpgsign = true
+  verbose = true
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
