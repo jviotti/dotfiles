@@ -36,5 +36,13 @@ from           juan.viotti@postman.com
 user           juan.viotti@postman.com
 passwordeval   "pass key work/postman/gmail.com"
 
+# Intelligence
+account        intelligence
+host           smtp.gmail.com
+port           465
+from           juan@intelligence.ai
+user           juan@intelligence.ai
+passwordeval   "pass key intelligence.ai/jviotti/gmail.com"
+
 # Set a default account
 account default : mailfence
