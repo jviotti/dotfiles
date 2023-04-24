@@ -32,6 +32,7 @@ reply-hook '~C @postman\\.com$' set from = "juan.viotti@postman.com"
 reply-hook '~C hello@sourcemeta\\.com$' set from = "hello@sourcemeta.com"
 reply-hook '~C admin@sourcemeta\\.com$' set from = "admin@sourcemeta.com"
 reply-hook '~C jviotti@sourcemeta\\.com$' set from = "jviotti@sourcemeta.com"
+reply-hook '~C juan@intelligence\\.ai' set from = "juan@intelligence.ai"
 
 # Don't CC these addresses when replying to all
 set metoo = no
