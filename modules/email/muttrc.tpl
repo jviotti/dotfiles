@@ -130,6 +130,9 @@ color error      brightred     default
 # Sourcemeta
 color index white magenta ~tsourcemeta.com
 
+# Intelligence.ai
+color index white magenta ~tintelligence.ai
+
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
