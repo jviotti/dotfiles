@@ -59,16 +59,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Ignore files ignored by git
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" -- GN support
-Plug 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
-
 " Language Specific Syntax
 Plug 'elzr/vim-json'
-Plug 'rust-lang/rust.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
-Plug 'digitaltoad/vim-pug'
 
 call plug#end()
 
