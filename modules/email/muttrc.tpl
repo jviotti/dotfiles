@@ -145,7 +145,7 @@ color index white red ~tpostman-app-support@noreply.github.com
 color index white cyan ~telectron@noreply.github.com
 
 # Highlight certain projects
-color index white brightred ~spostmanlabs/starship
+color index white brightred ~spostman-eng/starship
 color index white brightred ~fstarship@postman.com
 
 #######################################################################
