@@ -8,7 +8,7 @@
 [user]
 	name = Juan Cruz Viotti
 	email = jv@jviotti.com
-	signingkey = D01B10083038B3E8
+	signingkey = 9FB15665AD73D9B7
 [sendemail]
 	smtpserver = /usr/local/bin/msmtp
 	smtpserveroption=--account
@@ -52,6 +52,7 @@
 [commit]
 	template = ~/.gitdefaultcommit
 	gpgsign = true
+  verbose = true
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
@@ -76,4 +77,4 @@
 [gerrit]
 	host = true
 [init]
-	defaultBranch = master
+	defaultBranch = main

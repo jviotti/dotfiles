@@ -43,8 +43,8 @@ include modules/vim/targets.mk
 include modules/w3m/targets.mk
 include modules/zsh/targets.mk
 
-.PHONY: all help $(MODULES)
-all: bootstrap $(MODULES)
+.PHONY: all template help $(MODULES)
+all: bootstrap template $(MODULES)
 
 # Instantiate the template meta target for all platforms and modules
 define TEMPLATE_META_RULE
@@ -58,7 +58,9 @@ modules/$1/%.$2: modules/$1/%.tpl
 endef
 $(foreach module,$(MODULES),$(foreach platform,$(PLATFORMS),$(eval $(call TEMPLATE_META_RULE,$(module),$(platform)))))
 
-# TODO: Create a "build" target that compiles templates for every platform
+# See https://stackoverflow.com/a/18258352/1641422
+rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
+template: $(foreach template,$(call rwildcard,modules,*.tpl),$(foreach platform,$(PLATFORMS),$(basename $(template)).$(platform)))
 
 help:
 	@echo " ______   _______  _______  _______  ___   ___      _______  _______"
@@ -82,4 +84,5 @@ help:
 	@echo "Commands:"
 	@echo ""
 	@echo "  make all"
+	@echo "  make template"
 	@echo "  make <module>"
