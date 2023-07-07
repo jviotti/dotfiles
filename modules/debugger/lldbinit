@@ -17,3 +17,6 @@ settings set target.load-cwd-lldbinit true
 
 # Automatically break on C++ exceptions
 breakpoint set --language-exception c++
+
+# Convenient shorthand to "image lookup" regex search
+command regex rlook 's/(.+)/image lookup -rn %1/'
