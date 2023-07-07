@@ -24,6 +24,7 @@ reply-hook '~C @postman\.com$' set from = "juan.viotti@postman.com"
 reply-hook '~C hello@sourcemeta\.com$' set from = "hello@sourcemeta.com"
 reply-hook '~C admin@sourcemeta\.com$' set from = "admin@sourcemeta.com"
 reply-hook '~C jviotti@sourcemeta\.com$' set from = "jviotti@sourcemeta.com"
+reply-hook '~C juan@intelligence\.ai' set from = "juan@intelligence.ai"
 
 # Don't CC these addresses when replying to all
 set metoo = no
@@ -32,6 +33,7 @@ alternates juan.viotti@postman.com
 alternates hello@sourcemeta.com
 alternates admin@sourcemeta.com
 alternates jviotti@sourcemeta.com
+alternates juan@intelligence.ai
 
 # Pass `from` to `sendmail` using the `-f` option msmtp
 # will select the right account based on this option,
@@ -117,6 +119,12 @@ color status     black         default
 color message    brightcyan    default
 color error      brightred     default
 
+# Sourcemeta
+color index white magenta ~tsourcemeta.com
+
+# Intelligence.ai
+color index white magenta ~tintelligence.ai
+
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
@@ -129,9 +137,8 @@ color index white red ~tpostman-app-support@noreply.github.com
 color index white cyan ~telectron@noreply.github.com
 
 # Highlight certain projects
-color index white brightred ~spostmanlabs/starship
-color index white brightred ~spostmanlabs/talaria
-color index white brightred ~spostmanlabs/postject
+color index white brightred ~spostman-eng/starship
+color index white brightred ~fstarship@postman.com
 
 #######################################################################
 # Pager
