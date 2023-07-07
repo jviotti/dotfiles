@@ -1,7 +1,5 @@
 GPP ?= gpp
 
-include vendor/vendorpull/targets.mk
-include vendor/bootstrap/targets.mk
 include build/os.mk
 
 .DEFAULT_GOAL = all
@@ -37,8 +35,11 @@ include modules/vim/targets.mk
 include modules/w3m/targets.mk
 include modules/zsh/targets.mk
 
-.PHONY: all template help $(MODULES)
+.PHONY: all bootstrap template help $(MODULES)
 all: bootstrap template $(MODULES)
+
+bootstrap: bootstrap.sh
+	./$< $@
 
 # Instantiate the template meta target for all platforms and modules
 define TEMPLATE_META_RULE
@@ -78,5 +79,6 @@ help:
 	@echo "Commands:"
 	@echo ""
 	@echo "  make all"
+	@echo "  make bootstrap"
 	@echo "  make template"
 	@echo "  make <module>"
