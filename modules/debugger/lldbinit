@@ -2,6 +2,8 @@ settings set prompt "(lldb) "
 settings set target.x86-disassembly-flavor intel
 
 # Do not skip function prologues
+# Function prologues are the beginning section of a
+# function that prepares the stack and registers
 settings set target.skip-prologue false
 
 # Remove LLDB's "b" GDB command implementation
