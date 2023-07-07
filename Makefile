@@ -1,9 +1,3 @@
-ifeq ($(OS),Windows_NT)
-ifneq ($(MSYSTEM),MSYS)
-SHELL = $(SYSTEMROOT)/System32/cmd
-endif
-endif
-
 GPP ?= gpp
 
 include vendor/vendorpull/targets.mk
@@ -11,7 +5,7 @@ include vendor/bootstrap/targets.mk
 include build/os.mk
 
 .DEFAULT_GOAL = all
-PLATFORMS = macos-arm64 macos-x86_64 linux-aarch64 linux-x86_64 windows-x86_64
+PLATFORMS = macos-arm64 macos-x86_64 linux-aarch64 linux-x86_64
 PLATFORM = $(PLATFORM_OS)-$(PLATFORM_ARCH)
 DESTINATION ?= $(HOME)
 
