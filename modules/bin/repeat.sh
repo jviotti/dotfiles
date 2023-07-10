@@ -2,6 +2,7 @@
 
 COMMAND="$*"
 TIMES=0
+UNAME="$(uname)"
 
 if [ -z "$COMMAND" ]; then
   echo "Usage: $0 <command...>" 1>&2
@@ -18,7 +19,10 @@ trap 'info' SIGINT
 while true
 do
   echo "Running ($TIMES): $COMMAND"
-  $COMMAND
+  if [ "$UNAME" = "Darwin" ]
+  then caffeinate $COMMAND
+  else $COMMAND
+  fi
   EXIT_CODE="$?"
   ((TIMES+=1))
   if [ "$EXIT_CODE" != "0" ]
