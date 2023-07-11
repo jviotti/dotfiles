@@ -168,6 +168,11 @@ set wildignore+=.DS_Store
 " $KEYBINDINGS
 "=========================================================================
 
+" Disable Ctrl-V block selection as it is not usable by default
+" on the Windows Terminal. Use Ctrl-Q instead!
+" See https://stackoverflow.com/q/426896/1641422
+noremap <C-V> <NOP>
+
 " Map jk to <Esc> in insert mode
 inoremap jk <Esc>
 vnoremap C-c <Esc>
