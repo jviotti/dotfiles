@@ -21,7 +21,7 @@
 [push]
 	default = current
 	followtags = true
-  autoSetupRemote = true
+	autoSetupRemote = true
 [alias]
 	ush = push
 	ull = pull
@@ -53,7 +53,7 @@
 [commit]
 	template = ~/.gitdefaultcommit
 	gpgsign = true
-  verbose = true
+	verbose = true
 [merge]
 	tool = vimdiff
 	conflictstyle = diff3
