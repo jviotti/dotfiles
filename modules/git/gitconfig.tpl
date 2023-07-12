@@ -21,6 +21,7 @@
 [push]
 	default = current
 	followtags = true
+  autoSetupRemote = true
 [alias]
 	ush = push
 	ull = pull
