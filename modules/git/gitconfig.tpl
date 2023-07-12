@@ -57,7 +57,9 @@
 	process = git-lfs filter-process
 [commit]
 	template = ~/.gitdefaultcommit
+%%ifeq OS macos
 	gpgsign = true
+%%endif
 	verbose = true
 [merge]
 	tool = vimdiff

@@ -52,7 +52,6 @@
 	process = git-lfs filter-process
 [commit]
 	template = ~/.gitdefaultcommit
-	gpgsign = true
 	verbose = true
 [merge]
 	tool = vimdiff
