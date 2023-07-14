@@ -5,6 +5,7 @@ import lldb
 # command = Arguments, as a string, passed to the command
 # result = lldb.SBCommandReturnObject
 def test(debugger, command, result, internal_dict):
+  '''A sample test function'''
   print(debugger.__class__)
   print(command.__class__)
   print(result.__class__)
