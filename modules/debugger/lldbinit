@@ -1,4 +1,7 @@
 settings set prompt "(lldb) "
+
+# This flavor places the destination as the first argument after the opcode.
+# For example: `opcode destination source`
 settings set target.x86-disassembly-flavor intel
 
 # Do not skip function prologues
@@ -22,3 +25,12 @@ breakpoint set --language-exception c++
 
 # Convenient shorthand to "image lookup" regex search
 command regex rlook 's/(.+)/image lookup -rn %1/'
+
+# Print value in ObjC context in hexadecimal, because
+# registers are not available in the Swift context
+# Usage: cpx <value>
+command alias cpx expression --format hex --language objc --
+
+# Print a value in binary form
+# Usage: binary <value>
+command alias binary expression --format bin --language c --
