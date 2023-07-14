@@ -34,3 +34,9 @@ command alias cpx expression --format hex --language objc --
 # Print a value in binary form
 # Usage: binary <value>
 command alias binary expression --format bin --language c --
+
+# Script Bridging: personal scripts
+command alias reload command script import ~/.lldb/jviotti.py
+# Use this to also reload changes from the scripts
+reload
+command script add --function jviotti.test test
