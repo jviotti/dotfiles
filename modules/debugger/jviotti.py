@@ -1,6 +1,8 @@
 # See https://lldb.llvm.org/python_reference/
+import lldb
 
 # debugger = lldb.SBDebugger
+# command = Arguments, as a string, passed to the command
 # result = lldb.SBCommandReturnObject
 def test(debugger, command, result, internal_dict):
   print(debugger.__class__)
