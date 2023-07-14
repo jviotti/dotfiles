@@ -349,6 +349,15 @@ export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 export PASSWORD_STORE_DIR="$HOME/Library/CloudStorage/Dropbox/Pass"
 
 ##################################################
+# Scaleway
+##################################################
+
+# See https://github.com/scaleway/scaleway-cli
+if command -v scw >/dev/null 2>&1; then
+  eval "$(scw autocomplete script shell=zsh)"
+fi
+
+##################################################
 # Prompt
 ##################################################
 
