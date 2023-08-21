@@ -65,6 +65,9 @@ Plug 'leafgarland/typescript-vim'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 
+" GitHub CoPilot
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 "=========================================================================
