@@ -116,6 +116,10 @@ then
   fpath=($fpath "$HOMEBREW_M1_ZSH_SITE_FUNCTIONS")
 fi
 
+if type brew &>/dev/null; then
+  FPATH="$(brew --prefix)/share/zsh-completions:$FPATH"
+fi
+
 ##################################################
 # PAGER
 ##################################################
@@ -159,7 +163,7 @@ export XZ_OPT=-9e
 ##################################################
 
 # Load systems
-autoload -U compinit
+autoload -Uz compinit
 compinit
 
 # For autocompletion with an arrow-key driven interface
