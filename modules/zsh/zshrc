@@ -350,7 +350,12 @@ fi
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # To keep a backup somewhere else
-export PASSWORD_STORE_DIR="$HOME/Library/CloudStorage/Dropbox/Pass"
+if [ "$(uname)" = "Darwin" ]
+then
+  export PASSWORD_STORE_DIR="$HOME/Library/CloudStorage/Dropbox/Pass"
+else
+  export PASSWORD_STORE_DIR="$HOME/Dropbox/Pass"
+fi
 
 ##################################################
 # Scaleway
