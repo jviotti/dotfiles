@@ -13,7 +13,7 @@ $(DESTINATION)/.mutt/muttrc: modules/email/muttrc.$(PLATFORM) | $(DESTINATION)/.
 	$(SYMLINK)
 $(DESTINATION)/.mutt/signature: modules/email/signature | $(DESTINATION)/.mutt
 	$(SYMLINK)
-$(DESTINATION)/bin/email.sh: modules/email/email.sh | $(DESTINATION)/bin
+$(DESTINATION)/bin/email: modules/email/email.sh | $(DESTINATION)/bin
 	$(SYMLINK)
 
 email: \
@@ -23,5 +23,5 @@ email: \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/Mail \
 	$(DESTINATION)/.mailcap \
-	$(DESTINATION)/bin/email.sh
+	$(DESTINATION)/bin/email
 MODULES += email
