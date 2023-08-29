@@ -4,6 +4,8 @@ $(DESTINATION)/.mutt/cache: | $(DESTINATION)/.mutt
 	mkdir $@
 $(DESTINATION)/Mail:
 	mkdir $@
+$(DESTINATION)/Mail/Personal: | $(DESTINATION)/Mail
+	mkdir $@
 
 $(DESTINATION)/.mbsyncrc: modules/email/mbsyncrc.$(PLATFORM); $(SYMLINK)
 $(DESTINATION)/.msmtprc: modules/email/msmtprc.$(PLATFORM); $(SYMLINK)
@@ -22,6 +24,7 @@ email: \
 	$(DESTINATION)/.msmtprc \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/Mail \
+	$(DESTINATION)/Mail/Personal \
 	$(DESTINATION)/.mailcap \
 	$(DESTINATION)/bin/email
 MODULES += email
