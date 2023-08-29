@@ -1,5 +1,7 @@
 $(DESTINATION)/.mutt:
 	mkdir $@
+$(DESTINATION)/.mutt/aliases:
+	touch $@
 $(DESTINATION)/.mutt/cache: | $(DESTINATION)/.mutt
 	mkdir $@
 $(DESTINATION)/Mail:
@@ -25,6 +27,7 @@ email: \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/Mail \
 	$(DESTINATION)/Mail/Personal \
+	$(DESTINATION)/.mutt/aliases \
 	$(DESTINATION)/.mailcap \
 	$(DESTINATION)/bin/email
 MODULES += email
