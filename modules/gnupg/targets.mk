@@ -5,7 +5,8 @@ $(DESTINATION)/.gnupg:
 	mkdir $@
 $(DESTINATION)/.gnupg/gpg-agent.conf: modules/gnupg/gpg-agent.conf | $(DESTINATION)/.gnupg
 	$(SYMLINK)
-$(DESTINATION)/.gnupg/scdaemon.conf: modules/gnupg/scdaemon.conf | $(DESTINATION)/.gnupg
+
+$(DESTINATION)/.gnupg/scdaemon.conf: modules/gnupg/scdaemon.conf.$(PLATFORM) | $(DESTINATION)/.gnupg
 	$(SYMLINK)
 
 # We need specific permissions on this file
