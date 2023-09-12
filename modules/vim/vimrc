@@ -91,9 +91,6 @@ endif
 " Enable 256 terminal colors
 set t_Co=256
 
-" Make all new vertical split windows appear on the right
-set splitright
-
 " Smart line joins (when dealing with comments)
 " See https://kinbiko.com/vim/my-shiniest-vim-gems/
 if v:version > 703 || v:version == 703 && has('patch541')
@@ -166,6 +163,24 @@ set wildignore+=*.so
 set wildignore+=*.swp
 set wildignore+=*.zip
 set wildignore+=.DS_Store
+
+"=========================================================================
+" $SPLITS
+"=========================================================================
+
+" Make all new vertical split windows appear on the right
+set splitright
+
+" Resize vertical splits
+noremap <C-W>H :5winc<<cr>
+noremap <C-W>L :5winc><cr>
+
+" Resize horizontal splits
+noremap <C-W>J :5winc+<cr>
+noremap <C-W>K :5winc-<cr>
+
+" Make panes equal in size
+noremap <C-W>= :winc=<cr>
 
 "=========================================================================
 " $KEYBINDINGS
