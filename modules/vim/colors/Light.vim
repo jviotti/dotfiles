@@ -151,14 +151,6 @@ call Highlight("zshConditional", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("zshCommands", s:gui_red, s:cterm_red, "", "", "")
 call Highlight("zshTodo", s:gui_purple, s:cterm_purple, "", "", "")
 
-" PHP Highlighting
-call Highlight("phpVarSelector", s:gui_red, s:cterm_red, "", "", "")
-call Highlight("phpKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("phpRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("phpConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("phpStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("phpMemberSelector", s:gui_foreground, s:cterm_foreground, "", "", "")
-
 " Ruby Highlighting
 call Highlight("rubySymbol", s:gui_red, s:cterm_red, "", "", "")
 call Highlight("rubyConstant", s:gui_foreground, s:cterm_foreground, "", "", "")
@@ -184,19 +176,6 @@ call Highlight("pythonFunction", s:gui_blue, s:cterm_blue, "", "", "")
 call Highlight("pythonPreCondit", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("pythonRepeat", s:gui_aqua, s:cterm_aqua, "", "", "")
 call Highlight("pythonExClass", s:gui_orange, s:cterm_orange, "", "", "")
-
-" Java Highlighting
-call Highlight("javaCommentTitle", s:gui_comment, s:cterm_comment, "", "", "")
-call Highlight("javaScopeDecl", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaStorageClass", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaExternal", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaExceptions", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaTypedef", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("javaAnnotation", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("javaType", s:gui_purple, s:cterm_purple, "", "", "")
 
 " JavaScript Highlighting
 call Highlight("javaScriptBraces", s:gui_foreground, s:cterm_foreground, "", "", "")
@@ -236,16 +215,6 @@ call Highlight("javaScriptFuncdef", s:gui_foreground, s:cterm_foreground, "", ""
 call Highlight("javaScriptExceptions", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("javaScriptTemplateDelim", s:gui_orange, s:cterm_orange, "", "", "")
 
-" CoffeeScript Highlighting
-call Highlight("coffeeRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeObject", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("coffeeStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeTodo", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeException", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("coffeeSpecialVar", s:gui_red, s:cterm_red, "", "", "")
-
 " JSON Highlighting
 call Highlight("jsonNumber", s:gui_orange, s:cterm_orange, "", "", "")
 call Highlight("jsonBoolean", s:gui_orange, s:cterm_orange, "", "", "")
@@ -272,150 +241,15 @@ call Highlight("ShowMarksHLo", s:gui_purple, s:cterm_purple, s:gui_background, s
 call Highlight("ShowMarksHLu", s:gui_yellow, s:cterm_yellow, s:gui_background, s:cterm_background, "none")
 call Highlight("ShowMarksHLm", s:gui_aqua, s:cterm_aqua, s:gui_background, s:cterm_background, "none")
 
-" Lua Highlighting
-call Highlight("luaStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("luaRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("luaCondStart", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("luaCondElseif", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("luaCond", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("luaCondEnd", s:gui_purple, s:cterm_purple, "", "", "")
-
-" Cucumber Highlighting
-call Highlight("cucumberGiven", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("cucumberGivenAnd", s:gui_blue, s:cterm_blue, "", "", "")
-
-" Go Highlighting
-call Highlight("goDirective", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("goStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("goConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("goConstants", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("goTodo", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("goDeclType", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("goBuiltins", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("goDeclaration", s:gui_purple, s:cterm_purple, "", "", "")
-
-" C# Highlighting
-call Highlight("csModifier", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csType", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csStorage", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csClass", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csClassType", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("csRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csException", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csAsync", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csUnspecifiedStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csNew", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("csLinq", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("csNewType", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("csConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("csLogicSymbols", s:gui_blue, s:cterm_blue, "", "", "")
-
-" Ada Highlighting
-call Highlight("adaBegin", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaEnd", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaSpecial", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("adaConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaAssignment", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("adaKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaTypeDef", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaStorageClass", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("adaAttribute", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("adaInc", s:gui_purple, s:cterm_purple, "", "", "")
-
-" Clojure highlighting
-call Highlight("clojureConstant", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("clojureBoolean", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("clojureCharacter", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("clojureNumber", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("clojureKeyword", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("clojureString", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("clojureRegexp", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("clojureParen", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("clojureVariable", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("clojureCond", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureDefine", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("clojureSpecial", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("clojureException", s:gui_red, s:cterm_red, "", "", "")
-
-call Highlight("clojureFunc", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureMacro", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureRepeat", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureQuote", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureUnquote", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureMeta", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureDeref", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureAnonArg", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("clojureDispatch", s:gui_blue, s:cterm_blue, "", "", "")
-
-" Scala highlighting
-call Highlight("scalaKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaKeywordModifier", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaDef", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaVal", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaImport", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaClass", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaObject", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaTrait", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("scalaFqn", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaFqnSet", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaValName", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaVarName", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaClassName", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaRoot", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("scalaType", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaTypeSpecializer", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaDefSpecializer", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaCaseType", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaConstructorSpecializer", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaClassSpecializer", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("scalaLineComment", s:gui_comment, s:cterm_comment, "", "", "")
-call Highlight("scalaComment", s:gui_comment, s:cterm_comment, "", "", "")
-call Highlight("scalaDocComment", s:gui_comment, s:cterm_comment, "", "", "")
-call Highlight("scalaDocTags", s:gui_comment, s:cterm_comment, "", "", "")
-call Highlight("scalaBoolean", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaUnicode", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaAnnotation", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaNumber", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaSymbol", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaChar", s:gui_orange, s:cterm_orange, "", "", "")
-call Highlight("scalaOperator", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("scalaDefName", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("scalaEmptyString", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaMultiLineString", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaBackTick", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaString", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaStringEscape", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaXml", s:gui_green, s:cterm_green, "", "", "")
-call Highlight("scalaMethodCall", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("scalaBackTick", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("scalaPackage", s:gui_red, s:cterm_red, "", "", "")
-call Highlight("scalaVar", s:gui_aqua, s:cterm_aqua, "", "", "")
-
 " Markdown highlighting
 call Highlight("markdownJekyllFrontMatter", s:gui_green, s:cterm_green, "", "", "")
 call Highlight("markdownJekyllDelimiter", s:gui_green, s:cterm_green, "", "", "")
 call Highlight("markdownItalic", s:gui_foreground, s:cterm_foreground, "", "", "")
 call Highlight("markdownError", s:gui_foreground, s:cterm_foreground, "", "", "")
 
-" Lisp highlighting
-call Highlight("lispDecl", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("lispTodo", s:gui_purple, s:cterm_purple, "", "", "")
-
-" Haskell highlighting
-call Highlight("hsConditional", s:gui_purple, s:cterm_purple, "", "", "")
-
 " C++ highlighting
 call Highlight("cppStatement", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("cppExceptions", s:gui_purple, s:cterm_purple, "", "", "")
-
-" Rust highlighting
-call Highlight("rustKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("rustConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("rustFuncName", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("rustMacro", s:gui_blue, s:cterm_blue, "", "", "")
-call Highlight("rustCommentLineDoc", s:gui_comment, s:cterm_comment, "", "", "")
 
 " TypeScript highlighting
 call Highlight("typescriptReserved", s:gui_purple, s:cterm_purple, "", "", "")
@@ -435,41 +269,11 @@ call Highlight("typescriptBranch", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptStatement", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("typescriptRepeat", s:gui_purple, s:cterm_purple, "", "", "")
 
-" Erlang highlighting
-call Highlight("erlangLocalFuncCall", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("erlangLocalFuncRef", s:gui_red, s:cterm_red, "", "", "")
-call Highlight("erlangBIF", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("erlangGlobalFuncCall", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangVariable", s:gui_foreground, s:cterm_foreground, "", "", "")
-call Highlight("erlangAttribute", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangDefine", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangRecordDef", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangRecord", s:gui_yellow, s:cterm_yellow, "", "", "")
-call Highlight("erlangMacro", s:gui_aqua, s:cterm_aqua, "", "", "")
-call Highlight("erlangAtom", s:gui_red, s:cterm_red, "", "", "")
-
-" Dafny
-call Highlight("dafnyFunction", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyMethod", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyStatement", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("dafnyLogic", s:gui_red, s:cterm_red, "", "", "")
-
-" ProtoBuffers
-call Highlight("protoRepeat", s:gui_purple, s:cterm_purple, "", "", "")
-
-" OpenCL
-call Highlight("clType", s:gui_yellow, s:cterm_yellow, "", "", "")
-
-" NuSMV
-call Highlight("nusmvSectionKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("nusmvModuleKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("nusmvOperator", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("nusmvControlKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("nusmvVariable", s:gui_foreground, s:cterm_foreground, "", "", "")
+" Swift highlighting
+call Highlight("swiftKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("swiftIdentifierKeyword", s:gui_purple, s:cterm_purple, "", "", "")
+call Highlight("swiftType", s:gui_orange, s:cterm_orange, "", "", "")
+call Highlight("swiftVarName", s:gui_foreground, s:cterm_foreground, "", "", "")
 
 " SQL
 call Highlight("sqlStatement", s:gui_purple, s:cterm_purple, "", "", "")
@@ -480,12 +284,6 @@ call Highlight("sqlType", s:gui_foreground, s:cterm_foreground, "", "", "")
 " DTrace
 call Highlight("dtraceReservedKeyword", s:gui_purple, s:cterm_purple, "", "", "")
 call Highlight("dtraceType", s:gui_yellow, s:cterm_yellow, "", "", "")
-
-" CSP
-call Highlight("cspType", s:gui_red, s:cterm_red, "", "", "")
-call Highlight("cspKeyword", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("cspConditional", s:gui_purple, s:cterm_purple, "", "", "")
-call Highlight("cspOperator", s:gui_aqua, s:cterm_aqua, "", "", "")
 
 " Spell Checking
 call Highlight("SpellBad", s:gui_background, s:cterm_background, s:gui_red, s:cterm_red, "")
