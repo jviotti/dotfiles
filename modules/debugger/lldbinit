@@ -20,6 +20,11 @@ settings set target.process.thread.step-in-avoid-nodebug false
 # Load .lldbinit files from the current working directory
 settings set target.load-cwd-lldbinit true
 
+# For C++, build a "clang module" for the STD libraries, from
+# which LLDB can build needed specializations on demand
+# See https://stackoverflow.com/a/70501473/1641422
+settings set target.import-std-module true
+
 # Automatically break on C++ exceptions
 breakpoint set --language-exception c++
 
