@@ -27,6 +27,7 @@ include modules/git/targets.mk
 include modules/gnupg/targets.mk
 include modules/irc/targets.mk
 include modules/npm/targets.mk
+include modules/performance/targets.mk
 include modules/sed/targets.mk
 include modules/ssh/targets.mk
 include modules/stdsh/targets.mk
