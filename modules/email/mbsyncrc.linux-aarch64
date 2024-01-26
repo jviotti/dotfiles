@@ -53,13 +53,5 @@ Create Both
 Expunge Both
 SyncState *
 
-Channel postman-trash
-Far :postman-remote:"[Gmail]/Trash"
-Near :postman-local:Trash
-Create Both
-Expunge Both
-SyncState *
-
 Group postman
 Channel postman-inbox
-Channel postman-trash
