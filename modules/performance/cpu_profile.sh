@@ -20,7 +20,7 @@ OUTPUT="/tmp/cpu_profile_$(whoami)_$(basename "$PROGRAM").trace"
 echo "Profiling $PROGRAM into $OUTPUT" 1>&2
 # Delete potential previous traces
 rm -rf "$OUTPUT"
-xctrace record \
+xcrun xctrace record \
   --template 'CPU Profiler' \
   --no-prompt \
   --output "$OUTPUT" \
