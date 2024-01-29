@@ -13,7 +13,7 @@ then
   usage
 fi
 
-PROGRAM="$1"
+PROGRAM="$(realpath "$1")"
 shift
 
 OUTPUT="/tmp/cpu_profile_$(whoami)_$(basename "$PROGRAM").trace"
