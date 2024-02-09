@@ -14,4 +14,16 @@ fi
 pattern=$1
 replacement=$2
 
-/usr/bin/find . -type f -exec sed -i '' "s/$pattern/$replacement/g" {} +
+/usr/bin/find . -type f -print0 | while IFS= read -r -d '' file
+do
+  # To gracefully skip binary files
+  TYPE="$(file -b --mime-type "$file")"
+  if echo "$TYPE" | grep -q "^text/"
+  then
+    echo "Processing $file" 1>&2
+    sed -i '' "s/$pattern/$replacement/g" "$file"
+  else
+    echo "Ignoring $file" 1>&2
+    continue
+  fi
+done
