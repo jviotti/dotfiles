@@ -252,6 +252,10 @@ if which ack-grep >/dev/null 2>/dev/null; then
   alias ack="ack-grep"
 fi
 
+if which gmake >/dev/null 2>/dev/null; then
+  alias make="gmake"
+fi
+
 ##################################################
 # Git
 ##################################################
