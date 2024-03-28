@@ -10,3 +10,6 @@
 
 --ignore-dir=bower_components
 --ignore-dir=node_modules
+
+# Ignore SVGs
+--ignore-file=ext:svg
