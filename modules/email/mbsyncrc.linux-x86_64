@@ -26,32 +26,3 @@ SyncState *
 
 Group personal
 Channel personal-all
-
-#################################################
-# Postman
-#################################################
-
-IMAPAccount postman
-Host imap.gmail.com
-User juan.viotti@postman.com
-PassCmd +"pass key work/postman/gmail.com"
-AuthMechs LOGIN
-SSLType IMAPS
-
-IMAPStore postman-remote
-Account postman
-
-MaildirStore postman-local
-Path ~/Mail/Postman/
-Inbox ~/Mail/Postman/INBOX
-
-Channel postman-inbox
-Far :postman-remote:
-Near :postman-local:
-Patterns "INBOX"
-Create Both
-Expunge Both
-SyncState *
-
-Group postman
-Channel postman-inbox

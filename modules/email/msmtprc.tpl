@@ -28,14 +28,6 @@ from           jv@jviotti.com
 user           jviotti
 passwordeval   "pass key personal/mailfence.com"
 
-# Postman
-account        postman
-host           smtp.gmail.com
-port           465
-from           juan.viotti@postman.com
-user           juan.viotti@postman.com
-passwordeval   "pass key work/postman/gmail.com"
-
 # Intelligence
 account        intelligence
 host           smtp.gmail.com
