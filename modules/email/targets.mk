@@ -8,8 +8,6 @@ $(DESTINATION)/Mail:
 	mkdir $@
 $(DESTINATION)/Mail/Personal: | $(DESTINATION)/Mail
 	mkdir $@
-$(DESTINATION)/Mail/Postman: | $(DESTINATION)/Mail
-	mkdir $@
 
 $(DESTINATION)/.mbsyncrc: modules/email/mbsyncrc.$(PLATFORM); $(SYMLINK)
 $(DESTINATION)/.msmtprc: modules/email/msmtprc.$(PLATFORM); $(SYMLINK)
@@ -29,7 +27,6 @@ email: \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/Mail \
 	$(DESTINATION)/Mail/Personal \
-	$(DESTINATION)/Mail/Postman \
 	$(DESTINATION)/.mutt/aliases \
 	$(DESTINATION)/.mailcap \
 	$(DESTINATION)/bin/email

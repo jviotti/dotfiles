@@ -28,19 +28,16 @@ set use_from = yes
 reply-hook '~C .*' set from = $my_default_from
 
 # Use certain addresses depending on the receiver/sender
-reply-hook '~C @postman\\.com$' set from = "juan.viotti@postman.com"
 reply-hook '~C hello@sourcemeta\\.com$' set from = "hello@sourcemeta.com"
 reply-hook '~C admin@sourcemeta\\.com$' set from = "admin@sourcemeta.com"
 reply-hook '~C jviotti@sourcemeta\\.com$' set from = "jviotti@sourcemeta.com"
 reply-hook '~C juan@intelligence\\.ai' set from = "juan@intelligence.ai"
-reply-hook '~f @postman\.com$' set from = "juan.viotti@postman.com"
 reply-hook '~f @sourcemeta\.com$' set from = "jviotti@sourcemeta.com"
 reply-hook '~f @intelligence\.ai' set from = "juan@intelligence.ai"
 
 # Don't CC these addresses when replying to all
 set metoo = no
 alternates jv@jviotti.com
-alternates juan.viotti@postman.com
 alternates hello@sourcemeta.com
 alternates admin@sourcemeta.com
 alternates jviotti@sourcemeta.com
@@ -138,18 +135,6 @@ color index white magenta ~tintelligence.ai
 
 # Highlight GitHub emails
 color index white green ~fgithub.com
-
-# Highlight Postman emails
-color index white red ~fpostmanlabs.atlassian.net
-color index white red ~fbitbucket.org
-color index white red ~tpostman-app-support@noreply.github.com
-
-# Highlight Electron emails
-color index white cyan ~telectron@noreply.github.com
-
-# Highlight certain projects
-color index white brightred ~spostman-eng/starship
-color index white brightred ~fstarship@postman.com
 
 #######################################################################
 # Pager
