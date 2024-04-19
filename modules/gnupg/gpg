@@ -1,0 +1,15 @@
+#!/bin/sh
+
+set -o errexit
+set -o nounset
+
+UNAME="$(uname)"
+
+# To make WSL work 
+WSL_GNUPG="/mnt/c/Program Files (x86)/GnuPG/bin/gpg.exe"
+if [ "$UNAME" = "Linux" ] && [ -x "$WSL_GNUPG" ]
+then
+  /mnt/c/Program\ Files\ \(x86\)/GnuPG/bin/gpg.exe "$@"
+else
+  exec gpg "$@"
+fi

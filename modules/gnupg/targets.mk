@@ -15,6 +15,7 @@ $(DESTINATION)/.gnupg/gpg.conf: modules/gnupg/gpg.conf | $(DESTINATION)/.gnupg
 	chmod 700 $@
 
 gnupg: \
+	$(DESTINATION)/bin/gpg \
 	$(DESTINATION)/bin/decrypt.sh \
 	$(DESTINATION)/bin/encrypt.sh \
 	$(DESTINATION)/bin/recipients.sh \
