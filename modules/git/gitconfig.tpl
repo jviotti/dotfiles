@@ -57,9 +57,7 @@
 	process = git-lfs filter-process
 [commit]
 	template = ~/.gitdefaultcommit
-%%ifeq OS macos
 	gpgsign = true
-%%endif
 	verbose = true
 [merge]
 	tool = vimdiff
@@ -80,10 +78,8 @@
 	user = jviotti
 [pass]
 	signcommits = true
-%%ifeq OS macos
 [gpg]
 	program = gpg
-%%endif
 [http]
 	cookiefile = ~/.gitcookies
 [gerrit]

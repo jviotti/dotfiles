@@ -52,6 +52,7 @@
 	process = git-lfs filter-process
 [commit]
 	template = ~/.gitdefaultcommit
+	gpgsign = true
 	verbose = true
 [merge]
 	tool = vimdiff
@@ -72,6 +73,8 @@
 	user = jviotti
 [pass]
 	signcommits = true
+[gpg]
+	program = gpg
 [http]
 	cookiefile = ~/.gitcookies
 [gerrit]
