@@ -362,15 +362,6 @@ else
 fi
 
 ##################################################
-# Scaleway
-##################################################
-
-# See https://github.com/scaleway/scaleway-cli
-if command -v scw >/dev/null 2>&1; then
-  eval "$(scw autocomplete script shell=zsh)"
-fi
-
-##################################################
 # Prompt
 ##################################################
 
