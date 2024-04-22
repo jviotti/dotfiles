@@ -17,7 +17,7 @@ set sendmail = "/opt/homebrew/bin/msmtp"
 set sendmail = "/usr/local/bin/msmtp"
 %%endif
 %%else
-set sendmail = "/usr/local/bin/msmtp"
+set sendmail = "/usr/bin/msmtp"
 %%endif
 set realname = "Juan Cruz Viotti"
 set from = $my_default_from

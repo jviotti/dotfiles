@@ -16,7 +16,7 @@ tls_trust_file /opt/homebrew/etc/openssl@1.1/cert.pem
 tls_trust_file /usr/local/etc/openssl@1.1/cert.pem
 %%endif
 %%else
-tls_trust_file /usr/local/etc/openssl@1.1/cert.pem
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
 %%endif
 logfile        ~/.msmtp.log
 
