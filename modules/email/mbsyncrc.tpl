@@ -25,13 +25,8 @@ Path ~/Mail/Personal/
 Inbox ~/Mail/Personal/INBOX
 
 Channel personal-all
-%%ifeq OS linux
-Master :personal-remote:
-Slave :personal-local:
-%%else
 Far :personal-remote:
 Near :personal-local:
-%%endif
 Patterns *
 Create Both
 Expunge Both
