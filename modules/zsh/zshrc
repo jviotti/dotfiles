@@ -367,7 +367,7 @@ fi
 
 # For 2FA
 otp() {
-  oathtool --base32 --digits 6 --totp "$(pass key otp/$1.com)"
+  oathtool --base32 --digits 6 --totp "$(pass key otp/$1)"
 }
 
 ##################################################
