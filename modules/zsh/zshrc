@@ -366,6 +366,18 @@ else
 fi
 
 ##################################################
+# SSH
+##################################################
+
+# Make WSL remember ssh passwords
+# See https://stackoverflow.com/a/63207006
+HOSTNAME="$(hostname)"
+if [ -f "$HOME/.keychain/$HOSTNAME-sh" ]
+then
+  source "$HOME/.keychain/$HOSTNAME-sh"
+fi
+
+##################################################
 # Prompt
 ##################################################
 
