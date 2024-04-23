@@ -25,6 +25,7 @@ email: \
 	$(DESTINATION)/.mbsyncrc \
 	$(DESTINATION)/.msmtprc \
 	$(DESTINATION)/.mutt/muttrc \
+	$(DESTINATION)/.mutt/signature \
 	$(DESTINATION)/Mail \
 	$(DESTINATION)/Mail/Personal \
 	$(DESTINATION)/.mutt/aliases \
