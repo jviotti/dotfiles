@@ -128,10 +128,12 @@ color message    brightcyan    default
 color error      brightred     default
 
 # Sourcemeta
-color index white magenta ~tsourcemeta.com
+color index white red ~tsourcemeta.com
+color index white red ~fsourcemeta.com
 
 # Intelligence.ai
 color index white magenta ~tintelligence.ai
+color index white magenta ~fintelligence.ai
 
 # Highlight GitHub emails
 color index white green ~fgithub.com
