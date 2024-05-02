@@ -280,6 +280,17 @@ set complete-=i
 " Copy-paste friendly
 set clipboard=unnamed
 
+" Avoid non-sense [200~ and [201~ wrappers on pasted text on WSL
+" See https://vi.stackexchange.com/a/34874
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 "=========================================================================
 " $SPELLCHECK
 "=========================================================================
