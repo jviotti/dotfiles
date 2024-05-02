@@ -359,10 +359,6 @@ then
   export PASSWORD_STORE_DIR="$HOME/Library/CloudStorage/Dropbox/Pass"
 else
   export PASSWORD_STORE_DIR="$HOME/Dropbox/Pass"
-  # On Windows WSL, for some reason, the GPG key will
-  # not work until we actually visit the directory
-  cd "$PASSWORD_STORE_DIR"
-  cd - > /dev/null
 fi
 
 # For 2FA
