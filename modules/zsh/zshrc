@@ -373,6 +373,7 @@ otp() {
 # Open URLs in Windows default browser on WSL
 if command -v wslview >/dev/null 2>&1; then
   export BROWSER="wslview"
+  alias open="wslview"
 fi
 
 ##################################################
