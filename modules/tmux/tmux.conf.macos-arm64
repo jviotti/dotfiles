@@ -94,7 +94,7 @@ set -g message-style fg=black,bg=colour109
 set -g status-left ''
 
 # Right status bar
-set -g status-right "| %a %e %b %R (UTC%z)"
+set -g status-right ''
 
 #######################################
 # VIM MODE
