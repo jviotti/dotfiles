@@ -358,7 +358,8 @@ export PASSWORD_STORE_DIR="$HOME/Dropbox/Pass"
 
 # For 2FA
 otp() {
-  oathtool --base32 --digits 6 --totp "$(pass key otp/$1)"
+  oathtool --base32 --digits 6 --totp "$(pass key otp/$1)" | pbcopy
+  echo "The 2FA code has been copied to the clipboard!" 1>&2
 }
 
 ##################################################
