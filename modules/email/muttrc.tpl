@@ -127,16 +127,22 @@ color status     black         default
 color message    brightcyan    default
 color error      brightred     default
 
+# Highlight GitHub emails
+color index white green ~fgithub.com
+
+# Ribbons
+color message    brightcyan    default
+color error      brightred     default
+
 # Sourcemeta
 color index white red ~tsourcemeta.com
 color index white red ~fsourcemeta.com
+color index white red ~ssourcemeta/
 
 # Intelligence.ai
 color index white magenta ~tintelligence.ai
 color index white magenta ~fintelligence.ai
-
-# Highlight GitHub emails
-color index white green ~fgithub.com
+color index white magenta ~sIntelligence-AI/
 
 #######################################################################
 # Pager
