@@ -130,10 +130,6 @@ color error      brightred     default
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
-# Ribbons
-color message    brightcyan    default
-color error      brightred     default
-
 # Sourcemeta
 color index white red ~tsourcemeta.com
 color index white red ~fsourcemeta.com
