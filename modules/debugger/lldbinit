@@ -25,9 +25,6 @@ settings set target.load-cwd-lldbinit true
 # See https://stackoverflow.com/a/70501473/1641422
 settings set target.import-std-module true
 
-# Automatically break on C++ exceptions
-breakpoint set --language-exception c++
-
 # Convenient shorthand to "image lookup" regex search
 command regex rlook 's/(.+)/image lookup -rn %1/'
 
