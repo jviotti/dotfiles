@@ -354,7 +354,7 @@ fi
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
 
 # To keep a backup somewhere else
-export PASSWORD_STORE_DIR="$HOME/Dropbox/Pass"
+export PASSWORD_STORE_DIR="$HOME/Pass"
 
 # For 2FA
 otp() {
