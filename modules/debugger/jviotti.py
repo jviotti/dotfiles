@@ -1,15 +1,30 @@
+import subprocess
+import shlex
+import sys
+
 # See https://lldb.llvm.org/python_reference/
 import lldb
 
-# debugger = lldb.SBDebugger
-# command = Arguments, as a string, passed to the command
-# result = lldb.SBCommandReturnObject
-def test(debugger, command, result, internal_dict):
-  '''A sample test function'''
-  print(debugger.__class__)
-  print(command.__class__)
-  print(result.__class__)
-  print(internal_dict.__class__)
+def make(debugger, command, result, internal_dict):
+  """
+  Run GNU Make command from within LLDB and stream the output in real-time.
+
+  Usage: make [target]
+  """
+  make_cmd = ["make"] + shlex.split(command)
+  try:
+    process = subprocess.Popen(make_cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, bufsize=1)
+    for line in iter(process.stdout.readline, ''):
+      print(line, end='')
+      sys.stdout.flush()
+    process.stdout.close()
+    return_code = process.wait()
+    if return_code != 0:
+      result.SetError(f"Make command failed with exit code {return_code}.")
+  except subprocess.CalledProcessError as e:
+    result.SetError(f"Make command failed: {e}")
+  except Exception as e:
+    result.SetError(f"An error occurred: {str(e)}")
 
 def gtest(debugger, command, result, internal_dict):
   """
