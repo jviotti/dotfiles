@@ -45,11 +45,11 @@ def gtest(debugger, command, result, internal_dict):
     return
 
   if command.strip():
-    launch_command = f'process launch -- --gtest_filter={command.strip()}'
+    launch_command = f'process launch -- --gtest_brief=1 --gtest_filter={command.strip()}'
     filter_message = f"with filter: {command.strip()}"
   else:
     # Explicitly set the filter to * to run all tests, overriding any previous filter
-    launch_command = 'process launch -- --gtest_filter=*'
+    launch_command = 'process launch -- --gtest_brief=1 --gtest_filter=*'
     filter_message = "without filter (running all tests)"
 
   debugger.SetAsync(True)
