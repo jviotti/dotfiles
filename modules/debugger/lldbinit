@@ -42,3 +42,4 @@ command alias reload command script import ~/.lldb/jviotti.py
 # Use this to also reload changes from the scripts
 reload
 command script add --overwrite --function jviotti.test test
+command script add --overwrite --function jviotti.gtest gtest
