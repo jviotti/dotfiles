@@ -22,6 +22,7 @@ echo "Profiling $PROGRAM into $OUTPUT" 1>&2
 rm -rf "$OUTPUT"
 xcrun xctrace record \
   --template 'CPU Profiler' \
+  --instrument 'Allocations' \
   --no-prompt \
   --output "$OUTPUT" \
   --target-stdout - \
