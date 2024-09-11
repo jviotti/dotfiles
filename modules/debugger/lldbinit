@@ -43,3 +43,4 @@ command alias reload command script import ~/.lldb/jviotti.py
 reload
 command script add --overwrite --function jviotti.gtest gtest
 command script add --overwrite --function jviotti.make make
+command script add --overwrite --function jviotti.stack_info stack_info

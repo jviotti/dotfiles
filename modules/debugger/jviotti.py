@@ -5,6 +5,28 @@ import sys
 # See https://lldb.llvm.org/python_reference/
 import lldb
 
+def stack_info(debugger, command, result, internal_dict):
+  """
+  Log useful statistics about the estimated program stack. Only tested on macOS.
+
+  Usage: stack_size
+  """
+  frame = debugger.GetSelectedTarget().GetProcess().GetSelectedThread().GetFrameAtIndex(0)
+  # Get stack base and size
+  stack_base = frame.EvaluateExpression("(void*)pthread_get_stackaddr_np(pthread_self())").GetValueAsUnsigned()
+  stack_size = frame.EvaluateExpression("pthread_get_stacksize_np(pthread_self())").GetValueAsUnsigned()
+  # Get current stack pointer
+  current_sp = frame.EvaluateExpression("(void*)__builtin_frame_address(0)").GetValueAsUnsigned()
+  # Calculate usage
+  used_bytes = stack_base - current_sp
+  used_percentage = (used_bytes / stack_size) * 100
+  # Log results
+  result.AppendMessage(f"Stack base: 0x{stack_base:x}")
+  result.AppendMessage(f"Stack size: {stack_size:,} bytes ({stack_size/1024:.2f} KB, {stack_size/1024/1024:.2f} MB)")
+  result.AppendMessage(f"Current SP: 0x{current_sp:x}")
+  result.AppendMessage(f"Stack usage: {used_bytes:,} bytes ({used_bytes/1024:.2f} KB, {used_bytes/1024/1024:.2f} MB)")
+  result.AppendMessage(f"Usage percentage: {used_percentage:.2f}%")
+
 def make(debugger, command, result, internal_dict):
   """
   Run GNU Make command from within LLDB and stream the output in real-time.
