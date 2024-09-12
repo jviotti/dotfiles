@@ -3,14 +3,6 @@
 set -o errexit
 set -o nounset
 
-# If you need memory tracing too, check `full_profile`. We don't enable
-# Allocations by default here, as it can lead to more data than Instruments
-# can collect for certain recordings. For example:
-#
-# *** Terminating app due to uncaught exception 'NSRangeException',
-# reason: '*** -[XRSharingArchiver encodeDataObject:]:
-# data length (14378608134) makes data too large to fit in non-keyed archive'
-
 usage() {
   echo "Usage $0 <program> [arguments...]" 1>&2
   exit 1
@@ -30,6 +22,7 @@ echo "Profiling $PROGRAM into $OUTPUT" 1>&2
 rm -rf "$OUTPUT"
 xcrun xctrace record \
   --template 'CPU Profiler' \
+  --instrument 'Allocations' \
   --no-prompt \
   --output "$OUTPUT" \
   --target-stdout - \
