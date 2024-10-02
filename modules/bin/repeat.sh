@@ -24,7 +24,7 @@ do
   else $COMMAND
   fi
   EXIT_CODE="$?"
-  ((TIMES+=1))
+  TIMES=$((TIMES + 1))
   if [ "$EXIT_CODE" != "0" ]
   then
     echo "Command failed with exit code: $EXIT_CODE" 1>&2
