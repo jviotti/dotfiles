@@ -74,7 +74,7 @@
 [pass]
 	signcommits = true
 [gpg]
-	program = gpg
+	program = gpg2
 [http]
 	cookiefile = ~/.gitcookies
 [gerrit]

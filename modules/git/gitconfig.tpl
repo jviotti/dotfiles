@@ -79,7 +79,11 @@
 [pass]
 	signcommits = true
 [gpg]
+%%ifeq OS linux
+	program = gpg2
+%%else
 	program = gpg
+%%endif
 [http]
 	cookiefile = ~/.gitcookies
 [gerrit]
