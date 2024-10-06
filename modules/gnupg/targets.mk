@@ -23,4 +23,7 @@ gnupg: \
 	$(DESTINATION)/.gnupg/gpg-agent.conf \
 	$(DESTINATION)/.gnupg/scdaemon.conf \
 	$(DESTINATION)/.gnupg/gpg.conf
+	chown -R $(shell whoami) ~/.gnupg/
+	chmod 600 ~/.gnupg/*
+	chmod 700 ~/.gnupg
 MODULES += gnupg
