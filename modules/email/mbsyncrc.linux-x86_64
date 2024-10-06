@@ -7,7 +7,7 @@ Host imap.mailfence.com
 User jv@jviotti.com
 PassCmd +"pass key personal/mailfence.com"
 AuthMechs LOGIN
-SSLType IMAPS
+TLSType IMAPS
 
 IMAPStore personal-remote
 Account personal
