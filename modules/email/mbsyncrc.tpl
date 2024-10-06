@@ -7,7 +7,7 @@ Host imap.mailfence.com
 User jv@jviotti.com
 PassCmd +"pass key personal/mailfence.com"
 AuthMechs LOGIN
-TLSType IMAPS
+SSLType IMAPS
 %%ifeq OS macos
 %%ifeq ARCH arm64
 CertificateFile /opt/homebrew/etc/openssl@1.1/cert.pem
