@@ -31,9 +31,7 @@ reply-hook '~C .*' set from = $my_default_from
 reply-hook '~C hello@sourcemeta\\.com$' set from = "hello@sourcemeta.com"
 reply-hook '~C admin@sourcemeta\\.com$' set from = "admin@sourcemeta.com"
 reply-hook '~C jviotti@sourcemeta\\.com$' set from = "jviotti@sourcemeta.com"
-reply-hook '~C juan@intelligence\\.ai' set from = "juan@intelligence.ai"
 reply-hook '~f @sourcemeta\.com$' set from = "jviotti@sourcemeta.com"
-reply-hook '~f @intelligence\.ai' set from = "juan@intelligence.ai"
 
 # Don't CC these addresses when replying to all
 set metoo = no
@@ -134,11 +132,6 @@ color index white green ~fgithub.com
 color index white red ~tsourcemeta.com
 color index white red ~fsourcemeta.com
 color index white red ~ssourcemeta/
-
-# Intelligence.ai
-color index white magenta ~tintelligence.ai
-color index white magenta ~fintelligence.ai
-color index white magenta ~sIntelligence-AI/
 
 #######################################################################
 # Pager

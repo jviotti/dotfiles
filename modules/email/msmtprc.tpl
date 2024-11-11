@@ -28,13 +28,5 @@ from           jv@jviotti.com
 user           jviotti
 passwordeval   "pass key personal/mailfence.com"
 
-# Intelligence
-account        intelligence
-host           smtp.gmail.com
-port           465
-from           juan@intelligence.ai
-user           juan@intelligence.ai
-passwordeval   "pass key intelligence.ai/jviotti/gmail.com"
-
 # Set a default account
 account default : mailfence
