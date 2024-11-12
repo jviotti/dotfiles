@@ -25,4 +25,5 @@ gnupg: \
 	$(DESTINATION)/.gnupg/gpg.conf
 	chmod 600 ~/.gnupg/*
 	chmod 700 ~/.gnupg
+	gpgconf --kill gpg-agent
 MODULES += gnupg
