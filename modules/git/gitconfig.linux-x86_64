@@ -12,7 +12,7 @@
 [sendemail]
 	smtpserver = /usr/local/bin/msmtp
 	smtpserveroption=--account
-	smtpserveroption=mailfence
+	smtpserveroption=proton
 	annotate = yes
 [color]
 	ui = true

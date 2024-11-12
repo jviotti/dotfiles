@@ -60,7 +60,7 @@ set spoolfile = "+Personal/INBOX"
 set trash = "+Personal/Trash"
 
 # Store sent messages in the corresponding mailbox
-set record = "+Personal/Sent\\ Items"
+set record = "+Personal/Sent"
 
 # Specify where to save and/or look for postponed messages.
 set postponed = "+Personal/Drafts"
@@ -78,7 +78,7 @@ source $alias_file
 # See http://mutt.org/doc/manual/#fcc-hook
 save-hook . '+Personal/Archive'
 set fcc_delimiter = ','
-fcc-hook . '+Personal/Archive,+Personal/Sent\\ Items'
+fcc-hook . '+Personal/Archive,+Personal/Sent'
 
 # Disable beeps
 set beep = no

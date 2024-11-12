@@ -2,23 +2,22 @@
 defaults
 auth           on
 tls            on
+logfile        ~/.msmtp.log
 
-# msmtp complains with "empty reply from server"
-# if this setting is on
+# Proton
+account        proton
+host           127.0.0.1
+port           1025
+from           jv@jviotti.com
+user           jv@jviotti.com
+passwordeval   "pass key personal/proton.me/smtp"
 # Off means "tunnel the session through TLS"
 # See http://msmtp.sourceforge.net/doc/msmtp.html
 tls_starttls   off
-
-tls_trust_file /usr/local/etc/openssl@1.1/cert.pem
-logfile        ~/.msmtp.log
-
-# Mailfence
-account        mailfence
-host           smtp.mailfence.com
-port           465
-from           jv@jviotti.com
-user           jviotti
-passwordeval   "pass key personal/mailfence.com"
+# Extract using:
+# openssl s_client -starttls imap -connect 127.0.0.1:1143 -showcerts
+# See https://stackoverflow.com/a/57789973
+tls_trust_file ~/.config/protonmail/bridge/cert.pem
 
 # Set a default account
-account default : mailfence
+account default : proton

@@ -1,0 +1,32 @@
+[general]
+accounts = proton-bridge
+maxsyncaccounts = 1
+# Load a Python file with "add-ons"
+pythonfile = ~/.offlineimap.py
+
+[Account proton-bridge]
+localrepository = proton-bridge-local
+remoterepository = proton-bridge-remote
+
+[Repository proton-bridge-local]
+type = Maildir
+localfolders = ~/Mail/Personal
+sync_deletes = yes
+
+[Repository proton-bridge-remote]
+type = IMAP
+remotehost = 127.0.0.1
+remoteport = 1143
+remoteuser = jv@jviotti.com
+remotepasseval = get_pass("personal/proton.me/imap")
+ssl = no
+starttls = yes
+sslcacertfile = ~/.config/protonmail/bridge/cert.pem
+maxconnections = 1
+# TODO: Sync Archive too
+folderfilter = lambda folder: folder in ['INBOX', 'Drafts', 'Trash', 'Sent', 'Spam']
+readonly = False
+createfolders = False
+retrycount = 2
+expunge = True
+statusfolder = ~/Mail/Personal/.OfflineIMAP

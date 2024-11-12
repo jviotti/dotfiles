@@ -12,6 +12,8 @@ $(DESTINATION)/Mail/Personal: | $(DESTINATION)/Mail
 $(DESTINATION)/.mbsyncrc: modules/email/mbsyncrc.$(PLATFORM); $(SYMLINK)
 $(DESTINATION)/.msmtprc: modules/email/msmtprc.$(PLATFORM); $(SYMLINK)
 $(DESTINATION)/.mailcap: modules/email/mailcap; $(SYMLINK)
+$(DESTINATION)/.offlineimaprc: modules/email/offlineimaprc; $(SYMLINK)
+$(DESTINATION)/.offlineimap.py: modules/email/offlineimap.py; $(SYMLINK)
 
 $(DESTINATION)/.mutt/muttrc: modules/email/muttrc.$(PLATFORM) | $(DESTINATION)/.mutt
 	$(SYMLINK)
@@ -24,6 +26,8 @@ email: \
 	$(DESTINATION)/.mutt/cache \
 	$(DESTINATION)/.mbsyncrc \
 	$(DESTINATION)/.msmtprc \
+	$(DESTINATION)/.offlineimaprc \
+	$(DESTINATION)/.offlineimap.py \
 	$(DESTINATION)/.mutt/muttrc \
 	$(DESTINATION)/.mutt/signature \
 	$(DESTINATION)/Mail \
