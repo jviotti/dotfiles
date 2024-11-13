@@ -73,12 +73,8 @@ set signature = "~/.mutt/signature"
 set alias_file = "~/.mutt/aliases"
 source $alias_file
 
-# Save emails to both "Archive" and "Sent Items"
-# See http://unix.stackexchange.com/a/242073/43448
-# See http://mutt.org/doc/manual/#fcc-hook
+# Save emails to "Archive"
 save-hook . '+Personal/Archive'
-set fcc_delimiter = ','
-fcc-hook . '+Personal/Archive,+Personal/Sent'
 
 # Disable beeps
 set beep = no
