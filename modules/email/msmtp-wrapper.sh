@@ -3,6 +3,20 @@
 set -o errexit
 set -o nounset
 
+if [ -x "/opt/homebrew/bin/msmtp" ]
+then
+  MSMTP="/opt/homebrew/bin/msmtp"
+elif [ -x "/usr/local/bin/msmtp" ]
+then
+  MSMTP="/usr/local/bin/msmtp"
+elif [ -x "/usr/bin/msmtp" ]
+then
+  MSMTP="/usr/bin/msmtp"
+else
+  echo "Could not locate msmtp" 1>&2
+  exit 1
+fi
+
 if [ -x "/Applications/Proton Mail Bridge.app/Contents/MacOS/bridge" ]
 then
   PROTON_BRIDGE="/Applications/Proton Mail Bridge.app/Contents/MacOS/bridge"
@@ -10,20 +24,16 @@ fi
 
 if [ -n "$PROTON_BRIDGE" ]
 then
-  "$PROTON_BRIDGE" --noninteractive --log-level info --log-imap all &
+  "$PROTON_BRIDGE" --noninteractive --log-level info --log-smtp &
   BRIDGE_PID="$!"
   trap "kill $BRIDGE_PID" EXIT
 fi
-
-# Go to a safe location before fetching e-mail. On i.e. WSL, `mbsync`
-# will fail if it runs on a Windows directory vs a WSL directory.
-cd "$HOME"
 
 # Retry a few times until the bridge accepts our connections
 TIMES=0
 while true
 do
-  mbsync --all && CODE="$?" || CODE="$?"
+  "$MSMTP" "$@" && CODE="$?" || CODE="$?"
   if [ "$CODE" = "0" ]
   then
     exit 0
