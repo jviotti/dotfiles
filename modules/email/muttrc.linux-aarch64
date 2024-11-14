@@ -10,7 +10,7 @@ set hostname = "jviotti.local"
 set my_default_from = "jv@jviotti.com"
 
 # SMTP
-set sendmail = "~/bin/msmtp-wrapper"
+set sendmail = "/usr/bin/msmtp"
 set realname = "Juan Cruz Viotti"
 set from = $my_default_from
 set use_from = yes
@@ -20,10 +20,10 @@ set use_from = yes
 reply-hook '~C .*' set from = $my_default_from
 
 # Use certain addresses depending on the receiver/sender
-reply-hook '~C hello@sourcemeta\\.com$' set from = "hello@sourcemeta.com"
-reply-hook '~C admin@sourcemeta\\.com$' set from = "admin@sourcemeta.com"
-reply-hook '~C jviotti@sourcemeta\\.com$' set from = "jviotti@sourcemeta.com"
-reply-hook '~f @sourcemeta\.com$' set from = "jviotti@sourcemeta.com"
+reply-hook '~C hello@sourcemeta\.com$' set from = "hello@sourcemeta.com"
+reply-hook '~C admin@sourcemeta\.com$' set from = "admin@sourcemeta.com"
+reply-hook '~C jviotti@sourcemeta\.com$' set from = "jviotti@sourcemeta.com"
+reply-hook '~f @sourcemeta.com$' set from = "jviotti@sourcemeta.com"
 
 # Don't CC these addresses when replying to all
 set metoo = no
@@ -78,15 +78,15 @@ set include = ask-no
 # Status Bar
 #######################################################################
 
-set status_format = "M ($from): %f\\
-[Msgs:%?M?%M/?%m%?n?\\
-New:%n?%?o?\\
-Old:%o?%?d?\\
-Del:%d?%?F?\\
-Flag:%F?%?t?\\
-Tag:%t?%?p?\\
-Post:%p?%?b?\\
-Inc:%b?%?l?\\
+set status_format = "M ($from): %f\
+[Msgs:%?M?%M/?%m%?n?\
+New:%n?%?o?\
+Old:%o?%?d?\
+Del:%d?%?F?\
+Flag:%F?%?t?\
+Tag:%t?%?p?\
+Post:%p?%?b?\
+Inc:%b?%?l?\
 %l?]%> (%P)"
 
 #######################################################################
@@ -128,8 +128,8 @@ color index white red ~ssourcemeta/
 # Vim mode
 bind pager j next-line
 bind pager k previous-line
-bind attach,index,pager \\CD next-page
-bind attach,index,pager \\CU previous-page
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
 bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
@@ -204,15 +204,15 @@ set markers = no
 
 # Press Ctrl+B to open an interactive menu with all the URLs
 # from a message. `urlview` will open them in the default
-# OS web browser.
+# linux web browser.
 
 # This option makes mutt decode the e-mail before piping it
 # to `urlview`, so we don't send a plain multipart messages
 # that really confuses the program.
 set pipe_decode = yes
 
-macro index \\cb |urlview\\n
-macro pager \\cb |urlview\\n
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
 
 #######################################################################
 # Bindings
@@ -223,7 +223,7 @@ bind pager R group-reply
 
 # Apply patch to the git repo in the current working
 # directory from the list view
-macro index L '| git am --signoff'\\n
+macro index L '| git am --signoff'\n
 
 #######################################################################
 # GPG (from gpg.rc distributed by Homebrew)
@@ -255,33 +255,33 @@ set pgp_use_gpg_agent = yes
 #       a list of key IDs.
 
 # Decode application/pgp
-set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \\
+set pgp_decode_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
   --no-verbose --quiet --batch --output - %f"
 
 # Verify a pgp/mime signature
-set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet \\
+set pgp_verify_command="gpg --status-fd=2 --no-verbose --quiet \
   --batch --output - --verify %s %f"
 
 # Decrypt a pgp/mime attachment
-set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \\
+set pgp_decrypt_command="gpg --status-fd=2 %?p?--passphrase-fd 0? \
   --no-verbose --quiet --batch --output - %f"
 
 # Create a pgp/mime signed attachment
-set pgp_sign_command="gpg --no-verbose --batch --quiet --output \\
+set pgp_sign_command="gpg --no-verbose --batch --quiet --output \
   - %?p?--passphrase-fd 0? --armor --detach-sign --textmode %?a?-u %a? %f"
 
 # Create a application/pgp signed (old-style) message
-set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output \\
+set pgp_clearsign_command="gpg --no-verbose --batch --quiet --output \
   - %?p?--passphrase-fd 0? --armor --textmode --clearsign %?a?-u %a? %f"
 
 # Create a pgp/mime encrypted attachment
-set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet \\
-  --no-verbose --output \\
+set pgp_encrypt_only_command="pgpewrap gpg --batch --quiet \
+  --no-verbose --output \
   - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
 
 # Create a pgp/mime encrypted and signed attachment
-set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? \\
-  --batch --quiet --no-verbose --textmode --output \\
+set pgp_encrypt_sign_command="pgpewrap gpg %?p?--passphrase-fd 0? \
+  --batch --quiet --no-verbose --textmode --output \
   - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
 
 # Import a key into the public key ring
@@ -291,18 +291,18 @@ set pgp_import_command="gpg --no-verbose --import %f"
 set pgp_export_command="gpg --no-verbose --export --armor %r"
 
 # Verify a key
-set pgp_verify_key_command="gpg --verbose --batch --fingerprint \\
+set pgp_verify_key_command="gpg --verbose --batch --fingerprint \
   --check-sigs %r"
 
 # Read in the public key ring
-set pgp_list_pubring_command="gpg --no-verbose --batch --quiet \\
+set pgp_list_pubring_command="gpg --no-verbose --batch --quiet \
   --with-colons --with-fingerprint --with-fingerprint --list-keys %r"
 
 # Read in the secret key ring
-set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons \\
+set pgp_list_secring_command="gpg --no-verbose --batch --quiet --with-colons \
   --with-fingerprint --with-fingerprint --list-secret-keys %r"
 
 # Pattern to determine if the output of pgp_verify_command means
 # that the tool was successful
 # TODO: Check if this is valid
-set pgp_good_sign="^\\\\[GNUPG:\\\\] GOODSIG"
+set pgp_good_sign="^\\[GNUPG:\\] GOODSIG"

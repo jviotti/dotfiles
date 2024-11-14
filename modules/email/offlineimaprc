@@ -23,7 +23,8 @@ ssl = no
 starttls = yes
 sslcacertfile = ~/.config/protonmail/bridge/cert.pem
 maxconnections = 1
-folderfilter = lambda folder: folder in ['INBOX', 'Archive', 'Drafts', 'Trash', 'Sent', 'Spam']
+# TODO: Sync Archive too
+folderfilter = lambda folder: folder in ['INBOX', 'Drafts', 'Trash', 'Sent', 'Spam']
 readonly = False
 createfolders = False
 retrycount = 2

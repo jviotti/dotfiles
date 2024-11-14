@@ -15,13 +15,11 @@ $(DESTINATION)/.mailcap: modules/email/mailcap; $(SYMLINK)
 $(DESTINATION)/.offlineimaprc: modules/email/offlineimaprc; $(SYMLINK)
 $(DESTINATION)/.offlineimap.py: modules/email/offlineimap.py; $(SYMLINK)
 
-$(DESTINATION)/.mutt/muttrc: modules/email/muttrc | $(DESTINATION)/.mutt
+$(DESTINATION)/.mutt/muttrc: modules/email/muttrc.$(PLATFORM) | $(DESTINATION)/.mutt
 	$(SYMLINK)
 $(DESTINATION)/.mutt/signature: modules/email/signature | $(DESTINATION)/.mutt
 	$(SYMLINK)
 $(DESTINATION)/bin/email: modules/email/email.sh | $(DESTINATION)/bin
-	$(SYMLINK)
-$(DESTINATION)/bin/msmtp-wrapper: modules/email/msmtp-wrapper.sh | $(DESTINATION)/bin
 	$(SYMLINK)
 
 email: \
@@ -36,6 +34,5 @@ email: \
 	$(DESTINATION)/Mail/Personal \
 	$(DESTINATION)/.mutt/aliases \
 	$(DESTINATION)/.mailcap \
-	$(DESTINATION)/bin/email \
-	$(DESTINATION)/bin/msmtp-wrapper
+	$(DESTINATION)/bin/email
 MODULES += email
