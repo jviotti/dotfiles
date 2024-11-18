@@ -117,10 +117,21 @@ color error      brightred     default
 # Highlight GitHub emails
 color index white green ~fgithub.com
 
+# JSON Schema
+color index white magenta ~tjson-schema-org
+
 # Sourcemeta
-color index white red ~tsourcemeta.com
-color index white red ~fsourcemeta.com
-color index white red ~ssourcemeta/
+color index white brightcyan ~tsourcemeta.com
+color index white brightcyan ~fsourcemeta.com
+color index white brightcyan ~csourcemeta.com
+
+# Highlight e-mails mentioning @jviotti
+color index white brightred ~b@jviotti
+
+# Personal (must happen after the @jviotti) mention filter otherwise
+# mutt will still match `jv@jviotti.com` in the From/To headers
+color index white red ~tjviotti.com
+color index white red ~fjviotti.com
 
 #######################################################################
 # Pager
