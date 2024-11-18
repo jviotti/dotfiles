@@ -40,6 +40,7 @@ alternates hello@sourcemeta.com
 alternates admin@sourcemeta.com
 alternates jviotti@sourcemeta.com
 alternates juan@intelligence.ai
+alternates jviottdc@gmail.com
 
 # Pass `from` to `sendmail` using the `-f` option msmtp
 # will select the right account based on this option,
