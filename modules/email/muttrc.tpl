@@ -231,8 +231,8 @@ set markers = no
 # that really confuses the program.
 set pipe_decode = yes
 
-macro index \\cb |urlview\\n
-macro pager \\cb |urlview\\n
+# This makes it work with HTML. See https://stackoverflow.com/a/41200102
+macro index,pager \cb "<enter-command>set pipe_decode = yes<enter><pipe-message>urlview<enter><enter-command>set pipe_decode = no<enter>" "view URLs"
 
 #######################################################################
 # Bindings
