@@ -224,7 +224,7 @@ set markers = no
 set pipe_decode = yes
 
 # This makes it work with HTML. See https://stackoverflow.com/a/41200102
-macro pager cb "<view-attachments><search>^text/html<enter><pipe-entry>urlview<enter><exit>" "call urlview to extract URLs"
+macro pager \cb "<view-attachments><search>^text/html<enter><pipe-entry>urlview<enter><exit>" "call urlview to extract URLs"
 
 #######################################################################
 # Bindings
