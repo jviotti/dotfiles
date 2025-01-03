@@ -10,4 +10,4 @@ fi
 
 SEARCH=$*
 echo "Playing Music based on the search: $SEARCH" 1>&2
-mpv --shuffle --no-video ytdl://ytsearch10:"$SEARCH" --ytdl-format=bestaudio
+exec mpv --shuffle --no-video ytdl://ytsearch10:"$SEARCH" --ytdl-format=bestaudio
