@@ -12,5 +12,4 @@ then
   exit 1
 fi
 
-yt-dlp --update
 yt-dlp --extract-audio --audio-format mp3 "$1"

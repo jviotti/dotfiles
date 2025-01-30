@@ -23,7 +23,7 @@ do
     echo "Processing $file" 1>&2
     sed -i '' "s/$pattern/$replacement/g" "$file"
   else
-    echo "Ignoring $file" 1>&2
+    echo "Ignoring $file (mime type is $TYPE)" 1>&2
     continue
   fi
 done
