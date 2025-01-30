@@ -18,7 +18,7 @@ replacement=$2
 do
   # To gracefully skip binary files
   TYPE="$(file -b --mime-type "$file")"
-  if echo "$TYPE" | grep -q "^text/"
+  if echo "$TYPE" | grep -q "^text/" || [ "$TYPE" = "application/json" ]
   then
     echo "Processing $file" 1>&2
     sed -i '' "s/$pattern/$replacement/g" "$file"
