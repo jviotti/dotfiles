@@ -7,5 +7,6 @@ bin: \
 	$(DESTINATION)/bin/until-works.sh \
 	$(DESTINATION)/bin/youtube-mp3.sh \
 	$(DESTINATION)/bin/windows.sh \
-	$(DESTINATION)/bin/flac2aiff.sh
+	$(DESTINATION)/bin/flac2aiff.sh \
+	$(DESTINATION)/bin/aiffcover.sh
 MODULES += bin
