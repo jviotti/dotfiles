@@ -10,7 +10,7 @@ then
 fi
 
 AIFF="$1"
-COVER="$1"
+COVER="$2"
 
 echo "Setting $COVER as the cover of $AIFF" 1>&2
 
