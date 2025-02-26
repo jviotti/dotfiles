@@ -20,8 +20,12 @@
 	rebase = false
 [push]
 	default = current
-	followtags = true
+	followTags = true
 	autoSetupRemote = true
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
 [alias]
 	ush = push
 	ull = pull
@@ -61,7 +65,11 @@
 	verbose = true
 [merge]
 	tool = vimdiff
-	conflictstyle = diff3
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [diff "hex"]
 	textconv = hexdump
 	binary = true
@@ -90,3 +98,14 @@
 	host = true
 [init]
 	defaultBranch = main
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[rerere]
+	enabled = true
+	autoupdate = true
+[rebase]
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
