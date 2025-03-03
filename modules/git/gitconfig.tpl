@@ -22,10 +22,6 @@
 	default = current
 	followTags = true
 	autoSetupRemote = true
-[fetch]
-	prune = true
-	pruneTags = true
-	all = true
 [alias]
 	ush = push
 	ull = pull
