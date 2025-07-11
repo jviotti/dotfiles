@@ -5,4 +5,4 @@ set -o nounset
 
 DIRECTORY="$HOME/Filen"
 # See https://github.com/FilenCloudDienste/filen-cli
-npx @filen/cli sync "$DIRECTORY:cloudToLocal:/" --verbose
+npx @filen/cli@0.0.30 sync "$DIRECTORY:cloudToLocal:/" --verbose
