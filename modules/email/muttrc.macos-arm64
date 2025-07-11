@@ -128,9 +128,6 @@ color index white brightcyan ~csourcemeta.com
 # Highlight e-mails mentioning @jviotti
 color index white brightred ~b@jviotti
 
-# Assume "requests" are important
-color index white brightred ~brequested
-
 # Personal (must happen after the @jviotti) mention filter otherwise
 # mutt will still match `jv@jviotti.com` in the From/To headers
 color index white red ~tjviotti.com
