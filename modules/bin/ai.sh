@@ -17,4 +17,4 @@ PROMPT="$(cat <<EOF
 EOF
 )"
 
-exec /opt/homebrew/bin/claude --append-system-prompt "$PROMPT"
+exec /opt/homebrew/bin/claude --continue --append-system-prompt "$PROMPT"
