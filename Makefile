@@ -35,6 +35,7 @@ include modules/tmux/targets.mk
 include modules/vim/targets.mk
 include modules/w3m/targets.mk
 include modules/zsh/targets.mk
+include modules/ai/targets.mk
 
 .PHONY: all bootstrap template help $(MODULES)
 all: bootstrap template $(MODULES)
