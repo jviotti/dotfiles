@@ -9,5 +9,6 @@ bin: \
 	$(DESTINATION)/bin/youtube-mp3.sh \
 	$(DESTINATION)/bin/windows.sh \
 	$(DESTINATION)/bin/flac2aiff.sh \
-	$(DESTINATION)/bin/aiffcover.sh
+	$(DESTINATION)/bin/aiffcover.sh \
+	$(DESTINATION)/bin/linux.sh
 MODULES += bin
