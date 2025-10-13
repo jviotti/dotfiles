@@ -24,6 +24,14 @@ specific guides in the rest of the file for language specific requests.
   reference specifications like RFCs, fetch the standards first, read them, and
   take them as the source of truth. DO NOT deviate from standards.
 
+- Avoid writing code comments unless they are absolutely needed and what they
+  said cannot be inferred by just looking at the code.
+
+- NEVER attempt to create one-off programs for testing or debugging reasons. If
+  you need to dig deeper, you can print logs from the relevant parts of the
+  project and see the output when running tests, given that you remove the
+  debugging comments when you are done
+
 ## C++
 
 - If the project comes with a top-level `Makefile`, avoid directly running the
@@ -42,3 +50,9 @@ specific guides in the rest of the file for language specific requests.
   operator (i.e. `std::string foo = "bar"`)
 - Use trailing return types, including for `void`
 - If unsure about the C++ standard, assume C++20
+- Use `auto` if omitting the full type declaration is possible
+- When referencing class members or methods from within the class, ALWAYS use
+  the explicit `this->` form to avoid ambiguity over where those variables or
+  methods come from
+- Apart from right comments on system includes, avoid writing comments at the
+  right of code lines. Put the comments above the line you want to comment
