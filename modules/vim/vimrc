@@ -873,6 +873,12 @@ nnoremap <Leader>ss :!git add .<cr><cr>
 " $SYNTAX
 "=========================================================================
 
+" Disable C++14/17/20 number syntax as it makes
+" syntax highlighting extremely slow
+let cpp_no_cpp14 = 1
+let cpp_no_cpp17 = 1
+let cpp_no_cpp20 = 1
+
 " Google Scripts files are pretty much JavaScript
 autocmd BufNewFile,BufRead *.gs set syntax=javascript
 
