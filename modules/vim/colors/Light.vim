@@ -40,7 +40,7 @@ highlight clear
 syntax reset
 let g:colors_name = "Light"
 
-set background=dark
+set background=light
 
 " Sets the highlighting for the given group
 function! Highlight(group, guifg, ctermfg, guibg, ctermbg, attr)
