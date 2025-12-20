@@ -32,12 +32,16 @@ specific guides in the rest of the file for language specific requests.
   project and see the output when running tests, given that you remove the
   debugging comments when you are done
 
+- Do not end code comments with periods
+
 ## C++
 
 - If the project comes with a top-level `Makefile`, avoid directly running the
   `cmake` command. Instead, only compile the project and run the tests using
   the `Makefile`. In most projects, `make` will configure, compile, and test
   the project
+- Do not run `make clean` (or delete `build/`) unless absolutely necessary.
+  Prefer incremental builds, using `make compile` if available
 - Use `camel_case` for variable names, uppercase `CamelCase` for classes,
   structures, or aliases
 - Make sure that there are no unnecessary system includes for any C++ file
@@ -56,3 +60,8 @@ specific guides in the rest of the file for language specific requests.
   methods come from
 - Apart from right comments on system includes, avoid writing comments at the
   right of code lines. Put the comments above the line you want to comment
+
+## JSON
+
+- Always put a spaces between braces and brackets. i.e. `[ 1, 2 ]` instead of
+  `[1, 2]`
