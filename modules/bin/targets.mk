@@ -1,6 +1,7 @@
 $(DESTINATION)/bin/%: modules/bin/% | $(DESTINATION)/bin
 	$(SYMLINK)
 bin: \
+	$(DESTINATION)/bin/sourcemeta-upgrade.sh \
 	$(DESTINATION)/bin/xzcompress.sh \
 	$(DESTINATION)/bin/repeat.sh \
 	$(DESTINATION)/bin/music.sh \
