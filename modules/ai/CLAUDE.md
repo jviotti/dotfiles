@@ -34,6 +34,8 @@ specific guides in the rest of the file for language specific requests.
 
 - Do not end code comments with periods
 
+- Do not add code comments to explain behavior that is covered by unit tests
+
 ## C++
 
 - If the project comes with a top-level `Makefile`, avoid directly running the
