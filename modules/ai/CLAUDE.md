@@ -1,5 +1,8 @@
 # Global Conventions
 
+- Avoid em dashes in prose and semicolons unless absolutely necessary. Prefer
+  full stop or commas
+
 ## Common for Software Projects
 
 These conventions apply to EVERY software project. However, check the language
