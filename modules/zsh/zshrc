@@ -261,8 +261,8 @@ fi
 # Git
 ##################################################
 
-alias pr="git push-track && gh pr create --fill"
-alias draft="git push-track && gh pr create --fill --draft"
+alias pr='[ "$(git rev-parse --abbrev-ref HEAD)" != "${$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null)##refs/remotes/origin/}" ] && git push-track && gh pr create --fill'
+alias draft='[ "$(git rev-parse --abbrev-ref HEAD)" != "${$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null)##refs/remotes/origin/}" ] && git push-track && gh pr create --fill --draft'
 alias checks="gh pr checks"
 alias merge="gh pr merge --delete-branch --merge && git pull"
 alias squash="gh pr merge --delete-branch --squash && git pull"
