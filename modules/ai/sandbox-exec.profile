@@ -833,6 +833,133 @@
 
 
 ;; ===========================================================================
+;; Headless Chromium (Playwright, Puppeteer)
+;;
+;; Headless Chromium forks renderer/GPU subprocesses and communicates with
+;; them via Mach ports. Without these grants, browser tests crash with
+;; SIGSEGV and Playwright cannot kill its child processes (kill EPERM).
+;;
+;; Based on Agent Safehouse's chromium-headless.sb profile.
+;; ===========================================================================
+
+;; Chromium probes system state and accessibility preferences at startup
+(allow file-read-metadata
+    (literal "/private/var/db")
+    (literal "/private/var/db/.AppleSetupDone")
+    (home-literal "/Library")
+    (home-literal "/Library/Application Support")
+    (home-literal "/Library/Caches")
+    (home-literal "/Library/Spelling")
+)
+
+(allow file-read*
+    (literal "/private/etc")
+    (home-literal "/Library/Preferences/com.apple.universalaccess.plist")
+    (home-literal "/Library/Preferences/com.apple.Accessibility.plist")
+    (home-literal "/Library/Preferences/com.apple.CoreGraphics.plist")
+    (home-literal "/Library/Preferences/com.apple.symbolichotkeys.plist")
+    (home-literal "/Library/Preferences/com.apple.ServicesMenu.Services.plist")
+    (home-literal "/Library/Preferences/com.apple.speech.recognition.AppleSpeechRecognition.prefs.plist")
+    (home-literal "/Library/Preferences/com.apple.SpeakSelection.plist")
+    (home-literal "/Library/Preferences/com.apple.assistant.support.plist")
+    (home-literal "/Library/Preferences/com.apple.assistant.backedup.plist")
+    (home-literal "/Library/Preferences/pbs.plist")
+    (home-literal "/Library/Preferences/com.apple.HIToolbox.plist")
+    (literal "/Library/Preferences/com.apple.HIToolbox.plist")
+    (home-subpath "/Library/Preferences/com.apple.LaunchServices")
+    (home-subpath "/Library/Application Support/CrashReporter")
+    (home-subpath "/Library/Spelling")
+    (home-literal "/Library/Keyboard Layouts")
+    (home-literal "/Library/Input Methods")
+)
+
+(allow user-preference-read
+    (preference-domain "com.apple.hitoolbox")
+)
+
+;; Chromium uses Mach port rendezvous for IPC between the browser process
+;; and its renderer/GPU children, and crashpad for crash reporting
+(allow mach-register
+    (global-name-regex #"^org\.chromium\.Chromium\.MachPortRendezvousServer\.")
+    (global-name-regex #"^org\.chromium\.crashpad\.child_port_handshake\.")
+    (local-name "com.apple.axserver")
+    (local-name "com.apple.tsm.portname")
+    (local-name "com.apple.coredrag")
+)
+
+;; System services used by Chromium for rendering, GPU compositing, font
+;; loading, window management, accessibility, and crash reporting
+(allow mach-lookup
+    (global-name-regex #"^org\.chromium\.Chromium\.MachPortRendezvousServer\.")
+    (global-name-regex #"^org\.chromium\.crashpad\.child_port_handshake\.")
+    ;; GPU shader compilation
+    (global-name "com.apple.MTLCompilerService")
+    ;; Compositing and window server
+    (global-name "com.apple.CARenderServer")
+    (global-name "com.apple.windowserver.active")
+    (global-name "com.apple.windowmanager.server")
+    (global-name "com.apple.window_proxies")
+    (global-name "com.apple.dock.server")
+    ;; Transparency, consent, and control (TCC) for accessibility checks
+    (global-name "com.apple.tccd")
+    (global-name "com.apple.tccd.system")
+    ;; Font loading
+    (global-name "com.apple.fonts")
+    (global-name "com.apple.FontObjectsServer")
+    ;; Icon and type resolution
+    (global-name "com.apple.iconservices")
+    (global-name "com.apple.coreservices.appleevents")
+    (global-name "com.apple.coreservices.sharedfilelistd.xpc")
+    ;; HI services for accessibility integration
+    (global-name "com.apple.hiservices-xpcservice")
+    (global-name "com.apple.iohideventsystem")
+    ;; Input method and text services
+    (global-name "com.apple.tsm.uiserver")
+    (global-name "com.apple.inputmethodkit.launchagent")
+    (global-name "com.apple.inputmethodkit.launcher")
+    (global-name "com.apple.inputmethodkit.getxpcendpoint")
+    ;; Accessibility voice and input analytics
+    (global-name "com.apple.accessibility.voices")
+    (global-name "com.apple.inputanalyticsd")
+    ;; AppKit runtime services
+    (global-name "com.apple.ViewBridgeAuxiliary")
+    (global-name "com.apple.appkit.restoration_storage")
+    (global-name "com.apple.backgroundtaskmanagementagent")
+    (global-name "com.apple.pbs.fetch_services")
+    ;; Security policy checks
+    (global-name "com.apple.security.syspolicy")
+    (global-name "com.apple.security.syspolicy.exec")
+    ;; Miscellaneous system services
+    (global-name "com.apple.bsd.dirhelper")
+    (global-name "com.apple.system.opendirectoryd.membership")
+    (global-name "com.apple.logd.events")
+    (global-name "com.apple.FileCoordination")
+    (global-name "com.apple.powerlog.plxpclogger.xpc")
+    (global-name "com.apple.naturallanguaged")
+    (global-name-prefix "com.apple.distributed_notifications@")
+)
+
+;; Filesystem control needed by Chromium for APFS clone/snapshot operations
+(allow system-fsctl
+    (fsctl-command (_IO "h" 47))
+)
+
+;; IOKit device access for GPU compositing and input device handling
+(allow iokit-open
+    (iokit-user-client-class "RootDomainUserClient")
+    (iokit-user-client-class "IOHIDParamUserClient")
+    (iokit-user-client-class "AppleNVMeEANUC")
+    (iokit-user-client-class "IOSurfaceRootUserClient")
+    (iokit-user-client-class "AGXDeviceUserClient")
+)
+
+;; Chromium forks renderer subprocesses. Playwright needs to signal (kill)
+;; those children for cleanup. Without broad signal, Playwright fails with
+;; "kill EPERM" when tearing down browser processes.
+(allow signal)
+
+
+;; ===========================================================================
 ;; Security: explicit deny for sensitive directories (defense-in-depth)
 ;;
 ;; These denies override any broader allows above and block access to
