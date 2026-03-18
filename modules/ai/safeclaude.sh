@@ -29,4 +29,4 @@ cat "$PROFILE" >> "$TMPPROFILE"
   echo "(allow process-exec (subpath \"$WORKDIR\"))"
 } >> "$TMPPROFILE"
 
-exec /usr/bin/sandbox-exec -f "$TMPPROFILE" claude --dangerously-skip-permissions
+exec /usr/bin/sandbox-exec -f "$TMPPROFILE" claude --dangerously-skip-permissions "$@"
