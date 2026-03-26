@@ -801,6 +801,24 @@
 
 
 ;; ===========================================================================
+;; Toolchain: Go
+;;
+;; Go needs its module cache (~/go), build cache (~/Library/Caches/go-build),
+;; and env config (~/Library/Application Support/go/env). Without write access
+;; to the build cache, `go build` fails immediately.
+;; ===========================================================================
+
+(allow file-read* file-write*
+    ;; GOPATH: module downloads, compiled packages, and installed binaries
+    (home-subpath "/go")
+    ;; Build cache used by the Go compiler
+    (home-subpath "/Library/Caches/go-build")
+    ;; Go environment config
+    (home-subpath "/Library/Application Support/go")
+)
+
+
+;; ===========================================================================
 ;; Toolchain: Node.js
 ;;
 ;; Claude Code itself is a Node.js application, so the Node runtime, npm,
