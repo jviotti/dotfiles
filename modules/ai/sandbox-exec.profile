@@ -833,6 +833,29 @@
 
 
 ;; ===========================================================================
+;; Toolchain: Python (uv, pip, virtualenvs)
+;;
+;; uv is a fast Python package manager that caches downloads and built wheels
+;; under ~/.cache/uv. Without write access to its cache, uv fails at startup
+;; with "Failed to initialize cache".
+;; ===========================================================================
+
+(allow file-read* file-write*
+    ;; uv package cache and state
+    (home-subpath "/.cache/uv")
+    (home-subpath "/.local/share/uv")
+
+    ;; pip cache and config
+    (home-subpath "/.cache/pip")
+    (home-subpath "/.config/pip")
+    (home-literal "/.pip/pip.conf")
+
+    ;; pyenv version manager
+    (home-subpath "/.pyenv")
+)
+
+
+;; ===========================================================================
 ;; Headless Chromium (Playwright, Puppeteer)
 ;;
 ;; Headless Chromium forks renderer/GPU subprocesses and communicates with
