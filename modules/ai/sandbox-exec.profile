@@ -144,6 +144,8 @@
 ;; deciding whether to read config from them.
 (allow file-read-metadata
     (literal "/home")
+    (literal "/Users")
+    (literal HOME_DIR)
     (literal "/private/etc")
     (subpath "/dev")
     (home-literal "/.config")
@@ -500,6 +502,20 @@
 ;; Keychain database change notifications via shared memory
 (allow ipc-posix-shm-read-data ipc-posix-shm-write-create ipc-posix-shm-write-data
     (ipc-posix-name "com.apple.AppleDatabaseChanged")
+)
+
+
+;; ===========================================================================
+;; Dotfiles (read-only)
+;;
+;; Many home directory config files (~/.gitconfig, ~/.npmrc, ~/.zshrc, etc.)
+;; are symlinks into the dotfiles repo. The sandbox resolves symlinks and
+;; checks the target path, so read access to the dotfiles modules directory
+;; is needed for those config files to be readable.
+;; ===========================================================================
+
+(allow file-read*
+    (home-subpath "/Projects/dotfiles/modules")
 )
 
 
