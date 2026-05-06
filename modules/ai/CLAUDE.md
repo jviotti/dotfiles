@@ -3,6 +3,9 @@
 - Avoid em dashes in prose and semicolons unless absolutely necessary. Prefer
   full stop or commas
 
+- Save plans, specs, and design documents to `~/Desktop` (not into the project
+  tree)
+
 ## Common for Software Projects
 
 These conventions apply to EVERY software project. However, check the language
@@ -58,7 +61,7 @@ specific guides in the rest of the file for language specific requests.
   parenthesis initialisers (i.e. `std::string foo("bar")`) or the assignment
   operator (i.e. `std::string foo = "bar"`)
 - Use trailing return types, including for `void`
-- If unsure about the C++ standard, assume C++20
+- If unsure about the C++ standard, assume C++23
 - Use `auto` if omitting the full type declaration is possible
 - When referencing class members or methods from within the class, ALWAYS use
   the explicit `this->` form to avoid ambiguity over where those variables or

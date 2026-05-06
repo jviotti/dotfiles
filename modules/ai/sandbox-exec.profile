@@ -813,6 +813,8 @@
     (home-subpath "/go")
     ;; Build cache used by the Go compiler
     (home-subpath "/Library/Caches/go-build")
+    ;; golangci-lint cache
+    (home-subpath "/Library/Caches/golangci-lint")
     ;; Go environment config
     (home-subpath "/Library/Application Support/go")
 )
