@@ -45,5 +45,5 @@ while (Test-Path $flag) {
   }
 
   # Random pause between circles
-  Start-Sleep -Seconds (Get-Random -Minimum 30 -Maximum 90)
+  Start-Sleep -Seconds (Get-Random -Minimum 10 -Maximum 40)
 }
