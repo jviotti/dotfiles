@@ -506,16 +506,22 @@
 
 
 ;; ===========================================================================
-;; Dotfiles (read-only)
+;; Projects (read-only)
 ;;
-;; Many home directory config files (~/.gitconfig, ~/.npmrc, ~/.zshrc, etc.)
-;; are symlinks into the dotfiles repo. The sandbox resolves symlinks and
-;; checks the target path, so read access to the dotfiles modules directory
-;; is needed for those config files to be readable.
+;; Read-only access to the entire ~/Projects tree. This lets the agent
+;; cross-reference sibling repositories without being able to modify them.
+;; The safeclaude wrapper grants read/write to the current workdir on top
+;; of this, so the active project remains writable while everything else
+;; under ~/Projects stays read-only.
+;;
+;; This also covers the dotfiles repo, which many home directory config
+;; files (~/.gitconfig, ~/.npmrc, ~/.zshrc, etc.) symlink into. The sandbox
+;; resolves symlinks and checks the target path, so read access to the
+;; dotfiles tree is needed for those config files to be readable.
 ;; ===========================================================================
 
 (allow file-read*
-    (home-subpath "/Projects/dotfiles/modules")
+    (home-subpath "/Projects")
 )
 
 
