@@ -98,6 +98,7 @@
 	sort = -committerdate
 [tag]
 	sort = version:refname
+	gpgSign = true
 [rerere]
 	enabled = true
 	autoupdate = true
