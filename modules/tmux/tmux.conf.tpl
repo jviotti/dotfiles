@@ -24,6 +24,9 @@ bind % split-window -h -c "#{pane_current_path}"
 # Open windows on the current directory
 bind c new-window -c "#{pane_current_path}"
 
+# Notifications
+set -g focus-events on
+
 #######################################
 # SELECTION
 #######################################

@@ -68,6 +68,11 @@ specific guides in the rest of the file for language specific requests.
   methods come from
 - Apart from right comments on system includes, avoid writing comments at the
   right of code lines. Put the comments above the line you want to comment
+- Avoid inline lambdas defined and used in the same scope just to wrap a small
+  helper. If you need a helper, extract it as a proper free function in an
+  anonymous namespace at the top of the translation unit. Reserve lambdas for
+  cases where they are genuinely required, such as being passed to algorithms,
+  callbacks, or capturing local state
 
 ## JSON
 
