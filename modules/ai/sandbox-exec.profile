@@ -575,6 +575,33 @@
 
 
 ;; ===========================================================================
+;; Vital synthesizer (read-only)
+;;
+;; Read access to the Vital.app bundle so its binary at
+;; Contents/MacOS/Vital is reachable. The broad (allow process-exec) grant
+;; above lets the binary actually run once read access is in place.
+;; ===========================================================================
+
+(allow file-read*
+    (subpath "/Applications/Vital.app")
+)
+
+
+;; ===========================================================================
+;; Audio plug-ins (read-only)
+;;
+;; Standard macOS plug-in locations for VST, VST3, and Audio Unit
+;; (Components) plug-ins, at both the system and per-user level. Read-only
+;; access is enough to scan, load, and host these plug-ins.
+;; ===========================================================================
+
+(allow file-read*
+    (subpath "/Library/Audio/Plug-Ins")
+    (home-subpath "/Library/Audio/Plug-Ins")
+)
+
+
+;; ===========================================================================
 ;; SCM CLIs (gh, glab)
 ;;
 ;; Claude uses the GitHub CLI (gh) for PR creation, issue management, and
