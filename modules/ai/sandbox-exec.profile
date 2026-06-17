@@ -925,6 +925,23 @@
 
 
 ;; ===========================================================================
+;; Toolchain: Rust (cargo, rustup)
+;;
+;; cargo stores the registry index, downloaded crates, and compiled artifacts
+;; under ~/.cargo. rustup installs toolchains under ~/.rustup. Without write
+;; access, `cargo build` fails immediately with "failed to create directory"
+;; when populating the registry cache.
+;; ===========================================================================
+
+(allow file-read* file-write*
+    ;; cargo home: registry index/cache, downloaded crates, installed bins
+    (home-subpath "/.cargo")
+    ;; rustup: installed toolchains, components, and update state
+    (home-subpath "/.rustup")
+)
+
+
+;; ===========================================================================
 ;; Headless Chromium (Playwright, Puppeteer)
 ;;
 ;; Headless Chromium forks renderer/GPU subprocesses and communicates with
