@@ -6,5 +6,6 @@ then
   exit 1
 fi
 
+git -C  "../$1" fetch
 ./vendor/vendorpull/upgrade "$1"
 ./vendor/vendorpull/pull "$1" "../$1"
