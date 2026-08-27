@@ -29,4 +29,14 @@ cat "$PROFILE" >> "$TMPPROFILE"
   echo "(allow process-exec (subpath \"$WORKDIR\"))"
 } >> "$TMPPROFILE"
 
+# Cap how many processes the sandbox can spawn. The kernel sandbox has no
+# notion of a process quota, so we rely on RLIMIT_NPROC instead. Note that
+# macOS accounts RLIMIT_NPROC per real user id rather than per process tree,
+# so the ceiling has to be the processes we already have plus the headroom we
+# want to grant. Omitting -H and -S sets both the soft and the hard limit,
+# which prevents anything inside the sandbox from raising it back up.
+PROCESS_HEADROOM="${SAFECLAUDE_PROCESS_HEADROOM:-256}"
+PROCESS_BASELINE="$(ps -u "$(id -u)" -o pid= | wc -l | tr -d ' ')"
+ulimit -u "$((PROCESS_BASELINE + PROCESS_HEADROOM))"
+
 exec /usr/bin/sandbox-exec -f "$TMPPROFILE" claude --dangerously-skip-permissions "$@"

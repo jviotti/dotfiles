@@ -1,5 +1,7 @@
 # Global Conventions
 
+- IMPORTANT: Keep responses brief, concise, and direct
+
 - Avoid em dashes in prose and semicolons unless absolutely necessary. Prefer
   full stop or commas
 

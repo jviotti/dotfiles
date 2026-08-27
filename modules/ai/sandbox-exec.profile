@@ -547,14 +547,14 @@
 
 
 ;; ===========================================================================
-;; Docker
+;; Docker (Docker Desktop and OrbStack)
 ;;
-;; Docker CLI plugins (including docker-compose) live under ~/.docker/cli-plugins/.
-;; The docker daemon socket at /var/run/docker.sock is already reachable via
-;; the /private/var/run metadata grant. Read-only access to ~/.docker is
-;; sufficient for public registry pulls, building Dockerfiles, and compose.
-;; Private registry auth tokens in ~/.docker/config.json are readable but
-;; not writable (docker login would fail, which is fine for public-only use).
+;; Docker CLI plugins (including docker-compose) live under ~/.docker/cli-plugins/,
+;; and the endpoint the CLI talks to is resolved through the context store in
+;; ~/.docker/contexts. Read-only access to ~/.docker is sufficient for public
+;; registry pulls, building Dockerfiles, and compose. Private registry auth
+;; tokens in ~/.docker/config.json are readable but not writable (docker login
+;; would fail, which is fine for public-only use).
 ;; ===========================================================================
 
 (allow file-read*
@@ -566,11 +566,37 @@
     (home-subpath "/.docker/buildx")
 )
 
-;; The docker binary is a symlink at /usr/local/bin/docker pointing into
-;; /Applications/Docker.app. Without read access to the app bundle, the
-;; symlink resolves but the target binary cannot be loaded.
+;; The docker binary is a symlink under /usr/local/bin that points into the
+;; bundle of whichever runtime is installed. Without read access to the
+;; bundle the symlink resolves but the target binary cannot be loaded, which
+;; surfaces at exec time as "operation not permitted: docker".
 (allow file-read*
     (subpath "/Applications/Docker.app")
+    (subpath "/Applications/OrbStack.app")
+)
+
+;; OrbStack keeps its CLI shims in ~/.orbstack/bin and its daemon sockets in
+;; ~/.orbstack/run. Everything under ~/.orbstack is readable, but only the
+;; socket directory is writable, since connecting to a unix socket is checked
+;; as a write against the socket node.
+(allow file-read*
+    (home-subpath "/.orbstack")
+)
+
+(allow file-write*
+    (home-subpath "/.orbstack/run")
+)
+
+;; The Docker Desktop socket lives under /private/var/run, which is granted
+;; metadata-only above. OrbStack symlinks the same path into ~/.orbstack/run.
+(allow file-read* file-write*
+    (literal "/private/var/run/docker.sock")
+)
+
+;; Outbound unix-socket connections to whichever daemon socket is in use
+(allow network-outbound
+    (remote unix-socket (path-literal "/private/var/run/docker.sock"))
+    (remote unix-socket (path-regex (string-append "^" HOME_DIR "/\\.orbstack/run(/.*)?$")))
 )
 
 
