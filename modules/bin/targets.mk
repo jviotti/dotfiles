@@ -10,6 +10,7 @@ bin: \
 	$(DESTINATION)/bin/youtube-mp3.sh \
 	$(DESTINATION)/bin/windows.sh \
 	$(DESTINATION)/bin/flac2aiff.sh \
+	$(DESTINATION)/bin/video2mp3.sh \
 	$(DESTINATION)/bin/aiffcover.sh \
 	$(DESTINATION)/bin/linux.sh
 MODULES += bin
