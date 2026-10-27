@@ -8,6 +8,9 @@
 - Save plans, specs, and design documents to `~/Desktop` (not into the project
   tree)
 
+- Do not workaround bugs you identified as upstream. Stop and explain the bug
+  so I can fix it upstream instead. Duct-taping and workarounds are PROHIBITED
+
 ## Common for Software Projects
 
 These conventions apply to EVERY software project. However, check the language
